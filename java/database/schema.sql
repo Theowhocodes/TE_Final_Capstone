@@ -3,7 +3,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users, shopping_group, shopping_group_users, list, item;
 
 CREATE TABLE users (
-	user_id SERIAL NOT NULL PRIMARY KEY,
+	user_id SERIAL PRIMARY KEY,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
@@ -14,8 +14,9 @@ CREATE TABLE users (
 );
 
 CREATE TABLE shopping_group_users (
-    group_id serial NOT NULL PRIMARY KEY,
-    user_id integer NOT NULL REFERENCES users(user_id),
+    shopping_group_users_id serial PRIMARY KEY,
+    group_id int NOT NULL,
+    user_id int NOT NULL,
     date_joined date NOT NULL DEFAULT CURRENT_DATE,
 );
 
