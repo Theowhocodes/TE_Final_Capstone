@@ -13,45 +13,37 @@ CREATE TABLE users (
 	CONSTRAINT ch_email CHECK (email like '%@%.%')
 );
 
-CREATE TABLE shopping_group (
+CREATE TABLE shopping_group_users (
     group_id serial NOT NULL PRIMARY KEY,
-	group_name varchar(200),
-    invitation_code int NOT NULL
+    user_id integer NOT NULL REFERENCES users(user_id),
+    date_joined date NOT NULL DEFAULT CURRENT_DATE,
 );
 
-CREATE TABLE shopping_group_users (
-    group_id int NOT NULL PRIMARY KEY,
-    user_id int NOT NULL,
-    date_joined date NOT NULL DEFAULT CURRENT_DATE,
-
-    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
-    CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES shopping_group (group_id)
+CREATE TABLE shopping_group (
+    group_id integer NOT NULL REFERENCES shopping_group_users(group_id),
+	group_name varchar(200) NOT NULL UNIQUE,
+    invitation_code SERIAL NOT NULL,
+    CONSTRAINT uq_group_name UNIQUE (group_name)
 );
 
 CREATE TABLE list (
     list_id serial NOT NULL PRIMARY KEY,
     list_name varchar(200) NOT NULL,
-    group_id int NOT NULL,
+    group_id integer NOT NULL REFERENCES shopping_group_users(group_id),
     claimed boolean DEFAULT FALSE,
-	list_owner int,
+	list_owner integer REFERENCES users(user_id),
 	completed boolean DEFAULT FALSE,
-
-    CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES shopping_group (group_id),
-	CONSTRAINT fk_list_owner FOREIGN KEY (list_owner) REFERENCES  users (user_id)
 
 );
 
 CREATE TABLE item (
     item_id serial NOT NULL PRIMARY KEY,
-    list_id int NOT NULL,
-	added_by INT NOT NULL,
+    list_id integer NOT NULL REFERENCES list(list_id),
+	added_by integer NOT NULL REFERENCES users(user_id),
     item_name varchar (100) NOT NULL,
 	item_quantity int NOT NULL DEFAULT 1,
 	date_added date NOT NULL DEFAULT CURRENT_DATE,
 	completed boolean DEFAULT false,
-
-    CONSTRAINT fk_list_id FOREIGN KEY (list_id) REFERENCES list (list_id),
-	CONSTRAINT fk_added_by FOREIGN KEY (added_by) REFERENCES users (user_id)
 
 );
 
