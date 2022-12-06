@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,17 +20,36 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    // Get list of all transfers by account ID
-    @Override
+    // Get list of all user's groups by userId
+    //@Override
     public List<ShoppingGroup> getAllShoppingGroups(int userId) {
         List<ShoppingGroup> shoppingGroups = new ArrayList<>();
-        String sql = "SELECT group_id, group_name, user_to, amount::decimal, transfer_type, transfer_status " +
-                "FROM transfer WHERE user_id = ?";
+        String sql = "SELECT group_name, date_joined FROM shopping_group" +
+                "JOIN shopping_group_users USING (group_id)" +
+                "JOIN USERS USING (user_id)" +
+                "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-            transfers.add(mapRowToTransfer(results));   //- ? map to Transfer object
+            //shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;
+
+    }
+
+    // Join a shopping group
+    public boolean joinGroup(int groupId, int userId){
+        String sql = "INSERT INTO SHOPPING_GROUP_USERS (group_id, user_id)" +
+        "VALUES ((SELECT group_id FROM shopping_group WHERE group_id = '?')," +
+               "(SELECT user_id FROM  users WHERE user_id = '?'))" +
+                "RETURNING shopping_group_users_id";
+        Integer shoppingGroupUserId =
+        return true;
+    }
+    private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
+        ShoppingGroup shoppingGroup = new ShoppingGroup();
+        shoppingGroup.setGroupName(rowSet.getString("group_name"));
+        shoppingGroup.setDateJoined(LocalDate.parse(rowSet.getString("date_joined")));
+        return shoppingGroup;
 
     }
 }
