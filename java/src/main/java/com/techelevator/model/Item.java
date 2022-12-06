@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Item {
@@ -11,10 +12,13 @@ public class Item {
     private int itemQuantity;
     private Date dateAdded;
     private boolean isCompleted;
+    private Timestamp lastModified;
+    private User lastModifiedBy;
 
     public Item() {};
 
-    public Item(int itemId, int itemListId, User addedBy, String itemName, int itemQuantity, Date dateAdded, boolean isCompleted) {
+    public Item(int itemId, int itemListId, User addedBy, String itemName, int itemQuantity, Date dateAdded,
+                boolean isCompleted, Timestamp lastModified, User lastModifiedBy) {
         this.itemId = itemId;
         this.itemListId = itemListId;
         this.addedBy = addedBy;
@@ -22,6 +26,8 @@ public class Item {
         this.itemQuantity = itemQuantity;
         this.dateAdded = dateAdded;
         this.isCompleted = isCompleted;
+        this.lastModified = lastModified;
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public int getItemId() {
@@ -70,6 +76,22 @@ public class Item {
 
     public void setDateAdded(Date dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    public Timestamp getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Timestamp lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public User getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(User lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public boolean isCompleted() {
