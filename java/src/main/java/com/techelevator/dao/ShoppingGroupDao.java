@@ -10,11 +10,13 @@ public interface ShoppingGroupDao {
     List<ShoppingGroup> getAllShoppingGroups(int userId);
 
     // CREATE A GROUP
-
+    ShoppingGroup createGroup();
 
     // JOIN A GROUP
+    ShoppingGroup joinGroup();
 
     // LEAVE A GROUP
+    ShoppingGroup leaveGroup();
 
 
 }

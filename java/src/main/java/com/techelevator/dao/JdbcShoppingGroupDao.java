@@ -36,6 +36,21 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 
     }
 
+    @Override
+    public ShoppingGroup createGroup() {
+        return null;
+    }
+
+    @Override
+    public ShoppingGroup joinGroup() {
+        return null;
+    }
+
+    @Override
+    public ShoppingGroup leaveGroup() {
+        return null;
+    }
+
     // Join a shopping group
     public boolean joinGroup(int groupId, int userId){
         String sql = "INSERT INTO SHOPPING_GROUP_USERS (group_id, user_id)" +
