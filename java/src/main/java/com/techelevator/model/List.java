@@ -10,7 +10,7 @@ public class List {
     private int listOwner;
     private boolean completed;
 
-    public List(int listId, String listName, int groupId, boolean claimed, int listOwner, boolean completed) {
+    public List() {
         this.listId = listId;
         this.listName = listName;
         this.groupId = groupId;
