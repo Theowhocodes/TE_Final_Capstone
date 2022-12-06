@@ -26,27 +26,39 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
     //@Override
     public List<ShoppingGroup> getAllShoppingGroupsByUser(int userId) {
         List<ShoppingGroup> shoppingGroups = new ArrayList<>();
-        String sql = "SELECT group_name, date_joined FROM shopping_group" +
-                "JOIN shopping_group_users USING (group_id)" +
-                "JOIN USERS USING (user_id)" +
+        String sql = "SELECT * FROM shopping_group " +
+                "JOIN shopping_group_users USING (group_id) " +
+                "JOIN USERS USING (user_id) " +
                 "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-            //shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
+            shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;
 
     }
 
+    // GET ONE GROUP BY ID
     @Override
-    public boolean createGroup(ShoppingGroupDto newGroupDto) {
+    public ShoppingGroup getGroupById(int groupId) {
+        ShoppingGroup singleShoppingGroup = new ShoppingGroup();
+        String sql = "SELECT group_id, group_name, invitation_code FROM shopping_group WHERE group_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
+        if (results.next()) {
+            singleShoppingGroup = mapRowToShoppingGroup(results);
+        }
 
-        String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, 100)";
+        return singleShoppingGroup;
+    }
 
-        Integer newGroupId = jdbcTemplate.queryForObject(sql, Integer.class, newGroupDto.getGroupName());
+    @Override
+    public ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto) {
+        String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, ?) "
+                + "RETURNING group_id";
+        Integer newShoppingGroupId = jdbcTemplate.queryForObject(sql, Integer.class, shoppingGroupDto.getGroupName(), shoppingGroupDto.getInvitationCode());
 
-        return newGroupId != null;
-    } //is this right or are we returning a shopping group object?
+        return shoppingGroupDao.getGroupById(newShoppingGroupId);
+    }
 
     @Override
     public boolean joinGroup(int groupId, int userId) {
@@ -78,8 +90,9 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 
     private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
         ShoppingGroup shoppingGroup = new ShoppingGroup();
+        shoppingGroup.setGroupId(rowSet.getInt("group_id"));
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
-        shoppingGroup.setDateJoined(LocalDate.parse(rowSet.getString("date_joined")));
+        shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
 
         return shoppingGroup;
 
