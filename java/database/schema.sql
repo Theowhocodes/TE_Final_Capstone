@@ -48,6 +48,7 @@ CREATE TABLE item (
 	added_by INT NOT NULL,
     item_name varchar (100) NOT NULL,
 	item_quantity int NOT NULL DEFAULT 1,
+	category varchar (100),
 	date_added date NOT NULL DEFAULT CURRENT_DATE,
 	completed boolean DEFAULT false,
 
