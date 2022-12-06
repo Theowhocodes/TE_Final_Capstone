@@ -10,8 +10,11 @@ public interface ShoppingGroupDao {
 
     List<ShoppingGroup> getAllShoppingGroupsByUser(int userId);
 
+    // GET ONE GROUP BY ID
+    ShoppingGroup getGroupById(int groupId);
+
     // CREATE A GROUP
-    boolean createGroup(ShoppingGroupDto newGroupDto);
+    ShoppingGroup createGroup(ShoppingGroupDto newGroupDto);
 
     // JOIN A GROUP
     boolean joinGroup(int groupId, int userId);
