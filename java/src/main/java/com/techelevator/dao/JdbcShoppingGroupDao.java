@@ -42,7 +42,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         "VALUES ((SELECT group_id FROM shopping_group WHERE group_id = '?')," +
                "(SELECT user_id FROM  users WHERE user_id = '?'))" +
                 "RETURNING shopping_group_users_id";
-        Integer shoppingGroupUserId = 
+        Integer shoppingGroupUserId =
         return true;
     }
     private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
