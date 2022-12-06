@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ItemDao {
 
-    List<Item> listAll();
+    List<Item> listAll(int list_id);
 
-    Item getItemById();
+    Item getItemById(int itemId);
 
     Item getItemByItemName();
 

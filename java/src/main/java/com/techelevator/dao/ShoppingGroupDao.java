@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.ShoppingGroupDto;
 import com.techelevator.model.ShoppingGroup;
 
 import java.util.List;
@@ -7,17 +8,18 @@ import java.util.List;
 public interface ShoppingGroupDao {
     // SHOW ALL GROUPS A USER BELONGS TO
 
-    List<ShoppingGroup> getAllShoppingGroups(int userId);
-
+    List<ShoppingGroup> getAllShoppingGroupsByUser(int userId);
 
     // CREATE A GROUP
-    ShoppingGroup createGroup();
+    boolean createGroup(ShoppingGroupDto newGroupDto);
 
     // JOIN A GROUP
-    ShoppingGroup joinGroup();
+    boolean joinGroup(int groupId, int userId);
 
     // LEAVE A GROUP
-    ShoppingGroup leaveGroup();
+    void leaveGroup(int groupId, int userId);
+
+
 
 
 }
