@@ -8,7 +8,7 @@ import java.util.List;
 public interface ShoppingGroupDao {
     // SHOW ALL GROUPS A USER BELONGS TO
 
-    List<ShoppingGroup> getAllShoppingGroups(int userId);
+    List<ShoppingGroup> getAllShoppingGroupsByUser(int userId);
 
     // CREATE A GROUP
     boolean createGroup(ShoppingGroupDto newGroupDto);
@@ -17,7 +17,7 @@ public interface ShoppingGroupDao {
     boolean joinGroup(int groupId, int userId);
 
     // LEAVE A GROUP
-    void leaveGroup();
+    void leaveGroup(int groupId, int userId);
 
 
 

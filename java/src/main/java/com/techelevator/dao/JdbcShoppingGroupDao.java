@@ -24,7 +24,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 
     // Get list of all user's groups by userId
     //@Override
-    public List<ShoppingGroup> getAllShoppingGroups(int userId) {
+    public List<ShoppingGroup> getAllShoppingGroupsByUser(int userId) {
         List<ShoppingGroup> shoppingGroups = new ArrayList<>();
         String sql = "SELECT group_name, date_joined FROM shopping_group" +
                 "JOIN shopping_group_users USING (group_id)" +
@@ -54,14 +54,16 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         String sql = "INSERT INTO shopping_group_users (group_id, user_id) VALUES (?, ?) " +
                     "RETURNING shopping_group_users_id";
 
-        Integer shoppingGroupUsersId = jdbcTemplate.queryForObject(sql, Integer.class, groupId, userId)
+        Integer shoppingGroupUsersId = jdbcTemplate.queryForObject(sql, Integer.class, groupId, userId);
 
         return shoppingGroupUsersId != null;
-    }
+    }//do we need a separate DAO for shopping_group_users???
 
     @Override
-    public ShoppingGroup leaveGroup() {
-        return null;
+    public void leaveGroup(int groupId, int userId) {
+
+        String sql = "DELETE FROM shopping_group_users WHERE (group_id = ? and user_id = ?";
+
     }
 
     // Join a shopping group
@@ -73,10 +75,12 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 //        Integer shoppingGroupUserId = 0;
 //        return true;
   //  }
+
     private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
         ShoppingGroup shoppingGroup = new ShoppingGroup();
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
         shoppingGroup.setDateJoined(LocalDate.parse(rowSet.getString("date_joined")));
+
         return shoppingGroup;
 
     }
