@@ -1,8 +1,6 @@
 package com.techelevator.model;
 
-public class List {
-
-
+public class ListDto {
     private int listId;
     private String listName;
     private int groupId;
@@ -10,7 +8,7 @@ public class List {
     private int listOwner;
     private boolean completed;
 
-    public List() {
+    public ListDto(int listId, String listName, int groupId, boolean claimed, int listOwner, boolean completed) {
         this.listId = listId;
         this.listName = listName;
         this.groupId = groupId;

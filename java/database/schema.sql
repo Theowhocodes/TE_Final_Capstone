@@ -43,8 +43,11 @@ CREATE TABLE item (
 	added_by integer NOT NULL REFERENCES users(user_id),
     item_name varchar (100) NOT NULL,
 	item_quantity int NOT NULL DEFAULT 1,
+	category varchar (100),
 	date_added date NOT NULL DEFAULT CURRENT_DATE,
 	completed boolean DEFAULT false,
+	last_modified timestamp NOT NULL,
+	last_modified_by varchar (100) NOT NULL,
 
 );
 

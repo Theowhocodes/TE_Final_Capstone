@@ -1,16 +1,19 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.ShoppingGroupDto;
 import com.techelevator.model.ShoppingGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class JdbcShoppingGroupDao implements ShoppingGroupDao {
+
     private final JdbcTemplate jdbcTemplate;
     @Autowired
     private ShoppingGroupDao shoppingGroupDao;
@@ -19,17 +22,66 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    // Get list of all transfers by account ID
-    @Override
-    public List<ShoppingGroup> getAllShoppingGroups(int userId) {
+    // Get list of all user's groups by userId
+    //@Override
+    public List<ShoppingGroup> getAllShoppingGroupsByUser(int userId) {
         List<ShoppingGroup> shoppingGroups = new ArrayList<>();
-        String sql = "SELECT group_id, group_name, user_to, amount::decimal, transfer_type, transfer_status " +
-                "FROM transfer WHERE user_id = ?";
+        String sql = "SELECT group_name, date_joined FROM shopping_group" +
+                "JOIN shopping_group_users USING (group_id)" +
+                "JOIN USERS USING (user_id)" +
+                "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-            transfers.add(mapRowToTransfer(results));   //- ? map to Transfer object
+            //shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;
+
+    }
+
+    @Override
+    public boolean createGroup(ShoppingGroupDto newGroupDto) {
+
+        String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, 100)";
+
+        Integer newGroupId = jdbcTemplate.queryForObject(sql, Integer.class, newGroupDto.getGroupName());
+
+        return newGroupId != null;
+    } //is this right or are we returning a shopping group object?
+
+    @Override
+    public boolean joinGroup(int groupId, int userId) {
+
+        String sql = "INSERT INTO shopping_group_users (group_id, user_id) VALUES (?, ?) " +
+                    "RETURNING shopping_group_users_id";
+
+        Integer shoppingGroupUsersId = jdbcTemplate.queryForObject(sql, Integer.class, groupId, userId);
+
+        return shoppingGroupUsersId != null;
+    }//do we need a separate DAO for shopping_group_users???
+
+    @Override
+    public void leaveGroup(int groupId, int userId) {
+
+        String sql = "DELETE FROM shopping_group_users WHERE (group_id = ? and user_id = ?";
+
+    }
+
+    // Join a shopping group
+//    public boolean joinGroup(int groupId, int userId){
+//        String sql = "INSERT INTO SHOPPING_GROUP_USERS (group_id, user_id)" +
+//                "VALUES ((SELECT group_id FROM shopping_group WHERE group_id = '?')," +
+//                "(SELECT user_id FROM  users WHERE user_id = '?'))" +
+//                "RETURNING shopping_group_users_id";
+//        Integer shoppingGroupUserId = 0;
+//        return true;
+  //  }
+
+    private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
+        ShoppingGroup shoppingGroup = new ShoppingGroup();
+        shoppingGroup.setGroupName(rowSet.getString("group_name"));
+        shoppingGroup.setDateJoined(LocalDate.parse(rowSet.getString("date_joined")));
+
+        return shoppingGroup;
 
     }
 }
