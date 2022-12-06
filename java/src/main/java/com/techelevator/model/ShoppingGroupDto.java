@@ -2,37 +2,32 @@ package com.techelevator.model;
 
 public class ShoppingGroupDto {
 
-    private int GroupId ;
-    private String GroupName;
-    private int InvitationCode;
+    private int groupId;
+    private String groupName;
+    private int invitationCode;
 
-    public ShoppingGroupDto(int groupId, String groupName, int invitationCode) {
-        GroupId = groupId;
-        GroupName = groupName;
-        InvitationCode = invitationCode;
-    }
 
     public int getGroupId() {
-        return GroupId;
+        return groupId;
     }
 
     public void setGroupId(int groupId) {
-        GroupId = groupId;
+        this.groupId = groupId;
     }
 
     public String getGroupName() {
-        return GroupName;
+        return groupName;
     }
 
     public void setGroupName(String groupName) {
-        GroupName = groupName;
+        this.groupName = groupName;
     }
 
     public int getInvitationCode() {
-        return InvitationCode;
+        return invitationCode;
     }
 
     public void setInvitationCode(int invitationCode) {
-        InvitationCode = invitationCode;
+        this.invitationCode = invitationCode;
     }
 }
