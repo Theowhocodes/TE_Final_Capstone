@@ -1,19 +1,32 @@
 <template>
   <div class="home" >
     <h1>Home</h1>
-    <div class="user-home" :style="{backgroundImage:'url(https://media.istockphoto.com/id/105684279/photo/empty-pinboard.jpg?s=612x612&w=0&k=20&c=E-oZSu88TZBeejFrJUjX8-CiHxyp_7BtdRGa9tEVk7I=)'}"></div>
+    <the-board/>
   </div>
 </template>
 
 <script>
+import TheBoard from '../components/TheBoard.vue';
+
+
+
 export default {
+  components: {TheBoard  },
   name: "home"
 };
 </script>
 
-<style>
-.user-home {
-    display:flex;
-    background: ;
+<style scoped>
+#groupBoard{
+  height:100vh ;
+  width: 100vmax;
+  background-size: 100% ;
+  background-repeat: no-repeat;
+  background-size:contain ;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
+
+
 </style>
