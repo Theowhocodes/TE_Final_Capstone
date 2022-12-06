@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping(path = "/api/groups")
@@ -19,6 +21,12 @@ public class ShoppingGroupController {
     @GetMapping("/{id}")
     public ShoppingGroup getGroupById(@PathVariable("id") int groupId) {
         return shoppingGroupDao.getGroupById(groupId);
+    }
+
+    //GET all lists by user_id - I think this should go into the ShoppingGroupUsersController ?
+    @GetMapping("/{userId}")
+    public List <ShoppingGroup> getAllShoppingGroupsByUser(@PathVariable("userId") int userId){
+        return shoppingGroupDao.getAllShoppingGroupsByUser(userId);
     }
 
     // CREATE NEW SHOPPING GROUP

@@ -26,13 +26,13 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
     //@Override
     public List<ShoppingGroup> getAllShoppingGroupsByUser(int userId) {
         List<ShoppingGroup> shoppingGroups = new ArrayList<>();
-        String sql = "SELECT group_name, date_joined FROM shopping_group " +
+        String sql = "SELECT * FROM shopping_group " +
                 "JOIN shopping_group_users USING (group_id) " +
                 "JOIN USERS USING (user_id) " +
                 "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-            //shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
+            shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;
 
@@ -93,7 +93,6 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         shoppingGroup.setGroupId(rowSet.getInt("group_id"));
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
         shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
-        //shoppingGroup.setDateJoined(LocalDate.parse(rowSet.getString("date_joined")));
 
         return shoppingGroup;
 
