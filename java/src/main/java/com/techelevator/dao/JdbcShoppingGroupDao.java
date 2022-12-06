@@ -42,8 +42,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
     @Override
     public ShoppingGroup getGroupById(int groupId) {
         ShoppingGroup singleShoppingGroup = new ShoppingGroup();
-        String sql = "SELECT group_name,  FROM shopping_group " +
-                "WHERE group_id = ?";
+        String sql = "SELECT group_id, group_name, invitation_code FROM shopping_group WHERE group_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
         if (results.next()) {
             singleShoppingGroup = mapRowToShoppingGroup(results);
@@ -55,11 +54,11 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
     @Override
     public ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto) {
         String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, ?) "
-                + "RETURNING group_id; ";
-        Integer newShoppingGroupId = jdbcTemplate.queryForObject(sql, Integer.class, shoppingGroupDto.getGroupName(), shoppingGroupDto.getGroupId());
+                + "RETURNING group_id";
+        Integer newShoppingGroupId = jdbcTemplate.queryForObject(sql, Integer.class, shoppingGroupDto.getGroupName(), shoppingGroupDto.getInvitationCode());
 
         return shoppingGroupDao.getGroupById(newShoppingGroupId);
-    } //is this right or are we returning a shopping group object?
+    }
 
     @Override
     public boolean joinGroup(int groupId, int userId) {
@@ -91,6 +90,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 
     private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
         ShoppingGroup shoppingGroup = new ShoppingGroup();
+        shoppingGroup.setGroupId(rowSet.getInt("group_id"));
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
         shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
         //shoppingGroup.setDateJoined(LocalDate.parse(rowSet.getString("date_joined")));
