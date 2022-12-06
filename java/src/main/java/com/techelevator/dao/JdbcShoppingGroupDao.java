@@ -39,10 +39,10 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
     // Join a shopping group
     public boolean joinGroup(int groupId, int userId){
         String sql = "INSERT INTO SHOPPING_GROUP_USERS (group_id, user_id)" +
-        "VALUES ((SELECT group_id FROM shopping_group WHERE group_id = '?')," +
-               "(SELECT user_id FROM  users WHERE user_id = '?'))" +
+                "VALUES ((SELECT group_id FROM shopping_group WHERE group_id = '?')," +
+                "(SELECT user_id FROM  users WHERE user_id = '?'))" +
                 "RETURNING shopping_group_users_id";
-        Integer shoppingGroupUserId =
+        Integer shoppingGroupUserId = 0;
         return true;
     }
     private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {

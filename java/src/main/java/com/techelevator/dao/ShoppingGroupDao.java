@@ -9,7 +9,6 @@ public interface ShoppingGroupDao {
 
     List<ShoppingGroup> getAllShoppingGroups(int userId);
 
-
     // CREATE A GROUP
 
 

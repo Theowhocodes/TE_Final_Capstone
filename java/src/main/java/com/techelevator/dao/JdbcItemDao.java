@@ -1,10 +1,19 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Item;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
 public class JdbcItemDao implements ItemDao {
+
+    private final JdbcTemplate jdbcTemplate;
+
+
+    public JdbcItemDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+
+    }
 
     public List<Item> listAll() {
         return null;

@@ -25,7 +25,6 @@ CREATE TABLE shopping_group_users (
     user_id int NOT NULL,
     date_joined date NOT NULL DEFAULT CURRENT_DATE,
 
-    CONSTRAINT pk_shopping_group_users primary key (group_id, user_id)
     CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
     CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES shopping_group (group_id)
 );
