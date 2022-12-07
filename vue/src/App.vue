@@ -21,5 +21,6 @@
   padding: 0;
   border: 0;
   overflow: hidden;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 </style>

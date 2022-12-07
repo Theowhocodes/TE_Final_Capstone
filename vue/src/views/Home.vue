@@ -1,18 +1,18 @@
 <template>
   <div class="home" >
     <h1>Home</h1>
-    <the-board/>
+    <all-groups/>
   </div>
 </template>
 
 <script>
-import TheBoard from '../components/TheBoard.vue';
+import AllGroups from '../components/AllGroups.vue';
 
 
 
 export default {
   components: {
-    TheBoard  
+    AllGroups 
   },
   name: "home"
 };
