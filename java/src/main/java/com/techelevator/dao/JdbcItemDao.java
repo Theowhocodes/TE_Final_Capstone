@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -18,41 +19,72 @@ public class JdbcItemDao implements ItemDao {
 
     }
     @Override
-    public List<Item> listAll(int list_id) {
+    public List<Item> listAll(int listId) {
+        List<Item> allItemsInList = new ArrayList<>();
         String sql = "SELECT * FROM item where list_id = ?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, list_id);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, listId);
         while (results.next()) {
-        //map row to item
+            Item item = mapRowToItem(results);
+            allItemsInList.add(item);
         }
-        return null;
+        return allItemsInList;
     }
     @Override
     public Item getItemById(int itemId) {
-        String sql = "SELECT * FROM items where item_id = ?";
+        String sql = "SELECT * FROM item where item_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itemId);
+
+        Item item = new Item();
         while (results.next()) {
-            //map row to item
+           item = mapRowToItem(results);
         }
-        return null;
+        return item;
     }
     @Override
-    public Item getItemByItemName() {
-        String sql = "SELECT * FROM ";
+    public Item getItemByItemName(String itemName) {
+        String sql = "SELECT * FROM item WHERE item_name = ?";
 
-        return null;
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itemName);
+
+        Item item = new Item();
+        while (results.next()) {
+            item = mapRowToItem(results);
+        }
+
+        return item;
     }
     @Override
-    public int changeQuantity() {//maybe dont need this, just use modify
-        return 0;
+    public Item changeQuantity(Item item) {
+        String sql = "UPDATE item SET (item_quantity = ?) where (item_id = ?)";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, item.getItemQuantity(), item.getItemId());
+
+        Item updatedQuantity = new Item();
+        if (results.next()) {
+            updatedQuantity = mapRowToItem(results);
+        }
+        return updatedQuantity;
     }
     @Override
-    public Item modifyItem() {
-        return null;
+    public Item modifyItem(Item item) {
+        String sql = "UPDATE item ";
+        return null;//ItemDTO?
     }
 
-    public Item mapRowToItem() {
-        return null;
+    private Item mapRowToItem(SqlRowSet sqlRowSet) {
+        Item item = new Item();
+     //   item.setAddedBy(sqlRowSet.getObject());
+        item.setCompleted(sqlRowSet.getBoolean("completed"));
+        item.setDateAdded(sqlRowSet.getDate("date_added"));
+        item.setItemId(sqlRowSet.getInt("item_id"));
+        item.setItemListId(sqlRowSet.getInt("list_id"));
+        item.setItemName(sqlRowSet.getString("item_name"));
+        item.setItemQuantity(sqlRowSet.getInt("item_quantity"));
+        item.setLastModified(sqlRowSet.getTimestamp("last_modified"));
+       // item.setLastModifiedBy(sqlRowSet.getObject());
+
+        return item;
     }
 }
