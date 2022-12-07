@@ -23,8 +23,8 @@ public class ShoppingGroupController {
         return shoppingGroupDao.getGroupById(groupId);
     }
 
-    //GET all lists by user_id - I think this should go into the ShoppingGroupUsersController ?
-    @GetMapping("/{userId}")
+    //GET list of all groups by user_id
+    @GetMapping("/users/{userId}")
     public List <ShoppingGroup> getAllShoppingGroupsByUser(@PathVariable("userId") int userId){
         return shoppingGroupDao.getAllShoppingGroupsByUser(userId);
     }
