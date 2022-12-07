@@ -9,14 +9,20 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping(path = "lists")
+@RequestMapping(path = "/lists")
 public class ListController {
 
     @Autowired
     private ListDao listDao;
 
     //List getByGroupId(int groupId);
-    @GetMapping("/lists/{id}")
+    @GetMapping("/gropus/{id}")
+    public List getByGroupId(@PathVariable("id") int groupId) {
+        return listDao.getByGroupId(groupId);
+    }
+
+
+    @GetMapping("/groups/{id}")
     public List getByGroupId(@PathVariable("id") int groupId) {
         return listDao.getByGroupId(groupId);
     }
