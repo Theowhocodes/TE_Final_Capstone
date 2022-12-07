@@ -10,11 +10,11 @@ public interface ItemDao {
 
     Item getItemById(int itemId);
 
-    Item getItemByItemName();
+    Item getItemByItemName(String itemName);
 
-    int changeQuantity(); //maybe dont need this, just use modify
+    Item changeQuantity(Item item); //maybe dont need this, just use modify
 
-    Item modifyItem();
+    Item modifyItem(Item item);
 
 
 
