@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.List;
+import com.techelevator.model.ListDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -26,16 +27,16 @@ public class JdbcListDao implements ListDao {
     }
 
     @Override
-    public List createList(List list) {
+    public List createList(ListDto listDto) {
         String sql = "INSERT into list (list_id, list_name, group_id, claimed, list_owner, completed) values(?, ?, ?, ?, ?, ?) RETURNING list_id;";
-        Integer newList = jdbcTemplate.queryForObject(sql, Integer.class, list.getListId(), list.getListName(), list.getGroupId(), list.getListOwner());
+        Integer newList = jdbcTemplate.queryForObject(sql, Integer.class, listDto.getListId(), listDto.getListName(), listDto.getGroupId(), listDto.getListOwner());
         return getByGroupId(newList);
     }
 
 
-    public List claimList(int groupId) {
+    public List claimList(int groupId, ListDto listDto) {
         String sql = "UPDATE list SET claimed = ?, list_owner = ? where group_id = ?;";
-        jdbcTemplate.update(sql, listDao.claimList(groupId), groupId);
+        jdbcTemplate.update(sql, listDao.claimList(groupId, listDto), groupId);
 
         return null;
     }
