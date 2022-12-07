@@ -9,6 +9,9 @@
       v-bind:key="group.groupId"
       v-bind:group="shoppingGroup"
       >
+      <router-link v-bind:to="{ name: 'Group', params: { id: groupId } }">
+          {{ group.groupName }} </router-link>
+     
         
       </div>
   </div>
@@ -30,6 +33,7 @@ export default {
   created() {
     groupService.getAllShoppingGroupsByUser().then(response => {
       this.groups = response.data;
+      
     });
   }
 

@@ -16,9 +16,8 @@ public class JdbcListDao implements ListDao {
     private ListDao listDao;
     private ListDto listDto;
 
-    public JdbcListDao(JdbcTemplate jdbcTemplate, ListDao listDao) {
+    public JdbcListDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-        this.listDao = listDao;
     }
 
     public List getByGroupId(int groupId){
