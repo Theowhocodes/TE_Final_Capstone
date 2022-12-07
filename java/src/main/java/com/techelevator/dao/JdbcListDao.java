@@ -14,6 +14,7 @@ public class JdbcListDao implements ListDao {
 
     private final JdbcTemplate jdbcTemplate;
     private ListDao listDao;
+    private ListDto listDto;
 
     public JdbcListDao(JdbcTemplate jdbcTemplate, ListDao listDao) {
         this.jdbcTemplate = jdbcTemplate;
