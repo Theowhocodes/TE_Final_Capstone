@@ -1,10 +1,12 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.List;
+import com.techelevator.model.ListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class JdbcListDao implements ListDao {

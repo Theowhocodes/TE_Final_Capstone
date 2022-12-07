@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping(path = "/api/groups")
+@RequestMapping(path = "/groups")
 public class ShoppingGroupController {
 
     @Autowired
@@ -30,6 +30,7 @@ public class ShoppingGroupController {
     }
 
     // CREATE NEW SHOPPING GROUP
+    // after creating group, insert user as the first member of shopping_group_users
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ShoppingGroup createGroup(@RequestBody ShoppingGroupDto shoppingGroupDto) {
