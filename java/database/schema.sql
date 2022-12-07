@@ -14,41 +14,48 @@ CREATE TABLE users (
 );
 
 CREATE TABLE shopping_group (
-    group_id  serial NOT NULL PRIMARY KEY,
-	group_name varchar(200) NOT NULL UNIQUE,
-    invitation_code SERIAL NOT NULL,
-    CONSTRAINT uq_group_name UNIQUE (group_name)
+    group_id serial NOT NULL PRIMARY KEY,
+	group_name varchar(200),
+    invitation_code int NOT NULL
 );
 
-
 CREATE TABLE shopping_group_users (
-    group_id integer REFERENCES shopping_group (group_id),
-    user_id int NOT NULL REFERENCES users (user_id),
+    shopping_group_users_id serial PRIMARY KEY,
+    group_id int NOT NULL,
+    user_id int NOT NULL,
     date_joined date NOT NULL DEFAULT CURRENT_DATE,
-    CONSTRAINT pk_shopping_group_shopping_group_users PRIMARY KEY (group_id, user_id)
+
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
+    CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES shopping_group (group_id)
 );
 
 CREATE TABLE list (
     list_id serial NOT NULL PRIMARY KEY,
     list_name varchar(200) NOT NULL,
-    group_id integer NOT NULL REFERENCES shopping_group (group_id),
+    group_id int NOT NULL,
     claimed boolean DEFAULT FALSE,
-	list_owner integer REFERENCES users (user_id),
-	completed boolean DEFAULT FALSE
+	list_owner int,
+	completed boolean DEFAULT FALSE,
+
+    CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES shopping_group (group_id),
+	CONSTRAINT fk_list_owner FOREIGN KEY (list_owner) REFERENCES  users (user_id)
 
 );
 
 CREATE TABLE item (
     item_id serial NOT NULL PRIMARY KEY,
-    list_id integer NOT NULL REFERENCES list(list_id),
-	added_by integer NOT NULL REFERENCES users(user_id),
+    list_id int NOT NULL,
+	added_by INT NOT NULL,
     item_name varchar (100) NOT NULL,
 	item_quantity int NOT NULL DEFAULT 1,
 	category varchar (100),
 	date_added date NOT NULL DEFAULT CURRENT_DATE,
 	completed boolean DEFAULT false,
 	last_modified timestamp NOT NULL,
-	last_modified_by varchar (100) NOT NULL
+	last_modified_by varchar (100) NOT NULL,
+
+    CONSTRAINT fk_list_id FOREIGN KEY (list_id) REFERENCES list (list_id),
+	CONSTRAINT fk_added_by FOREIGN KEY (added_by) REFERENCES users (user_id)
 
 );
 
