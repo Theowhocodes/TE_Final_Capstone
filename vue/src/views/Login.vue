@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="h3 mb-3 font-weight-normal signIn">Ready to Shop? <br> Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -74,3 +74,14 @@ export default {
   }
 };
 </script>
+
+<style >
+#login{
+  display: flex;
+  justify-content: center;
+}
+.signIn{
+  display: flex;
+  justify-content: center;
+}
+</style>

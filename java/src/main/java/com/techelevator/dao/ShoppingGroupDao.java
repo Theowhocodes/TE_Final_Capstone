@@ -14,7 +14,7 @@ public interface ShoppingGroupDao {
     ShoppingGroup getGroupById(int groupId);
 
     // CREATE A GROUP
-    ShoppingGroup createGroup(ShoppingGroupDto newGroupDto);
+    ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto);
 
     // JOIN A GROUP
     boolean joinGroup(int groupId, int userId);
