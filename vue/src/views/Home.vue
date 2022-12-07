@@ -11,7 +11,9 @@ import TheBoard from '../components/TheBoard.vue';
 
 
 export default {
-  components: {TheBoard  },
+  components: {
+    TheBoard  
+  },
   name: "home"
 };
 </script>

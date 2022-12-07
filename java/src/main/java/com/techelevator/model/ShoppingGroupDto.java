@@ -16,10 +16,7 @@ public class ShoppingGroupDto {
         groupId = groupId;
 
         this.groupId = groupId;
-<<<<<<< HEAD
-=======
 
->>>>>>> 8fe12aba0c0ed9d54715706d887c79c46fed16b8
     }
 
     public String getGroupName() {
