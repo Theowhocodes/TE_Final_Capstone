@@ -13,27 +13,28 @@ CREATE TABLE users (
 	CONSTRAINT ch_email CHECK (email like '%@%.%')
 );
 
-CREATE TABLE shopping_group_users (
-    shopping_group_users_id serial PRIMARY KEY,
-    group_id int NOT NULL,
-    user_id int NOT NULL,
-    date_joined date NOT NULL DEFAULT CURRENT_DATE,
-);
-
 CREATE TABLE shopping_group (
-    group_id integer NOT NULL REFERENCES shopping_group_users(group_id),
+    group_id  serial NOT NULL PRIMARY KEY,
 	group_name varchar(200) NOT NULL UNIQUE,
     invitation_code SERIAL NOT NULL,
     CONSTRAINT uq_group_name UNIQUE (group_name)
 );
 
+
+CREATE TABLE shopping_group_users (
+    group_id integer REFERENCES shopping_group (group_id),
+    user_id int NOT NULL REFERENCES users (user_id),
+    date_joined date NOT NULL DEFAULT CURRENT_DATE,
+    CONSTRAINT pk_shopping_group_shopping_group_users PRIMARY KEY (group_id, user_id)
+);
+
 CREATE TABLE list (
     list_id serial NOT NULL PRIMARY KEY,
     list_name varchar(200) NOT NULL,
-    group_id integer NOT NULL REFERENCES shopping_group_users(group_id),
+    group_id integer NOT NULL REFERENCES shopping_group (group_id),
     claimed boolean DEFAULT FALSE,
-	list_owner integer REFERENCES users(user_id),
-	completed boolean DEFAULT FALSE,
+	list_owner integer REFERENCES users (user_id),
+	completed boolean DEFAULT FALSE
 
 );
 
@@ -47,7 +48,7 @@ CREATE TABLE item (
 	date_added date NOT NULL DEFAULT CURRENT_DATE,
 	completed boolean DEFAULT false,
 	last_modified timestamp NOT NULL,
-	last_modified_by varchar (100) NOT NULL,
+	last_modified_by varchar (100) NOT NULL
 
 );
 
