@@ -2,9 +2,14 @@ package com.techelevator.dao;
 
 import com.techelevator.model.List;
 import com.techelevator.model.ListDto;
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> 8fe12aba0c0ed9d54715706d887c79c46fed16b8
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class JdbcListDao implements ListDao {

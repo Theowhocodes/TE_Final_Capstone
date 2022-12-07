@@ -10,4 +10,7 @@ INSERT INTO users (user_id, username, password_hash, role, email) VALUES (defaul
 INSERT INTO shopping_group (group_id, group_name, invitation_code) VALUES (default, 'test group 1', 98765);
 INSERT INTO shopping_group (group_id, group_name, invitation_code) VALUES (default, 'test group 2', 87654);
 
+INSERT INTO shopping_group_users (group_id, user_id, date_joined) VALUES(1, 1, default);
+INSERT INTO shopping_group_users (group_id, user_id, date_joined) VALUES(2, 1, default);
+
 COMMIT TRANSACTION;
