@@ -24,7 +24,7 @@ public class ShoppingGroupController {
     }
 
     //GET list of all groups by user_id
-    @GetMapping("/users/{userId}")
+    @GetMapping("/")
     public List <ShoppingGroup> getAllShoppingGroupsByUser(@PathVariable("userId") int userId){
         return shoppingGroupDao.getAllShoppingGroupsByUser(userId);
     }
