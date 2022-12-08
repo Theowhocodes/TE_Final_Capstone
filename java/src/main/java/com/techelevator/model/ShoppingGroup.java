@@ -1,27 +1,26 @@
 package com.techelevator.model;
 
+import org.springframework.cglib.core.Local;
+
 import java.time.LocalDate;
 
 public class ShoppingGroup {
     private int groupId;
     private String groupName;
     private int invitationCode;
+    private int membershipAge;
+    private String memberSince;
 
-    public ShoppingGroup(int groupId, String groupName, int invitationCode) {
+    public ShoppingGroup(int groupId, String groupName, int invitationCode, String memberSince) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.invitationCode = invitationCode;
+        this.memberSince = memberSince;
     }
 
     public ShoppingGroup() {
 
     }
-
-    // public LocalDate getDateJoined() {
-       // return this.dateJoined;
-    // }
-
-
 
     public int getGroupId() {
         return groupId;
@@ -45,5 +44,25 @@ public class ShoppingGroup {
 
     public void setInvitationCode(int invitationCode) {
         this.invitationCode = invitationCode;
+    }
+
+
+
+    public int getMembershipAge() {
+        return membershipAge;
+    }
+
+    public String getMemberSince() {
+        return memberSince;
+    }
+
+    public void setMemberSince(String memberSince) {
+        this.memberSince = memberSince;
+    }
+
+    public void setMembershipAge(int membershipAge) {
+        this.membershipAge = membershipAge;
+
+
     }
 }

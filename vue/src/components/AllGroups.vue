@@ -10,8 +10,8 @@
       v-bind:group="shoppingGroup"
       >
       
-        <router-link v-bind:to="{ name: 'Group', params: { id: groupId } }">
-          {{ group.groupName }} </router-link>
+       Group name: <router-link v-bind:to="{ name: 'group', params: { id: groupId } }">
+          {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} 
      
         
       </div>
@@ -19,6 +19,9 @@
 </template>
 
 <script>
+
+// can maybe use a created property to return membership age another way aside from days? 
+
 import groupService from '../services/GroupService.js';
 
 export default {
@@ -34,6 +37,7 @@ export default {
   created() {
     groupService.getAllShoppingGroupsByUser().then(response => {
       this.groups = response.data;
+      
       
     });
   }

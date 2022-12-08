@@ -10,7 +10,9 @@ import groupService from '../services/GroupService.js';
 export default {
  data() {
     return {
-    group: {}
+    group: {
+        
+    }
         //groupId: '',
         //groupName: '',
         //invitationCode: '',

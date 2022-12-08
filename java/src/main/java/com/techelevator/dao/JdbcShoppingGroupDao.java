@@ -24,19 +24,33 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 
     // Get list of all user's groups by userId
     //@Override
-    public List<ShoppingGroup> getAllShoppingGroupsByUser(int userId) {
+
+   public List<ShoppingGroup> getAllShoppingGroupsByUser(int userId) {
         List<ShoppingGroup> shoppingGroups = new ArrayList<>();
-        String sql = "SELECT * FROM shopping_group " +
-                "JOIN shopping_group_users USING (group_id) " +
-                "JOIN USERS USING (user_id) " +
+        String sql = "SELECT group_id, group_name, invitation_code, to_char(date_joined,'mm-dd-yy')AS member_since FROM shopping_group_users " +
+                "JOIN shopping_group USING (group_id) " +
+                "JOIN users USING (user_id) " +
                 "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
             shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;
-
     }
+
+    /*
+    public List<ShoppingGroup> getAllShoppingGroupsByUser(int userId) {
+        List<ShoppingGroup> shoppingGroups = new ArrayList<>();
+        String sql = "SELECT group_id, group_name, invitation_code, (current_date - date_joined)AS membership_age FROM shopping_group_users " +
+                "JOIN shopping_group USING (group_id) " +
+                "JOIN users USING (user_id) " +
+                "WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()) {
+            shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
+        }
+        return shoppingGroups;
+    } */
 
     // GET ONE GROUP BY ID
     @Override
@@ -93,6 +107,8 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         shoppingGroup.setGroupId(rowSet.getInt("group_id"));
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
         shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
+        shoppingGroup.setMemberSince(rowSet.getString("member_since"));
+        //shoppingGroup.setMembershipAge(rowSet.getInt("membership_age"));
 
         return shoppingGroup;
 
