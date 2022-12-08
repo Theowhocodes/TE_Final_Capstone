@@ -22,8 +22,8 @@ public class ShoppingGroupController {
     private UserDao userDao;
 
     // GET one shopping group by group_id
-    @GetMapping("/{id}")
-    public ShoppingGroup getGroupById(@PathVariable("id") int groupId) {
+    @GetMapping("/{groupId}")
+    public ShoppingGroup getGroupById(@PathVariable("groupId") int groupId) {
         return shoppingGroupDao.getGroupById(groupId);
     }
 
@@ -38,7 +38,13 @@ public class ShoppingGroupController {
         //return shoppingGroupDao.getAllShoppingGroupsByUser(userId);
     //}
 
+    // JOIN A GROUP
+    @PutMapping("/groups/{groupId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void joinGroup(@PathVariable("groupId") int groupId, Principal principal){
+        shoppingGroupDao.joinGroup(groupId, userDao.findIdByUsername(principal.getName()));
 
+    }
 
     // CREATE NEW SHOPPING GROUP
     // after creating group, insert user as the first member of shopping_group_users
@@ -48,4 +54,5 @@ public class ShoppingGroupController {
         // receive ShoppingGroupDTO object -> make new ShoppingGroup object
     return shoppingGroupDao.createGroup(shoppingGroupDto);
     }
+
 }
