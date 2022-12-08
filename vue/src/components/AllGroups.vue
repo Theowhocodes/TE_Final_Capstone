@@ -10,7 +10,7 @@
       v-bind:group="shoppingGroup"
       >
       
-       Group name: <router-link v-bind:to="{ name: 'group', params: { id: groupId } }">
+       Group name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">
           {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} 
      
         
@@ -50,7 +50,3 @@ export default {
 <style>
 
 </style>
-
-// v-for="review in filteredReviews"
-//       v-bind:key="review.title"
-//       v-bind:review="review"

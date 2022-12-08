@@ -33,9 +33,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
                 "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-            
-
-            shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
+            shoppingGroups.add(mapRowToShoppingGroupWithMemberSince(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;
     }
@@ -104,13 +102,23 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 //        return true;
   //  }
 
-    private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
+    private ShoppingGroup mapRowToShoppingGroupWithMemberSince(SqlRowSet rowSet) {
         ShoppingGroup shoppingGroup = new ShoppingGroup();
         shoppingGroup.setGroupId(rowSet.getInt("group_id"));
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
         shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
         shoppingGroup.setMemberSince(rowSet.getString("member_since"));
         //shoppingGroup.setMembershipAge(rowSet.getInt("membership_age"));
+
+        return shoppingGroup;
+
+    }
+
+    private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
+        ShoppingGroup shoppingGroup = new ShoppingGroup();
+        shoppingGroup.setGroupId(rowSet.getInt("group_id"));
+        shoppingGroup.setGroupName(rowSet.getString("group_name"));
+        shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
 
         return shoppingGroup;
 

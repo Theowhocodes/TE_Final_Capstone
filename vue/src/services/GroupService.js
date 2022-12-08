@@ -9,7 +9,11 @@ getAllShoppingGroupsByUser(userId) {
 
 getOneGroupById(groupId){
 return axios.get(`/groups/${groupId}`)
-}
+},
 
+getAllListsByGroupId(groupId) {
+    return axios.get(`/groups/lists/${groupId}`)
+
+}
 
 }

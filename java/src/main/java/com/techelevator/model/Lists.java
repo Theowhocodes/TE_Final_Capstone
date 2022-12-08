@@ -1,6 +1,6 @@
 package com.techelevator.model;
 
-public class List {
+public class Lists {
 
 
     private int listId;
@@ -10,7 +10,7 @@ public class List {
     private int listOwner;
     private boolean completed;
 
-    public List() {
+    public Lists() {
         this.listId = listId;
         this.listName = listName;
         this.groupId = groupId;
