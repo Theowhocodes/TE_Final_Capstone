@@ -10,8 +10,9 @@
       v-bind:group="shoppingGroup"
       >
       
-       Group name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">
+       Group name: <router-link v-bind:to="{ name: 'list', params: { groupId: group.groupId}  }">
           {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} 
+          
      
         
       </div>

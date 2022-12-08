@@ -7,7 +7,7 @@
       <div class= "groupList"
       v-for="list in lists"
       v-bind:key="list.groupId"
-      v-bind:list="groupList"
+      v-bind:list="list"
       >
       
       List name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">

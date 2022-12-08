@@ -53,6 +53,7 @@ public class ShoppingGroupController {
     public ShoppingGroup createGroup(@RequestBody ShoppingGroupDto shoppingGroupDto) {
         // receive ShoppingGroupDTO object -> make new ShoppingGroup object
     return shoppingGroupDao.createGroup(shoppingGroupDto);
+
     }
 
 }
