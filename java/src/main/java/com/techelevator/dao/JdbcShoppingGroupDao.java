@@ -33,6 +33,8 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
                 "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
+            
+
             shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;

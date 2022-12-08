@@ -22,8 +22,8 @@ public class ShoppingGroupController {
     private UserDao userDao;
 
     // GET one shopping group by group_id
-    @GetMapping("/{id}")
-    public ShoppingGroup getGroupById(@PathVariable("id") int groupId) {
+    @GetMapping("/{groupId}")
+    public ShoppingGroup getGroupById(@PathVariable("groupId") int groupId) {
         return shoppingGroupDao.getGroupById(groupId);
     }
 

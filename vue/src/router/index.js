@@ -55,7 +55,7 @@ const router = new Router({
       }
     },
 {
-    path: "/groups/:id",
+    path: "/groups/:groupId",
     name: 'group',
     component: Group,
     meta: {

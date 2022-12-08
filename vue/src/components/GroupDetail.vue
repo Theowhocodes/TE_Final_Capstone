@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2> {{group.name}}</h2>
+      <h2> {{group.groupName}}</h2>
       <h2> Invitation Code: {{group.groupId}}</h2>
     </div>
 </template>
@@ -10,13 +10,13 @@ import groupService from '../services/GroupService.js';
 export default {
  data() {
     return {
+    name: "group-detail",
     group: {
-        
+        groupId: '',
+        groupName: '',
+        invitationCode: ''
     }
-        //groupId: '',
-        //groupName: '',
-        //invitationCode: '',
-    
+        
     };
   },
 
@@ -25,6 +25,7 @@ export default {
     
     groupService.getOneGroupById(groupId).then(response => {
       this.group = response; // overwrite empty group object with response from GET request
+        
     })
 
   }
