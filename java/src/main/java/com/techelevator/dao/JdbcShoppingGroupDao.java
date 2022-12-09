@@ -70,19 +70,17 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, ?) "
                 + "RETURNING group_id";
         Integer newShoppingGroupId = jdbcTemplate.queryForObject(sql, Integer.class, shoppingGroupDto.getGroupName(), shoppingGroupDto.getInvitationCode());
-
         return shoppingGroupDao.getGroupById(newShoppingGroupId);
     }
 
     @Override
-    public boolean joinGroup(int groupId, int userId) {
+    public void joinGroup(int groupId, int userId) {
 
         String sql = "INSERT INTO shopping_group_users (group_id, user_id) VALUES (?, ?) " +
                     "RETURNING shopping_group_users_id";
 
         Integer shoppingGroupUsersId = jdbcTemplate.queryForObject(sql, Integer.class, groupId, userId);
 
-        return shoppingGroupUsersId != null;
     }//do we need a separate DAO for shopping_group_users???
 
     @Override

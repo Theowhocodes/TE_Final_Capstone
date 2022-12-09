@@ -39,21 +39,23 @@ public class ShoppingGroupController {
     //}
 
     // JOIN A GROUP
-    @PutMapping("/groups/{groupId}")
+    @PostMapping("/{groupId}/join")
     @ResponseStatus(HttpStatus.OK)
-    public void joinGroup(@PathVariable("groupId") int groupId, Principal principal){
-        shoppingGroupDao.joinGroup(groupId, userDao.findIdByUsername(principal.getName()));
+    public void joinGroup(@RequestBody @PathVariable("groupId") int groupId, Principal principal){
+         shoppingGroupDao.joinGroup(groupId, userDao.findIdByUsername(principal.getName()));
+        
 
     }
 
     // CREATE NEW SHOPPING GROUP
-    // after creating group, insert user as the first member of shopping_group_users
-    @PostMapping()
-    @ResponseStatus(HttpStatus.CREATED)
-    public ShoppingGroup createGroup(@RequestBody ShoppingGroupDto shoppingGroupDto) {
-        // receive ShoppingGroupDTO object -> make new ShoppingGroup object
-    return shoppingGroupDao.createGroup(shoppingGroupDto);
+   // after creating group, insert user as the first member of shopping_group_users
+   @PostMapping("/create")
+   @ResponseStatus(HttpStatus.CREATED)
+   public ShoppingGroup createGroup(@RequestBody ShoppingGroupDto shoppingGroupDto) {
+       // receive ShoppingGroupDTO object -> make new ShoppingGroup object
+       return shoppingGroupDao.createGroup(shoppingGroupDto);
 
-    }
+       }
 
-}
+   }
+

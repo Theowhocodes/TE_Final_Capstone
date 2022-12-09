@@ -14,10 +14,10 @@ public interface ShoppingGroupDao {
     ShoppingGroup getGroupById(int groupId);
 
     // CREATE A GROUP
-    ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto);
+   ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto);
 
     // JOIN A GROUP
-    boolean joinGroup(int groupId, int userId);
+    void joinGroup(int groupId, int userId);
 
     // LEAVE A GROUP
     void leaveGroup(int groupId, int userId);
