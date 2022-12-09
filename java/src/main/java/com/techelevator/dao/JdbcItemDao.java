@@ -48,7 +48,7 @@ public class JdbcItemDao implements ItemDao {
            item = mapRowToItem(results);
         }
         return item;
-    }//worked in postman
+    }
 
     @Override
     public Item getItemByItemName(String itemName) {
@@ -73,36 +73,39 @@ public class JdbcItemDao implements ItemDao {
 
     @Override
     public Item modifyItem(ItemDto itemDto) {
-        String sql = "UPDATE item SET list_id = ?, added_by = ?, item_name = ?, item_quantity = ?, category = ?" +
-                "date_added = ?, completed = ? where item_id = ?"; // last_modified = ?, last_modified_by = ?";
+        String sql = "UPDATE item SET list_id = ?, added_by = ?, item_name = ?, item_quantity = ?, category = ?, " +
+                "date_added = ?, completed = ?, last_modified = current_timestamp, last_modified_by = ? where item_id = ?";
 
-        jdbcTemplate.update(sql, itemDto.getItemId(), itemDto.getItemListId(), itemDto.getAddedBy(), itemDto.getItemName(),
-                            itemDto.getItemQuantity(), itemDto.getCategory(), itemDto.getDateAdded(), itemDto.isCompleted());
-                            //itemDto.getLastModified(), itemDto.getLastModifiedBy());
-        return null;
+        jdbcTemplate.update(sql, itemDto.getItemListId(), itemDto.getAddedBy(), itemDto.getItemName(),
+                            itemDto.getItemQuantity(), itemDto.getCategory(), itemDto.getDateAdded(), itemDto.isCompleted(),
+                            itemDto.getLastModifiedBy(), itemDto.getItemId());
+
+        return getItemById(itemDto.getItemId());
+
     }
 
     @Override
-    public void deleteItem(ItemDto itemDto) {
+    public void deleteItem(int itemId) {
         String sql = "DELETE from item where item_id = ?";
 
-        jdbcTemplate.update(sql, itemDto.getItemId());
+        jdbcTemplate.update(sql, itemId);
     }
 
     @Override
-    public Item createItem(ItemDto itemDto) {
-        String sql = "INSERT into item (list_id, added_by, item_name, item_quantity, category, date_added, completed)" +
+    public void createItem(ItemDto itemDto) {
+        String sql = "INSERT into item (list_id, added_by, item_name, item_quantity, category, date_added, completed) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING item_id";
 
         Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, itemDto.getItemListId(), itemDto.getAddedBy(), itemDto.getItemName(),
                 itemDto.getItemQuantity(), itemDto.getCategory(), itemDto.getDateAdded(), itemDto.isCompleted());
-        return null;
+
+        //return this.getItemById(newId);
     }
 
     private Item mapRowToItem(SqlRowSet sqlRowSet) {
         Item item = new Item();
 
-        item.setAddedBy(userDao.getUserById(sqlRowSet.getInt("added_by")));
+        item.setAddedBy(sqlRowSet.getInt("added_by"));
         item.setCompleted(sqlRowSet.getBoolean("completed"));
         item.setDateAdded(sqlRowSet.getDate("date_added"));
         item.setItemId(sqlRowSet.getInt("item_id"));
@@ -110,7 +113,7 @@ public class JdbcItemDao implements ItemDao {
         item.setItemName(sqlRowSet.getString("item_name"));
         item.setItemQuantity(sqlRowSet.getInt("item_quantity"));
         item.setLastModified(sqlRowSet.getTimestamp("last_modified"));
-        item.setLastModifiedBy(userDao.findByUsername(sqlRowSet.getString("last_modified_by")));
+        item.setLastModifiedBy(sqlRowSet.getInt("last_modified_by"));
 
         return item;
     }
