@@ -1,22 +1,22 @@
 <template>
 <div>
-
+{{ item.itemName }}
     </div>
 </template>
 
 <script>
 
-</script>
-
-import
-
-export default {
+// import ItemService from '../services/ItemService.js'; 
+export default { 
     data() {
         return {
-
-        }
+           
+        };
     }
 }
+
+</script>
+
 
 
 <style>
