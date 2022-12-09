@@ -1,7 +1,7 @@
 <template>
   <div>
-      <h2> {{group.groupName}}</h2>
-      <h2> Invitation Code: {{group.groupId}}</h2>
+      <h2> {{list.listName}}</h2>
+      
     </div>
 </template>
 
@@ -11,11 +11,7 @@ export default {
  data() {
     return {
     name: "group-detail",
-    group: {
-        groupId: '',
-        groupName: '',
-        invitationCode: ''
-    }
+    list: ''
         
     };
   },
@@ -23,8 +19,8 @@ export default {
     created(){
     const groupId = this.$route.params.groupId; 
     
-    groupService.getOneGroupById(groupId).then(response => {
-      this.group = response; // overwrite empty group object with response from GET request
+    groupService.getAllListsByGroupId(groupId).then(response => {
+      this.list = response; // overwrite empty group object with response from GET request
         
     })
 

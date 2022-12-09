@@ -1,15 +1,20 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.List;
+import com.techelevator.model.Lists;
 import com.techelevator.model.ListDto;
+
+import java.util.List;
 
 
 public interface ListDao {
+    List <Lists> getAllListsByGroupId(int groupId);
 
-    List getByGroupId(int groupId);
+    Lists getListByGroupId(int groupId);
 
-    List createList(ListDto listDto);
+    Lists getListById(int listId);
 
-    List claimList(int groupId, ListDto listDto);
+    Lists createList(ListDto listDto);
+
+    Lists claimList(int groupId, ListDto listDto);
 
 }
