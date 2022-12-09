@@ -55,8 +55,8 @@ public class ShoppingGroupController {
        // receive ShoppingGroupDTO object -> make new ShoppingGroup object
        ShoppingGroup newGroup = shoppingGroupDao.createGroup(shoppingGroupDto);
        // after creating group, insert user as the first member
-       // @TODO this does not actually work yet
-       shoppingGroupDao.joinGroup(shoppingGroupDto.getGroupId(), userDao.findIdByUsername(principal.getName()));
+       // this does not actually work yet
+       //shoppingGroupDao.joinGroup(shoppingGroupDto.getGroupId(), userDao.findIdByUsername(principal.getName()));
        return newGroup;
        }
 
