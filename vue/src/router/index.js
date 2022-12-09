@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import List from '../views/List.vue'
 import Group from '../views/Group.vue'
 
 Vue.use(Router)
@@ -54,10 +55,18 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/groups/:groupId",
+      name: 'group',
+      component: Group,
+      meta: {
+        requiresAuth: true
+      }
+    },
 {
-    path: "/groups/:groupId",
-    name: 'group',
-    component: Group,
+    path: "/groups/lists/:groupId",
+    name: 'list',
+    component: List,
     meta: {
       requiresAuth: true
     }

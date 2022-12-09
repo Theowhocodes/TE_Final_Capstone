@@ -1,16 +1,15 @@
 <template>
   <div>
-      <group-detail />
+      <all-lists />
     </div>
 </template>
 
 <script>
-import GroupDetail from '../components/GroupDetail.vue';
+import AllLists from '../components/AllLists.vue'
 
 export default {
   components: {
-    GroupDetail
-    
+    AllLists
   }
 }
 </script>

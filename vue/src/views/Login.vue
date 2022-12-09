@@ -79,6 +79,7 @@ export default {
 #login{
   display: flex;
   justify-content: center;
+  
 }
 .signIn{
   display: flex;
