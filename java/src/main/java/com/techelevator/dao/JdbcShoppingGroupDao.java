@@ -2,12 +2,10 @@ package com.techelevator.dao;
 
 import com.techelevator.model.ShoppingGroupDto;
 import com.techelevator.model.ShoppingGroup;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +13,6 @@ import java.util.List;
 public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 
     private final JdbcTemplate jdbcTemplate;
-    @Autowired
-    private ShoppingGroupDao shoppingGroupDao;
 
     public JdbcShoppingGroupDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -70,7 +66,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, ?) "
                 + "RETURNING group_id";
         Integer newShoppingGroupId = jdbcTemplate.queryForObject(sql, Integer.class, shoppingGroupDto.getGroupName(), shoppingGroupDto.getInvitationCode());
-        return shoppingGroupDao.getGroupById(newShoppingGroupId);
+        return this.getGroupById(newShoppingGroupId);
     }
 
     @Override

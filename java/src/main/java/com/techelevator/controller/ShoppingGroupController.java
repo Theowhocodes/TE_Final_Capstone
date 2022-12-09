@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -51,12 +52,11 @@ public class ShoppingGroupController {
     // CREATE NEW SHOPPING GROUP
    @PostMapping("/create")
    @ResponseStatus(HttpStatus.CREATED)
-   public ShoppingGroup createGroup(@RequestBody ShoppingGroupDto shoppingGroupDto, Principal principal) {
+   public ShoppingGroup createGroup(@Valid @RequestBody ShoppingGroupDto shoppingGroupDto, Principal principal) {
        // receive ShoppingGroupDTO object -> make new ShoppingGroup object
        ShoppingGroup newGroup = shoppingGroupDao.createGroup(shoppingGroupDto);
        // after creating group, insert user as the first member
-       // this does not actually work yet
-       //shoppingGroupDao.joinGroup(shoppingGroupDto.getGroupId(), userDao.findIdByUsername(principal.getName()));
+       shoppingGroupDao.joinGroup(newGroup.getGroupId(), userDao.findIdByUsername(principal.getName()));
        return newGroup;
        }
 

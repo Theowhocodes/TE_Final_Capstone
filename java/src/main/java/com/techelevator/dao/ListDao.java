@@ -15,7 +15,9 @@ public interface ListDao {
 
     Lists createList(ListDto listDto);
 
-    Lists claimList(int groupId, ListDto listDto);
+    void claimList(int listId, int listOwner);
+
+    void unclaimList(int listId);
 
 }
 

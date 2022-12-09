@@ -3,7 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Lists;
 import com.techelevator.model.ListDto;
 
-import com.techelevator.model.ShoppingGroup;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -11,13 +11,10 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Component
 public class JdbcListDao implements ListDao {
 
     private final JdbcTemplate jdbcTemplate;
-    private ListDao listDao;
-    private ListDto listDto;
 
     public JdbcListDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -26,7 +23,7 @@ public class JdbcListDao implements ListDao {
     // GET ONE LIST BY ID
     public Lists getListById(int listId){
         Lists oneListById = new Lists();
-        String sql = "SELECT * FROM list WHERE listId = ?";
+        String sql = "SELECT * FROM list WHERE list_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, listId);
         if (results.next()) {
             oneListById= mapRowToList(results);}
@@ -64,15 +61,19 @@ public class JdbcListDao implements ListDao {
     public Lists createList(ListDto listDto) {
         String sql = "INSERT into list (list_name, group_id, claimed, list_owner, completed) values (?, ?, ?, null, ?) RETURNING list_id;";
         Integer newListId = jdbcTemplate.queryForObject(sql, Integer.class, listDto.getListName(), listDto.getGroupId(), listDto.isClaimed(), listDto.isCompleted());
-        return listDao.getListById(newListId);
+        return this.getListById(newListId);
     }
 
 
-    public Lists claimList(int groupId, ListDto listDto) {
-        String sql = "UPDATE list SET claimed = ?, list_owner = ? where group_id = ?;";
-        jdbcTemplate.update(sql, listDao.claimList(groupId, listDto), groupId);
+    public void claimList(int listId, int listOwner) {
+        String sql = "UPDATE list SET claimed = true, list_owner = ? where list_id = ?;";
+        jdbcTemplate.update(sql, listOwner, listId);
+    }
 
-        return null;
+    public void unclaimList(int listId) {
+        String sql = "UPDATE list SET claimed = false, list_owner = null where list_id = ?;";
+        jdbcTemplate.update(sql, listId);
+
     }
 
     private Lists mapRowToList(SqlRowSet rowSet){
