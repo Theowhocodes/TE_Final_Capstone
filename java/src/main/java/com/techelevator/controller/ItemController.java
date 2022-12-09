@@ -23,16 +23,16 @@ public class ItemController {
     }
 
     @GetMapping("/list/{listId}")
-    public List<Item> listAllItemsInList(@PathVariable(value="listId") int listId) {
+    public List<Item> listAllItemsInList(@PathVariable("listId") int listId) {
         return itemDao.listAll(listId);
     }
-//
-//    @GetMapping("/{itemName}")
-//    public Item getItemByItemName(@PathVariable("itemName") String itemName) {
-//        return itemDao.getItemByItemName(itemName);
-//    }
-//
-    @PostMapping("/blah/{itemId}")
+
+    @GetMapping("/name/{itemName}")
+    public Item getItemByItemName(@PathVariable("itemName") String itemName) {
+        return itemDao.getItemByItemName(itemName);
+    }
+
+    @PostMapping("/{itemId}")
     public Item changeQuantity(@PathVariable("itemId") int itemId, @Valid @RequestBody ItemDto itemDto) {
         Item item = itemDao.getItemById(itemId);
 

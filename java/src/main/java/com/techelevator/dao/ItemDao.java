@@ -19,6 +19,8 @@ public interface ItemDao {
 
     void deleteItem(ItemDto itemDto);
 
+    Item createItem(ItemDto itemDto);
+
 
 
 
