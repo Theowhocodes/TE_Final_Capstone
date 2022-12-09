@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -33,13 +34,13 @@ public class ListController {
     // create a new list
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Lists createList(@RequestBody ListDto listDto) {
+    public Lists createList(@Valid @RequestBody ListDto listDto) {
         return listDao.createList(listDto);
     }
 
     //List claimList(int groupId);
     @GetMapping("/{listId}/claim")
-    public Lists claimList(@RequestBody ListDto listDto, @PathVariable("id") int groupId){
+    public Lists claimList(@Valid @RequestBody ListDto listDto, @PathVariable("id") int groupId){
         listDao.claimList(groupId, listDto);
         return getByGroupId(groupId);
     }

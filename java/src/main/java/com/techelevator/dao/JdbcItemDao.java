@@ -35,7 +35,8 @@ public class JdbcItemDao implements ItemDao {
             allItemsInList.add(item);
         }
         return allItemsInList;
-    }
+    }//worked in postman
+
     @Override
     public Item getItemById(int itemId) {
         String sql = "SELECT * FROM item where item_id = ?";
@@ -47,7 +48,8 @@ public class JdbcItemDao implements ItemDao {
            item = mapRowToItem(results);
         }
         return item;
-    }
+    }//worked in postman
+
     @Override
     public Item getItemByItemName(String itemName) {
         String sql = "SELECT * FROM item WHERE item_name = ?";
@@ -60,7 +62,8 @@ public class JdbcItemDao implements ItemDao {
         }
 
         return item;
-    }
+    }//works in postman
+
     @Override
     public void changeQuantity(ItemDto itemDto) {
         String sql = "UPDATE item SET item_quantity = ? where item_id = ?";
