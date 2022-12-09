@@ -17,9 +17,9 @@ public interface ItemDao {
 
     Item modifyItem(ItemDto itemDto);
 
-    void deleteItem(ItemDto itemDto);
+    void deleteItem(int itemId);
 
-    Item createItem(ItemDto itemDto);
+    void createItem(ItemDto itemDto);
 
 
 

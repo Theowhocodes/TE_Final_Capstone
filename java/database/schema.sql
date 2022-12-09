@@ -15,8 +15,8 @@ CREATE TABLE users (
 
 CREATE TABLE shopping_group (
     group_id serial NOT NULL PRIMARY KEY,
-	group_name varchar(200),
-    invitation_code int NOT NULL
+	group_name varchar(200)
+
 );
 
 CREATE TABLE shopping_group_users (
@@ -52,7 +52,7 @@ CREATE TABLE item (
 	date_added date NOT NULL DEFAULT CURRENT_DATE,
 	completed boolean DEFAULT false,
 	last_modified timestamp,
-	last_modified_by varchar (100),
+	last_modified_by INT,
 
     CONSTRAINT fk_list_id FOREIGN KEY (list_id) REFERENCES list (list_id),
 	CONSTRAINT fk_added_by FOREIGN KEY (added_by) REFERENCES users (user_id)
