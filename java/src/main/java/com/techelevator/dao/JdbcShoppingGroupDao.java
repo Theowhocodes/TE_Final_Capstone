@@ -33,9 +33,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
                 "WHERE user_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
-            
-
-            shoppingGroups.add(mapRowToShoppingGroup(results));   // map to ShoppingGroup object
+            shoppingGroups.add(mapRowToShoppingGroupWithMemberSince(results));   // map to ShoppingGroup object
         }
         return shoppingGroups;
     }
@@ -72,45 +70,43 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, ?) "
                 + "RETURNING group_id";
         Integer newShoppingGroupId = jdbcTemplate.queryForObject(sql, Integer.class, shoppingGroupDto.getGroupName(), shoppingGroupDto.getInvitationCode());
-
         return shoppingGroupDao.getGroupById(newShoppingGroupId);
     }
 
     @Override
-    public boolean joinGroup(int groupId, int userId) {
+    public void joinGroup(int groupId, int userId) {
 
         String sql = "INSERT INTO shopping_group_users (group_id, user_id) VALUES (?, ?) " +
                     "RETURNING shopping_group_users_id";
 
         Integer shoppingGroupUsersId = jdbcTemplate.queryForObject(sql, Integer.class, groupId, userId);
 
-        return shoppingGroupUsersId != null;
     }//do we need a separate DAO for shopping_group_users???
 
     @Override
     public void leaveGroup(int groupId, int userId) {
-
-        String sql = "DELETE FROM shopping_group_users WHERE (group_id = ? and user_id = ?";
+        String sql = "DELETE FROM shopping_group_users WHERE group_id = ? AND user_id = ?";
+        jdbcTemplate.update(sql, groupId, userId);
 
     }
 
-    // Join a shopping group
-//    public boolean joinGroup(int groupId, int userId){
-//        String sql = "INSERT INTO SHOPPING_GROUP_USERS (group_id, user_id)" +
-//                "VALUES ((SELECT group_id FROM shopping_group WHERE group_id = '?')," +
-//                "(SELECT user_id FROM  users WHERE user_id = '?'))" +
-//                "RETURNING shopping_group_users_id";
-//        Integer shoppingGroupUserId = 0;
-//        return true;
-  //  }
-
-    private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
+    private ShoppingGroup mapRowToShoppingGroupWithMemberSince(SqlRowSet rowSet) {
         ShoppingGroup shoppingGroup = new ShoppingGroup();
         shoppingGroup.setGroupId(rowSet.getInt("group_id"));
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
         shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
         shoppingGroup.setMemberSince(rowSet.getString("member_since"));
         //shoppingGroup.setMembershipAge(rowSet.getInt("membership_age"));
+
+        return shoppingGroup;
+
+    }
+
+    private ShoppingGroup mapRowToShoppingGroup(SqlRowSet rowSet) {
+        ShoppingGroup shoppingGroup = new ShoppingGroup();
+        shoppingGroup.setGroupId(rowSet.getInt("group_id"));
+        shoppingGroup.setGroupName(rowSet.getString("group_name"));
+        shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
 
         return shoppingGroup;
 
