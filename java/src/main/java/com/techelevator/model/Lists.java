@@ -1,10 +1,10 @@
 package com.techelevator.model;
 
-<<<<<<< HEAD:java/src/main/java/com/techelevator/model/Lists.java
-public class Lists<L> {
-=======
+
+
+
 public class Lists {
->>>>>>> 8f884ce7c0a5d954495fecd4dce5d6e54fddba82:java/src/main/java/com/techelevator/model/List.java
+
 
 
     private int listId;

@@ -17,20 +17,12 @@ public class JdbcListDao implements ListDao {
 
     private final JdbcTemplate jdbcTemplate;
     private ListDao listDao;
+    private ListDto listDto;
 
-    public JdbcListDao(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate; }
-
-<<<<<<< HEAD
-
-    public Lists getByGroupId(int groupId){
-        String sql = "SELECT group_id, COUNT(item.item_quantity) as item_count FROM list JOIN item ON item.list_id = list.list_id GROUP BY group_id ORDER BY group_id ASC;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
-        results.next();
-        Lists lists = mapRowToList(results);
-        return lists;
-
+    public JdbcListDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
-=======
+
     // GET ONE LIST BY ID
     public Lists getListById(int listId){
         Lists oneListById = new Lists();
@@ -48,7 +40,9 @@ public class JdbcListDao implements ListDao {
         if (results.next()) {
             singleList = mapRowToList(results);}
         return singleList;
->>>>>>> 8f884ce7c0a5d954495fecd4dce5d6e54fddba82
+
+    }
+
 
     public List<Lists> getAllListsByGroupId(int groupId) {
         List<Lists> allGroupLists = new ArrayList<>();
@@ -62,28 +56,15 @@ public class JdbcListDao implements ListDao {
     }
 
 
-    public List<Lists> getAllListsByGroupId(int groupId) {
-        List<Lists> allGroupLists = new ArrayList<>();
-        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, completed " +
-                "FROM list WHERE group_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
-        while (results.next()) {
-            allGroupLists.add(mapRowToList(results));
-        }
-        return allGroupLists;
+    public Lists getByGroupId(int groupId) {
+        return null;
     }
 
     @Override
     public Lists createList(ListDto listDto) {
-<<<<<<< HEAD
-        String sql = "INSERT into list (list_id, list_name, group_id, claimed, list_owner, completed) values(?, ?, ?, ?, ?, ?) RETURNING list_id;";
-        Integer newList = jdbcTemplate.queryForObject(sql, Integer.class, listDto.getListId(), listDto.getListName(), listDto.getGroupId(), listDto.getListOwner());
-        return getByGroupId(newList);
-=======
         String sql = "INSERT into list (list_name, group_id, claimed, list_owner, completed) values (?, ?, ?, null, ?) RETURNING list_id;";
         Integer newListId = jdbcTemplate.queryForObject(sql, Integer.class, listDto.getListName(), listDto.getGroupId(), listDto.isClaimed(), listDto.isCompleted());
         return listDao.getListById(newListId);
->>>>>>> 8f884ce7c0a5d954495fecd4dce5d6e54fddba82
     }
 
 
@@ -104,4 +85,6 @@ public class JdbcListDao implements ListDao {
         lists.setCompleted(rowSet.getBoolean("completed"));
         return lists;
     }
+
+
 }
