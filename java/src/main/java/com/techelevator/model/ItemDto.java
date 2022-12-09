@@ -1,12 +1,16 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
 public class ItemDto {
+
     private int itemId;
     private int itemListId;
     private User addedBy;
+    @JsonProperty("item_name")
     private String itemName;
     private int itemQuantity;
     private Date dateAdded;
@@ -15,19 +19,6 @@ public class ItemDto {
     private User lastModifiedBy;
     private String category;
 
-    public ItemDto(int itemId, int itemListId, User addedBy, String itemName, int itemQuantity, Date dateAdded, boolean isCompleted, Timestamp lastModified, User lastModifiedBy, String category) {
-        this.itemId = itemId;
-        this.itemListId = itemListId;
-        this.addedBy = addedBy;
-        this.itemName = itemName;
-        this.itemQuantity = itemQuantity;
-        this.dateAdded = dateAdded;
-        this.isCompleted = isCompleted;
-        this.lastModified = lastModified;
-        this.lastModifiedBy = lastModifiedBy;
-
-        this.category = category;
-    }
 
     public String getCategory() {
         return category;

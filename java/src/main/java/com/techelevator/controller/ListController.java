@@ -37,7 +37,7 @@ public class ListController {
     // create a new list
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Lists createList(@RequestBody ListDto listDto) {
+    public Lists createList(@Valid @RequestBody ListDto listDto) {
         return listDao.createList(listDto);
     }
 

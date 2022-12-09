@@ -32,7 +32,7 @@ public class ItemController {
         return itemDao.getItemByItemName(itemName);
     }
 
-    @PostMapping("/{itemId}")
+    @PutMapping("/{itemId}/quantity")
     public Item changeQuantity(@PathVariable("itemId") int itemId, @Valid @RequestBody ItemDto itemDto) {
         Item item = itemDao.getItemById(itemId);
 
@@ -41,8 +41,14 @@ public class ItemController {
         }
         return item;
     }
+
+    @PostMapping("")//not sure this is what the path should be
+    public Item createItem(ItemDto itemDto) {
+        return itemDao.createItem(itemDto);
+    }
+
 //
-//    @DeleteMapping("/{itemId")
+//    @DeleteMapping("/{itemId}")
 //    public void deleteItem(@PathVariable("itemId") int itemId) {
 //
 //    }
