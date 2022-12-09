@@ -1,12 +1,14 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.ListDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Lists;
 import com.techelevator.model.ListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -17,6 +19,8 @@ public class ListController {
 
     @Autowired
     private ListDao listDao;
+    @Autowired
+    private UserDao userDao;
 
     // get one list by group id
     @GetMapping("/list/{groupId}")
@@ -37,13 +41,16 @@ public class ListController {
         return listDao.createList(listDto);
     }
 
-    //List claimList(int groupId);
-    @GetMapping("/{listId}/claim")
-    public Lists claimList(@RequestBody ListDto listDto, @PathVariable("id") int groupId){
-        listDao.claimList(groupId, listDto);
-        return getByGroupId(groupId);
+    @PutMapping("/{listId}/claim")
+    public void claimList(@RequestBody @PathVariable("listId") int listId, Principal principal){
+        listDao.claimList(listId, userDao.findIdByUsername(principal.getName()));
+
     }
 
+    @PutMapping("/{listId}/unclaim")
+    public void unclaimList(@RequestBody @PathVariable("listId") int listId){
+        listDao.unclaimList(listId);
 
+    }
 
 }
