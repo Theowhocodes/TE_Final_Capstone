@@ -14,11 +14,12 @@ public class Item {
     private boolean isCompleted;
     private Timestamp lastModified;
     private User lastModifiedBy;
+    private String category;
 
     public Item() {};
 
     public Item(int itemId, int itemListId, User addedBy, String itemName, int itemQuantity, Date dateAdded,
-                boolean isCompleted, Timestamp lastModified, User lastModifiedBy) {
+                boolean isCompleted, Timestamp lastModified, User lastModifiedBy, String category) {
         this.itemId = itemId;
         this.itemListId = itemListId;
         this.addedBy = addedBy;
@@ -28,6 +29,15 @@ public class Item {
         this.isCompleted = isCompleted;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getItemId() {

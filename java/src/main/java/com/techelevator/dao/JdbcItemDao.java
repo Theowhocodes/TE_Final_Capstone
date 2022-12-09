@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Item;
+import com.techelevator.model.ItemDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -12,12 +13,15 @@ import java.util.List;
 public class JdbcItemDao implements ItemDao {
 
     private final JdbcTemplate jdbcTemplate;
+    private UserDao userDao;
 
 
-    public JdbcItemDao(JdbcTemplate jdbcTemplate) {
+    public JdbcItemDao(JdbcTemplate jdbcTemplate, UserDao userDao) {
         this.jdbcTemplate = jdbcTemplate;
-
+        this.userDao = userDao;
     }
+
+
     @Override
     public List<Item> listAll(int listId) {
         List<Item> allItemsInList = new ArrayList<>();
@@ -56,26 +60,34 @@ public class JdbcItemDao implements ItemDao {
         return item;
     }
     @Override
-    public Item changeQuantity(Item item) {
+    public void changeQuantity(ItemDto itemDto) {
         String sql = "UPDATE item SET (item_quantity = ?) where (item_id = ?)";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, item.getItemQuantity(), item.getItemId());
-
-        Item updatedQuantity = new Item();
-        if (results.next()) {
-            updatedQuantity = mapRowToItem(results);
-        }
-        return updatedQuantity;
+        int updatedQuantity = jdbcTemplate.update(sql, itemDto.getItemQuantity(), itemDto.getItemId());
     }
+
     @Override
-    public Item modifyItem(Item item) {
-        String sql = "UPDATE item ";
-        return null;//ItemDTO?
+    public Item modifyItem(ItemDto itemDto) {
+        String sql = "UPDATE item SET item_id = ?, list_id = ?, added_by = ?, item_name = ?, item_quantity = ?, category = ?" +
+                "date_added = ?, completed = ?, last_modified = ?, last_modified_by = ?";
+
+        jdbcTemplate.update(sql, itemDto.getItemId(), itemDto.getItemListId(), itemDto.getAddedBy(), itemDto.getItemName(),
+                            itemDto.getItemQuantity(), itemDto.getCategory(), itemDto.getDateAdded(), itemDto.isCompleted(),
+                            itemDto.getLastModified(), itemDto.getLastModifiedBy());
+        return null;
+    }
+
+    @Override
+    public void deleteItem(ItemDto itemDto) {
+        String sql = "DELETE from item where item_id = ?";
+
+        jdbcTemplate.update(sql, itemDto.getItemId());
     }
 
     private Item mapRowToItem(SqlRowSet sqlRowSet) {
         Item item = new Item();
-     //   item.setAddedBy(sqlRowSet.getObject());
+
+        item.setAddedBy(userDao.getUserById(sqlRowSet.getInt("added_by")));
         item.setCompleted(sqlRowSet.getBoolean("completed"));
         item.setDateAdded(sqlRowSet.getDate("date_added"));
         item.setItemId(sqlRowSet.getInt("item_id"));
@@ -83,8 +95,9 @@ public class JdbcItemDao implements ItemDao {
         item.setItemName(sqlRowSet.getString("item_name"));
         item.setItemQuantity(sqlRowSet.getInt("item_quantity"));
         item.setLastModified(sqlRowSet.getTimestamp("last_modified"));
-       // item.setLastModifiedBy(sqlRowSet.getObject());
-
+        item.setLastModifiedBy(userDao.findByUsername(sqlRowSet.getString("last_modified_by")));
         return item;
     }
 }
+
+//method to get all lists by user

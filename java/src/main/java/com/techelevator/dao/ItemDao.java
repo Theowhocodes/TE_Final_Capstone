@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Item;
+import com.techelevator.model.ItemDto;
 
 import java.util.List;
 
@@ -12,10 +13,11 @@ public interface ItemDao {
 
     Item getItemByItemName(String itemName);
 
-    Item changeQuantity(Item item); //maybe dont need this, just use modify
+    void changeQuantity(ItemDto itemDto); //maybe dont need this, just use modify
 
-    Item modifyItem(Item item);
+    Item modifyItem(ItemDto itemDto);
 
+    void deleteItem(ItemDto itemDto);
 
 
 
