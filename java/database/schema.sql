@@ -51,8 +51,8 @@ CREATE TABLE item (
 	category varchar (100),
 	date_added date NOT NULL DEFAULT CURRENT_DATE,
 	completed boolean DEFAULT false,
-	last_modified timestamp NOT NULL,
-	last_modified_by varchar (100) NOT NULL,
+	last_modified timestamp,
+	last_modified_by varchar (100),
 
     CONSTRAINT fk_list_id FOREIGN KEY (list_id) REFERENCES list (list_id),
 	CONSTRAINT fk_added_by FOREIGN KEY (added_by) REFERENCES users (user_id)
