@@ -1,15 +1,16 @@
 <template>
   <div >
-      <form>
-          <input type="text" /> Enter Invitation Code
+      <form class="has-text-centered">
+          <input class="has-text-centered" type="text" placeholder="Enter Invite Code" /> 
       </form>
-      <h1>Your Shopping Groups</h1>
-      <div class= "groupList"
+
+      <h1 class="has-text-centered">Your Shopping Groups</h1>
+      <div class= " groupList section is-medium"
       v-for="group in groups"
       v-bind:key="group.groupId"
       v-bind:group="shoppingGroup"
       >
-      <router-link v-bind:to="{ name: 'Group', params: { id: groupId } }">
+      <router-link class="fa fa-group" style="font-size:36px" v-bind:to="{ name: 'Group', params: { id: groupId } }">
           {{ group.groupName }} </router-link>
      
         
@@ -43,6 +44,13 @@ export default {
 </script>
 
 <style>
+
+.musicPlayer{
+  display: inline-flex;
+  width: 30%;
+}
+
+
 
 </style>
 

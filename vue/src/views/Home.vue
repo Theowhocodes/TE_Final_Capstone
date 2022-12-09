@@ -1,33 +1,33 @@
 <template>
-  <div class="home" >
-    <h1>Home</h1>
-    <the-board/>
+  <div  >
+
+    <!-- <h1 class="has-text-centered">Home</h1> -->
+    <div class="columns">
+    <the-board class="column is-8 offset-2 is-centered "/>
+    <music-player id="musicPlayer" class="column is-1 "/>
+    </div>
   </div>
 </template>
 
 <script>
 import TheBoard from '../components/TheBoard.vue';
-
+import MusicPlayer from '../components/MusicPlayer.vue';
 
 
 export default {
   components: {
-    TheBoard  
+    TheBoard, MusicPlayer  
   },
   name: "home"
 };
 </script>
 
 <style scoped>
-#groupBoard{
-  height:100vh ;
-  width: 100vmax;
-  background-size: 100% ;
-  background-repeat: no-repeat;
-  background-size:contain ;
-  margin: 0;
-  padding: 0;
-  border: 0;
+
+#musicPlayer{
+  display: flex;
+  width: 30%;
+  height: max-content;
 }
 
 
