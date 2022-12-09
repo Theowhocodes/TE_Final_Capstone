@@ -19,18 +19,19 @@ public class ListController {
     private ListDao listDao;
 
 
-    @GetMapping({"/lists/{id}"})
+    @GetMapping({"/list/{id}"})
     public Lists getByGroupId(@PathVariable("id") int groupId) {
         return listDao.getByGroupId(groupId);
     }
 
+    //show all lists belonging to one group
     @GetMapping("/{groupId}")
     public List <Lists> getAllListsByGroupId(@PathVariable("groupId") int groupId){
     return listDao.getAllListsByGroupId(groupId);
     }
 
     //List createList(List list);
-    @PostMapping("/path")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Lists createList(@RequestBody ListDto listDto) {
         return listDao.createList(listDto);

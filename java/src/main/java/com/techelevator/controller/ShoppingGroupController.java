@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.security.Principal;
 import java.util.List;
 
@@ -48,14 +49,23 @@ public class ShoppingGroupController {
     }
 
     // CREATE NEW SHOPPING GROUP
-   // after creating group, insert user as the first member of shopping_group_users
    @PostMapping("/create")
    @ResponseStatus(HttpStatus.CREATED)
-   public ShoppingGroup createGroup(@RequestBody ShoppingGroupDto shoppingGroupDto) {
+   public ShoppingGroup createGroup(@RequestBody ShoppingGroupDto shoppingGroupDto, Principal principal) {
        // receive ShoppingGroupDTO object -> make new ShoppingGroup object
-       return shoppingGroupDao.createGroup(shoppingGroupDto);
-
+       ShoppingGroup newGroup = shoppingGroupDao.createGroup(shoppingGroupDto);
+       // after creating group, insert user as the first member
+       // @TODO this does not actually work yet 
+       shoppingGroupDao.joinGroup(shoppingGroupDto.getGroupId(), userDao.findIdByUsername(principal.getName()));
+       return newGroup;
        }
+
+   // LEAVE A GROUP
+    @DeleteMapping("/{groupId}/leave")
+    public void leaveGroup(@PathVariable("groupId") int groupId, Principal principal) {
+        shoppingGroupDao.leaveGroup(groupId, userDao.findIdByUsername(principal.getName()));
+    }
+
 
    }
 

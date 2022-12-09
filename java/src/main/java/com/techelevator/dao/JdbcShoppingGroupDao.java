@@ -85,20 +85,10 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
 
     @Override
     public void leaveGroup(int groupId, int userId) {
-
-        String sql = "DELETE FROM shopping_group_users WHERE (group_id = ? and user_id = ?";
+        String sql = "DELETE FROM shopping_group_users WHERE group_id = ? AND user_id = ?";
+        jdbcTemplate.update(sql, groupId, userId);
 
     }
-
-    // Join a shopping group
-//    public boolean joinGroup(int groupId, int userId){
-//        String sql = "INSERT INTO SHOPPING_GROUP_USERS (group_id, user_id)" +
-//                "VALUES ((SELECT group_id FROM shopping_group WHERE group_id = '?')," +
-//                "(SELECT user_id FROM  users WHERE user_id = '?'))" +
-//                "RETURNING shopping_group_users_id";
-//        Integer shoppingGroupUserId = 0;
-//        return true;
-  //  }
 
     private ShoppingGroup mapRowToShoppingGroupWithMemberSince(SqlRowSet rowSet) {
         ShoppingGroup shoppingGroup = new ShoppingGroup();
