@@ -18,19 +18,19 @@ public class ListController {
     @Autowired
     private ListDao listDao;
 
-
-    @GetMapping({"/list/{id}"})
+    // get one list by group id
+    @GetMapping("/list/{groupId}")
     public Lists getByGroupId(@PathVariable("id") int groupId) {
-        return listDao.getByGroupId(groupId);
+        return listDao.getListByGroupId(groupId);
     }
 
-    //show all lists belonging to one group
+    // show all lists belonging to one group
     @GetMapping("/{groupId}")
     public List <Lists> getAllListsByGroupId(@PathVariable("groupId") int groupId){
     return listDao.getAllListsByGroupId(groupId);
     }
 
-    //List createList(List list);
+    // create a new list
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Lists createList(@RequestBody ListDto listDto) {
@@ -38,7 +38,7 @@ public class ListController {
     }
 
     //List claimList(int groupId);
-    @GetMapping("/somethingdifferent/{id}")
+    @GetMapping("/{listId}/claim")
     public Lists claimList(@RequestBody ListDto listDto, @PathVariable("id") int groupId){
         listDao.claimList(groupId, listDto);
         return getByGroupId(groupId);
