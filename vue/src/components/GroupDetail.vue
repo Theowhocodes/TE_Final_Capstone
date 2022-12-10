@@ -12,7 +12,7 @@
       v-bind:list="list"
       >
       
-      List name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">
+      List name: <router-link v-bind:to="{ name: 'list', params: { listId: list.listId } }">
           {{list.listName}} </router-link>  
      
         

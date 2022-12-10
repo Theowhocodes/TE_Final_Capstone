@@ -1,18 +1,23 @@
 <template>
   <div>
-      <all-lists />
+      <list-detail/>
+      
+      <create-item/>
     </div>
 </template>
 
 <script>
-import AllLists from '../components/AllLists.vue'
+import CreateItem from '../components/CreateItem.vue'
+import ListDetail from '../components/ListDetail.vue'
 
 export default {
   components: {
-    AllLists
+    ListDetail,
+    CreateItem, 
   }
 }
 </script>
+    
 
 <style>
 
