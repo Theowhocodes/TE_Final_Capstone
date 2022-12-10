@@ -64,7 +64,7 @@ const router = new Router({
       }
     },
 {
-    path: "/groups/lists/:groupId",
+    path: "/groups/lists/list/:listId",
     name: 'list',
     component: List,
     meta: {

@@ -1,15 +1,15 @@
 <template>
   <div>
-      <all-lists />
+      <list-detail />
     </div>
 </template>
 
 <script>
-import AllLists from '../components/AllLists.vue'
+import ListDetail from '../components/ListDetail.vue'
 
 export default {
   components: {
-    AllLists
+    ListDetail
   }
 }
 </script>
