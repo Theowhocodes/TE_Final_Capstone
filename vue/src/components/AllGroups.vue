@@ -1,8 +1,6 @@
 <template>
   <div >
-      <form>
-          <input type="text" /> Enter Invitation Code
-      </form>
+
       <h3>Your Shopping Groups</h3>
       <div class= "groupList"
       v-for="group in groups"

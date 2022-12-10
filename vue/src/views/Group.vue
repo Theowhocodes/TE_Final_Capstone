@@ -1,8 +1,8 @@
 <template>
   <div>
-    
     <group-detail />
     <leave-group />
+
       
     </div>
 </template>
@@ -11,10 +11,12 @@
 import GroupDetail from '../components/GroupDetail.vue';
 import LeaveGroup from '../components/LeaveGroup.vue';
 
+
 export default {
   components: {
     GroupDetail,
     LeaveGroup
+    
     
   }
 }
