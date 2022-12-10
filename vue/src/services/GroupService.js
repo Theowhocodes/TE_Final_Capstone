@@ -26,6 +26,12 @@ createShoppingGroup(shoppingGroup) {
 
 leaveShoppingGroup(groupId){
     return axios.delete(`/groups/${groupId}/leave`);
-}
+},
+
+// join group
+
+joinShoppingGroup(groupId, username){
+    return axios.post(`/groups/${groupId}/join` + groupId, username)
+  },
 
 }

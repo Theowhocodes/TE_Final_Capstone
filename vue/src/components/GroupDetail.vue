@@ -2,8 +2,6 @@
   <div >
      
       <h3> {{group.groupName}} | Invitation Code: {{group.groupId}}</h3>
-
-     
       <h4>Create a list</h4>
       <h4>Your Group Lists</h4>
       <div class= "groupList"
@@ -13,9 +11,9 @@
       >
       
       List name: <router-link v-bind:to="{ name: 'list', params: { listId: list.listId } }">
-          {{list.listName}} </router-link>  
-     
-        
+          {{list.listName}} </router-link> | Total items on list: {{list.count}}
+    
+    
       </div>
   </div>
 </template>
@@ -25,6 +23,8 @@
 import groupService from '../services/GroupService.js';
 
 export default {
+  name: "group-detail",
+
   data() {
     return {
     lists: [],

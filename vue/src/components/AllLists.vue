@@ -12,7 +12,7 @@
       >
       
       List name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">
-          {{list.listName}} </router-link>  
+          {{list.listName}} </router-link>  | {{list.itemCount}}
      
         
       </div>
