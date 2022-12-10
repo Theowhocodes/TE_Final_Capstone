@@ -90,6 +90,7 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
         ShoppingGroup shoppingGroup = new ShoppingGroup();
         shoppingGroup.setGroupId(rowSet.getInt("group_id"));
         shoppingGroup.setGroupName(rowSet.getString("group_name"));
+        //shoppingGroup.setInvitationCode(rowSet.getInt("invitation_code"));
         ;shoppingGroup.setMemberSince(rowSet.getString("member_since"));
         //shoppingGroup.setMembershipAge(rowSet.getInt("membership_age"));
 

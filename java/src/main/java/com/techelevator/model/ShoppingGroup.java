@@ -7,14 +7,13 @@ import java.time.LocalDate;
 public class ShoppingGroup {
     private int groupId;
     private String groupName;
-    //private int invitationCode;
+
     private int membershipAge;
     private String memberSince;
 
     public ShoppingGroup(int groupId, String groupName, String memberSince) {
         this.groupId = groupId;
         this.groupName = groupName;
-        //this.invitationCode = invitationCode;
         this.memberSince = memberSince;
     }
 
@@ -37,15 +36,6 @@ public class ShoppingGroup {
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
-
-//    public int getInvitationCode() {
-//        return invitationCode;
-//    }
-
-//    public void setInvitationCode(int invitationCode) {
-//        this.invitationCode = invitationCode;
-//    }
-
 
 
     public int getMembershipAge() {

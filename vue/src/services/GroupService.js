@@ -16,10 +16,16 @@ getAllListsByGroupId(groupId) {
 
 },
 
-//add method to create group, pass in group name 
+//create group, pass in group name 
 
 createShoppingGroup(shoppingGroup) {
     return axios.post(`/groups/create`, shoppingGroup);
+},
+
+// leave group
+
+leaveShoppingGroup(groupId){
+    return axios.delete(`/groups/${groupId}/leave`);
 }
 
 }
