@@ -1,30 +1,58 @@
 <template>
-  <div>
-      <h2> {{list.listName}}</h2>
+  <div >
+     
+      <h3> {{group.groupName}} | Invitation Code: {{group.groupId}}</h3>
+
+     
+      <h4>Create a list</h4>
+      <h4>Your Group Lists</h4>
+      <div class= "groupList"
+      v-for="list in lists"
+      v-bind:key="list.groupId"
+      v-bind:list="list"
+      >
       
-    </div>
+      List name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">
+          {{list.listName}} </router-link>  
+     
+        
+      </div>
+  </div>
 </template>
 
-<script>
+<script> 
+
 import groupService from '../services/GroupService.js';
+
 export default {
- data() {
+  data() {
     return {
-    name: "group-detail",
-    list: ''
-        
+    lists: [],
+    list: {
+
+    },
+
+    group: {
+
+    }
     };
   },
 
-    created(){
+  created() {
     const groupId = this.$route.params.groupId; 
-    
-    groupService.getAllListsByGroupId(groupId).then(response => {
-      this.list = response; // overwrite empty group object with response from GET request
-        
-    })
 
+    groupService.getAllListsByGroupId(groupId).then(response => {
+    this.lists = response.data; 
+      
+    });
+
+    groupService.getOneGroupById(groupId).then(response => {
+      this.group = response.data;
+    }
+    )
   }
+
+  
 
 }
 </script>

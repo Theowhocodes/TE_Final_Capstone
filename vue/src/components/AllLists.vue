@@ -3,7 +3,8 @@
       <form>
           <input type="text" /> Enter Invitation Code
       </form>
-      <h1>Your Group Lists</h1>
+      <h3>Create a list</h3>
+      <h3>Your Group Lists</h3>
       <div class= "groupList"
       v-for="list in lists"
       v-bind:key="list.groupId"

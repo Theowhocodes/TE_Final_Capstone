@@ -14,6 +14,18 @@ return axios.get(`/groups/${groupId}`)
 getAllListsByGroupId(groupId) {
     return axios.get(`/groups/lists/${groupId}`)
 
+},
+
+//create group, pass in group name 
+
+createShoppingGroup(shoppingGroup) {
+    return axios.post(`/groups/create`, shoppingGroup);
+},
+
+// leave group
+
+leaveShoppingGroup(groupId){
+    return axios.delete(`/groups/${groupId}/leave`);
 }
 
 }
