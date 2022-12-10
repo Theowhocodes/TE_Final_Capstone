@@ -30,15 +30,15 @@ public class JdbcListDao implements ListDao {
         return oneListById;
     }
 
-    public Lists getListByGroupId(int groupId){
-        Lists singleList = new Lists();
-        String sql = "SELECT group_id, COUNT(item.item_quantity) as item_count FROM list JOIN item ON item.list_id = list.list_id GROUP BY group_id ORDER BY group_id ASC;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
-        if (results.next()) {
-            singleList = mapRowToList(results);}
-        return singleList;
-
-    }
+//    public Lists getListByGroupId(int groupId){
+//        Lists singleList = new Lists();
+//        String sql = "SELECT group_id, COUNT(item.item_quantity) as item_count FROM list JOIN item ON item.list_id = list.list_id GROUP BY group_id ORDER BY group_id ASC;";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
+//        if (results.next()) {
+//            singleList = mapRowToList(results);}
+//        return singleList;
+//
+//    }
 
     public List<Lists> getAllListsByGroupId(int groupId) {
         List<Lists> allGroupLists = new ArrayList<>();

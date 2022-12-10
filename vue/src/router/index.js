@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import List from '../views/List.vue'
 import Group from '../views/Group.vue'
+import Item from '../views/Item.vue'
 
 Vue.use(Router)
 
@@ -70,7 +71,17 @@ const router = new Router({
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: "/items/:itemId",
+    name: 'item',
+    component: Item, 
+    meta: {
+      requiresAuth: true
+    }
   }
+
+
 
   ]
 })
