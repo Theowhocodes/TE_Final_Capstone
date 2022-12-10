@@ -9,8 +9,8 @@ export default {
     claimList(listId) {
         return axios.put(`/groups/lists/${listId}/claim`)
     },
-    getAllItemsInList() {
-
+    getAllItemsInList(listId) {
+        return axios.get(`items/list/${listId}`)
     }
 
 // getAllItemsInListById(listId) {

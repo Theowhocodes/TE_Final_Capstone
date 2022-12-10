@@ -3,11 +3,15 @@
       <h3> {{ list.listName }} </h3>
 
       <div class= "itemsInList"
-      v-for="item in list"
+      v-for="item in items"
       v-bind:key="item.listId"
       v-bind:item="item"
-      >
+      > 
+      <router-link v-bind:to="{ name: 'item', params: { itemId: item.itemId } }">
+          {{ item.itemName }} </router-link>
       </div>
+
+      
 
 
 
@@ -23,6 +27,10 @@ export default {
         list: {
 
         },
+        items: [],
+        item: {
+
+        }
         }
     },
     
@@ -32,7 +40,10 @@ export default {
         listService.getListByListId(listId).then(response => {
             this.list = response.data;
         });
-        
+        listService.getAllItemsInList(listId).then(response => {
+            this.items = response.data;
+        });
+
         // listService.claimList(listId).then(response => {
 
         // })
