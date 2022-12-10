@@ -33,8 +33,5 @@ created() {
 </script>
 
 <style>
-.group-form{
-    display: inline-block;
-}
 
 </style>

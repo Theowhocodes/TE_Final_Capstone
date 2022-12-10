@@ -11,7 +11,7 @@
       >
       
       List name: <router-link v-bind:to="{ name: 'list', params: { listId: list.listId } }">
-          {{list.listName}} </router-link>  
+          {{list.listName}} </router-link> | Total items on list: {{list.count}}
     
     
       </div>
@@ -24,7 +24,7 @@ import groupService from '../services/GroupService.js';
 
 export default {
   name: "group-detail",
-  
+
   data() {
     return {
     lists: [],

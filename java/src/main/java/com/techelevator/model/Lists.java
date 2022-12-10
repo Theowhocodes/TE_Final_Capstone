@@ -9,14 +9,21 @@ public class Lists {
     private boolean claimed;
     private int listOwner;
     private boolean completed;
+    private int count;
 
-    public Lists() {
+
+
+    public Lists(int listId, String listName, int groupId, boolean claimed, int listOwner, boolean completed, int itemCount) {
         this.listId = listId;
         this.listName = listName;
         this.groupId = groupId;
         this.claimed = claimed;
         this.listOwner = listOwner;
         this.completed = completed;
+        this.count = count;
+    }
+
+    public Lists() {
     }
 
     public int getListId() {
@@ -65,5 +72,13 @@ public class Lists {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
