@@ -1,8 +1,10 @@
 <template>
+  
   <div>
       <h2> {{list.listName}}</h2>
       
     </div>
+  
 </template>
 
 <script>

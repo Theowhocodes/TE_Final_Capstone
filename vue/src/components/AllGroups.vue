@@ -3,7 +3,7 @@
       <form>
           <input type="text" /> Enter Invitation Code
       </form>
-      <h1>Your Shopping Groups</h1>
+      <h3>Your Shopping Groups</h3>
       <div class= "groupList"
       v-for="group in groups"
       v-bind:key="group.groupId"
@@ -11,10 +11,8 @@
       >
       
        Group name: <router-link v-bind:to="{ name: 'list', params: { groupId: group.groupId}  }">
-          {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} 
-          
-     
-        
+          {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} | Invitation Code: {{group.groupId}}
+   
       </div>
   </div>
 </template>

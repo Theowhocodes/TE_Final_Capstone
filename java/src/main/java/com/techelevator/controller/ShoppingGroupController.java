@@ -23,13 +23,13 @@ public class ShoppingGroupController {
     @Autowired
     private UserDao userDao;
 
-    // GET one shopping group by group_id
+    // get one shopping group by group_id
     @GetMapping("/{groupId}")
     public ShoppingGroup getGroupById(@PathVariable("groupId") int groupId) {
         return shoppingGroupDao.getGroupById(groupId);
     }
 
-    //GET list of all groups by user_id
+    //get list of all groups by user_id
 
     @GetMapping("/users/{userId}")
     public List <ShoppingGroup> getAllShoppingGroupsByUser(Principal principal){
@@ -40,7 +40,7 @@ public class ShoppingGroupController {
         //return shoppingGroupDao.getAllShoppingGroupsByUser(userId);
     //}
 
-    // JOIN A GROUP
+    // join a group
     @PostMapping("/{groupId}/join")
     @ResponseStatus(HttpStatus.OK)
     public void joinGroup(@RequestBody @PathVariable("groupId") int groupId, Principal principal){
@@ -49,7 +49,7 @@ public class ShoppingGroupController {
 
     }
 
-    // CREATE NEW SHOPPING GROUP
+    // create new shopping group
    @PostMapping("/create")
    @ResponseStatus(HttpStatus.CREATED)
    public ShoppingGroup createGroup(@Valid @RequestBody ShoppingGroupDto shoppingGroupDto, Principal principal) {
@@ -60,7 +60,7 @@ public class ShoppingGroupController {
        return newGroup;
        }
 
-   // LEAVE A GROUP
+   // leave a group
     @DeleteMapping("/{groupId}/leave")
     public void leaveGroup(@PathVariable("groupId") int groupId, Principal principal) {
         shoppingGroupDao.leaveGroup(groupId, userDao.findIdByUsername(principal.getName()));

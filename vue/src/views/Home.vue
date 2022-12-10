@@ -1,18 +1,23 @@
 <template>
   <div class="home" >
-    <h1>Home</h1>
+    <h3>Welcome back!</h3>
     <all-groups/>
+    <br />
+    <br />
+    <create-group />
   </div>
 </template>
 
 <script>
 import AllGroups from '../components/AllGroups.vue';
+import CreateGroup from '../components/CreateGroup.vue';
 
 
 
 export default {
   components: {
-    AllGroups 
+    AllGroups,
+    CreateGroup
   },
   name: "home"
 };
