@@ -15,4 +15,11 @@ getAllListsByGroupId(groupId) {
     return axios.get(`/groups/lists/${groupId}`)
 
 },
+
+//add method to create group, pass in group name 
+
+createShoppingGroup(shoppingGroup) {
+    return axios.post(`/groups/create`, shoppingGroup);
+}
+
 }

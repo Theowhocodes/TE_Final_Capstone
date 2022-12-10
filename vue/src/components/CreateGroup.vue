@@ -6,24 +6,44 @@
 
         <form class="group-form">
          <label for="groupName">Group Name:</label>
-        <input type="text" placeholder="Group Name" name="groupName" maxlength="180" id="groupName">
-        <button type="button" name="create" id="create">Create Group</button>
+        <input type="text" placeholder="Group Name" name="groupName" v-model="shoppingGroup.groupName" maxlength="200" id="groupName">
+        <button type="button" v-on:click="createShoppingGroup()" name="create" id="create">Create Group</button>
         </form>
       </div>
   </div>
 </template>
 
 <script>
-export default {
-    name: "create-group"
+import groupService from "../services/GroupService";
 
-}
+export default {
+  name: "create-group",
+ 
+  data() {
+    return {
+      shoppingGroup: {
+       groupName: ""
+      }
+    };
+  },
+  methods: {
+    createShoppingGroup() {
+      groupService.createShoppingGroup(this.shoppingGroup).then(response => {
+        if (response.status === 201){
+          window.location.reload();
+          //this.$router.push({ name: 'home'});
+        }
+
+      })
+
+    }
+  }
+};
 </script>
 
 <style>
 .group-form{
     display: inline-block;
 }
-
 
 </style>

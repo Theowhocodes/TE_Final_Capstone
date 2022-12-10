@@ -1,6 +1,8 @@
 <template>
   
   <div>
+    <!-- try to add name of group, invitation code? -->
+    
       <h2> {{list.listName}}</h2>
       
     </div>
