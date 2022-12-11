@@ -43,7 +43,7 @@ public class JdbcListDao implements ListDao {
     public List<Lists> getAllListsByGroupId(int groupId) {
         List<Lists> allGroupLists = new ArrayList<>();
         String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, list.completed, COUNT(item_name)::int " +
-        "FROM list JOIN item USING (list_id) JOIN shopping_group USING (group_id) " +
+        "FROM list LEFT JOIN item USING (list_id) JOIN shopping_group USING (group_id) " +
         "WHERE group_id = ? GROUP BY list_id ORDER BY list_name asc;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
         while (results.next()) {

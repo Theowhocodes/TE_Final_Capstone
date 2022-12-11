@@ -11,6 +11,10 @@ export default {
     },
     getAllItemsInList(listId) {
         return axios.get(`items/list/${listId}`)
+    },
+
+    createShoppingList(shoppingList){
+        return axios.post(`/groups/lists/create`, shoppingList)
     }
 
 // getAllItemsInListById(listId) {
