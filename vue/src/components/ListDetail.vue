@@ -1,6 +1,10 @@
 <template>
   <div>
-      <h3> {{ list.listName }} </h3>
+      <h3> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwner}` : "Unclaimed" }} </h3>
+      <button @click="claimList()">
+         {{ list.claimed ? "Unclaim" : "Claim" }}
+         </button>
+    
 
       <div class= "itemsInList"
       v-for="item in items"

@@ -7,9 +7,9 @@ INSERT INTO users (user_id, username, password_hash, role, email) VALUES (defaul
 INSERT INTO users (user_id, username, password_hash, role, email) VALUES (default, 'testuser2', 12345, 'ROLE_USER', 'test2@test.com');
 INSERT INTO users (user_id, username, password_hash, role, email) VALUES (default, 'testuser3', 12345, 'ROLE_USER', 'test3@test.com');
 
-INSERT INTO shopping_group (group_id, group_name) VALUES (default, 'test group 1');
-INSERT INTO shopping_group (group_id, group_name) VALUES (default, 'test group 2');
-INSERT INTO shopping_group (group_id, group_name) VALUES (default, 'test group 3');
+INSERT INTO shopping_group (group_id, group_name, invitation_code) VALUES (default, 'test group 1', 83472);
+INSERT INTO shopping_group (group_id, group_name, invitation_code) VALUES (default, 'test group 2', 23928);
+INSERT INTO shopping_group (group_id, group_name, invitation_code) VALUES (default, 'test group 3', 13232);
 
 INSERT INTO shopping_group_users (group_id, user_id, date_joined) VALUES(1, 1, default);
 INSERT INTO shopping_group_users (group_id, user_id, date_joined) VALUES(2, 1, default);

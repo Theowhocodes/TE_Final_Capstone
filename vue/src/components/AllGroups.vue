@@ -1,6 +1,5 @@
 <template>
   <div >
-
       <h3>Your Shopping Groups</h3>
       <div class= "groupList"
       v-for="group in groups"
@@ -9,7 +8,7 @@
       >
       
        Group name: <router-link v-bind:to="{ name: 'group', params: { groupId: group.groupId}  }">
-          {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} | Invitation Code: {{group.groupId}}
+          {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} | Invitation Code: {{group.invitationCode}}
    
       </div>
   </div>

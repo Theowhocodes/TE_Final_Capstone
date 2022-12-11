@@ -22,7 +22,8 @@ export default {
   data() {
     return {
       shoppingGroup: {
-       groupName: ""
+       groupName: "",
+       invitationCode: Math.floor(Math.random() * (100000))
       }
     };
   },

@@ -29,6 +29,12 @@ public class ShoppingGroupController {
         return shoppingGroupDao.getGroupById(groupId);
     }
 
+    // get one shopping group by invitation_code
+    @GetMapping("/invitation/{invitationCode}")
+    public ShoppingGroup getGroupByInvitationCode(@PathVariable("invitationCode") int invitationCode){
+        return shoppingGroupDao.getGroupByInvitationCode(invitationCode);
+    }
+
     //get list of all groups by user_id
 
     @GetMapping("/users/{userId}")

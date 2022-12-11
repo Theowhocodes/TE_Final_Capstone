@@ -13,6 +13,10 @@ public interface ShoppingGroupDao {
     // GET ONE GROUP BY ID
     ShoppingGroup getGroupById(int groupId);
 
+    // GET ONE GROUP BY INVITATION CODE
+    ShoppingGroup getGroupByInvitationCode(int invitationCode);
+
+
     // CREATE A GROUP
    ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto);
 
