@@ -3,7 +3,8 @@
       <form>
           <input type="text" /> Enter Invitation Code
       </form>
-      <h1>Your Group Lists</h1>
+      <h3>Create a list</h3>
+      <h3>Your Group Lists</h3>
       <div class= "groupList"
       v-for="list in lists"
       v-bind:key="list.groupId"
@@ -11,7 +12,7 @@
       >
       
       List name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">
-          {{list.listName}} </router-link>  
+          {{list.listName}} </router-link>  | {{list.itemCount}}
      
         
       </div>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -22,11 +23,17 @@ public class ListController {
     @Autowired
     private UserDao userDao;
 
-    // get one list by group id
-    @GetMapping("/list/{groupId}")
-    public Lists getByGroupId(@PathVariable("id") int groupId) {
-        return listDao.getListByGroupId(groupId);
+    //get one list by listId
+    @GetMapping("/list/{listId}")
+    public Lists getListByID(@PathVariable("listId") int listId){
+        return listDao.getListById(listId);
     }
+
+//    // get one list by group id
+//    @GetMapping("/list/{groupId}")
+//    public Lists getByGroupId(@PathVariable("id") int groupId) {
+//        return listDao.getListByGroupId(groupId);
+//    }
 
     // show all lists belonging to one group
     @GetMapping("/{groupId}")
@@ -41,12 +48,14 @@ public class ListController {
         return listDao.createList(listDto);
     }
 
+    // claim a list
     @PutMapping("/{listId}/claim")
     public void claimList(@RequestBody @PathVariable("listId") int listId, Principal principal){
         listDao.claimList(listId, userDao.findIdByUsername(principal.getName()));
 
     }
 
+    // unclaim a list
     @PutMapping("/{listId}/unclaim")
     public void unclaimList(@RequestBody @PathVariable("listId") int listId){
         listDao.unclaimList(listId);

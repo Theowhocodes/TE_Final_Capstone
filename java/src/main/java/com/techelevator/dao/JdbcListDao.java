@@ -30,32 +30,45 @@ public class JdbcListDao implements ListDao {
         return oneListById;
     }
 
-    public Lists getListByGroupId(int groupId){
-        Lists singleList = new Lists();
-        String sql = "SELECT group_id, COUNT(item.item_quantity) as item_count FROM list JOIN item ON item.list_id = list.list_id GROUP BY group_id ORDER BY group_id ASC;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
-        if (results.next()) {
-            singleList = mapRowToList(results);}
-        return singleList;
-
-    }
-
+//    public Lists getListByGroupId(int groupId){
+//        Lists singleList = new Lists();
+//        String sql = "SELECT group_id, COUNT(item.item_quantity) as item_count FROM list JOIN item ON item.list_id = list.list_id GROUP BY group_id ORDER BY group_id ASC;";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
+//        if (results.next()) {
+//            singleList = mapRowToList(results);}
+//        return singleList;
+//
+//    }
 
     public List<Lists> getAllListsByGroupId(int groupId) {
         List<Lists> allGroupLists = new ArrayList<>();
-        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, completed " +
-                "FROM list WHERE group_id = ?";
+        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, list.completed, COUNT(item_name)::int " +
+        "FROM list JOIN item USING (list_id) JOIN shopping_group USING (group_id) " +
+        "WHERE group_id = ? GROUP BY list_id ORDER BY list_name asc;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
         while (results.next()) {
-            allGroupLists.add(mapRowToList(results));
+            allGroupLists.add(mapRowToListWithItemCount(results));
         }
         return allGroupLists;
     }
 
+<<<<<<< HEAD
 
     public Lists getByGroupId(int groupId) {
         return null;
     }
+=======
+//    public List<Lists> getAllListsByGroupId(int groupId) {
+//        List<Lists> allGroupLists = new ArrayList<>();
+//        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, completed " +
+//                "FROM list WHERE group_id = ?";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
+//        while (results.next()) {
+//            allGroupLists.add(mapRowToList(results));
+//        }
+//        return allGroupLists;
+//    }
+>>>>>>> 489e82f5c6f05b6feee348b70a9680f5bf99d00b
 
     @Override
     public Lists createList(ListDto listDto) {
@@ -84,6 +97,18 @@ public class JdbcListDao implements ListDao {
         lists.setClaimed(rowSet.getBoolean("claimed"));
         lists.setListOwner(rowSet.getInt("list_owner"));
         lists.setCompleted(rowSet.getBoolean("completed"));
+        return lists;
+    }
+
+    private Lists mapRowToListWithItemCount(SqlRowSet rowSet){
+        Lists lists = new Lists();
+        lists.setListId(rowSet.getInt("list_id"));
+        lists.setListName(rowSet.getString("list_name"));
+        lists.setGroupId(rowSet.getInt("group_id"));
+        lists.setClaimed(rowSet.getBoolean("claimed"));
+        lists.setListOwner(rowSet.getInt("list_owner"));
+        lists.setCompleted(rowSet.getBoolean("completed"));
+        lists.setCount(rowSet.getInt("count"));
         return lists;
     }
 

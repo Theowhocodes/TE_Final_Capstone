@@ -9,17 +9,18 @@ public class ItemDto {
 
     private int itemId;
     private int itemListId;
-    private User addedBy;
-    @JsonProperty("item_name")
+    private int addedBy;
     private String itemName;
     private int itemQuantity;
     private Date dateAdded;
     private boolean isCompleted;
     private Timestamp lastModified;
-    private User lastModifiedBy;
+    private int lastModifiedBy;
     private String category;
 
-
+    public void setCategory(String category) {
+        this.category = category;
+    }
     public String getCategory() {
         return category;
     }
@@ -32,11 +33,11 @@ public class ItemDto {
         this.lastModified = lastModified;
     }
 
-    public User getLastModifiedBy() {
+    public int getLastModifiedBy() {
         return lastModifiedBy;
     }
 
-    public void setLastModifiedBy(User lastModifiedBy) {
+    public void setLastModifiedBy(int lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
 
@@ -56,11 +57,11 @@ public class ItemDto {
         this.itemListId = itemListId;
     }
 
-    public User getAddedBy() {
+    public int getAddedBy() {
         return addedBy;
     }
 
-    public void setAddedBy(User addedBy) {
+    public void setAddedBy(int addedBy) {
         this.addedBy = addedBy;
     }
 

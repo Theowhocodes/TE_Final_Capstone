@@ -9,7 +9,7 @@ import java.util.List;
 public interface ListDao {
     List <Lists> getAllListsByGroupId(int groupId);
 
-    Lists getListByGroupId(int groupId);
+    //Lists getListByGroupId(int groupId);
 
     Lists getListById(int listId);
 
