@@ -3,14 +3,10 @@ package com.techelevator.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ListDto {
-    @JsonProperty("list_id")
     private int listId;
-    @JsonProperty("list_name")
     private String listName;
-    @JsonProperty("group_id")
     private int groupId;
     private boolean claimed;
-    @JsonProperty("list_owner")
     private int listOwner;
     private boolean completed;
 
