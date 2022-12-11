@@ -31,22 +31,27 @@
 
 <script>
 import itemService from "../services/ItemService.js";
+import moment from 'moment';
+
 
 export default {
   name: "create-item",
 
   data() {
     return {
+     
       item: {
           itemName: "",
-          listId: "",
-          addedBy: "",
-
-      },
+          itemQuantity: "",
+          listId: this.$route.params.listId,
+          addedBy: this.$store.state.user.id,
+          dateAdded: moment().format("YYYY-MM-DD")
+        },
     };
   },
   methods: {
       createNewItem() {
+
       itemService.createNewItem(this.item).then(response => {
           if (response.status === 201){
               this.$router.push({ name: 'list'});

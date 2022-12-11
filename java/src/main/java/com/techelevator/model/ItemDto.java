@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
 public class ItemDto {
 
     private int itemId;
-    private int itemListId;
+    private int listId;
     private int addedBy;
     private String itemName;
     private int itemQuantity;
@@ -50,11 +51,11 @@ public class ItemDto {
     }
 
     public int getItemListId() {
-        return itemListId;
+        return listId;
     }
 
     public void setItemListId(int itemListId) {
-        this.itemListId = itemListId;
+        this.listId = itemListId;
     }
 
     public int getAddedBy() {

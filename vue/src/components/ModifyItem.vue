@@ -46,12 +46,13 @@ export default {
         return {
             item: {
                 itemName: "",
-                itemId: "",
+                itemId: this.$route.params.itemId
             }
         };
     },
     methods: {
         modifyItem() {
+          //build an object here key: this.item.key
             ItemService.modifyItem(this.item).then(response => {
                 if (response.status === 201){
               this.$router.push({ name: 'list'});
