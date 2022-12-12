@@ -23,7 +23,9 @@ public class JdbcListDao implements ListDao {
     // GET ONE LIST BY ID
     public Lists getListById(int listId){
         Lists oneListById = new Lists();
-        String sql = "SELECT * FROM list WHERE list_id = ?";
+        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, list.completed, username AS list_owner_name " +
+                "FROM list LEFT JOIN users ON (list.list_owner = users.user_id) " +
+                "WHERE list_id = ? GROUP BY list_id, username ORDER BY list_name asc;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, listId);
         if (results.next()) {
             oneListById= mapRowToList(results);}
@@ -42,9 +44,10 @@ public class JdbcListDao implements ListDao {
 
     public List<Lists> getAllListsByGroupId(int groupId) {
         List<Lists> allGroupLists = new ArrayList<>();
-        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, list.completed, COUNT(item_name)::int " +
+        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, list.completed, COUNT(item_name)::int, username AS list_owner_name " +
         "FROM list LEFT JOIN item USING (list_id) JOIN shopping_group USING (group_id) " +
-        "WHERE group_id = ? GROUP BY list_id ORDER BY list_name asc;";
+        "LEFT JOIN users ON (list.list_owner = users.user_id)" +
+        "WHERE group_id = ? GROUP BY list_id, username ORDER BY list_name asc;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
         while (results.next()) {
             allGroupLists.add(mapRowToListWithItemCount(results));
@@ -90,6 +93,7 @@ public class JdbcListDao implements ListDao {
         lists.setClaimed(rowSet.getBoolean("claimed"));
         lists.setListOwner(rowSet.getInt("list_owner"));
         lists.setCompleted(rowSet.getBoolean("completed"));
+        lists.setListOwnerName(rowSet.getString("list_owner_name"));
         return lists;
     }
 
@@ -102,6 +106,7 @@ public class JdbcListDao implements ListDao {
         lists.setListOwner(rowSet.getInt("list_owner"));
         lists.setCompleted(rowSet.getBoolean("completed"));
         lists.setCount(rowSet.getInt("count"));
+        lists.setListOwnerName(rowSet.getString("list_owner_name"));
         return lists;
     }
 

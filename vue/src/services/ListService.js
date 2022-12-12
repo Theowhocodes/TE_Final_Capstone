@@ -9,6 +9,11 @@ export default {
     claimList(listId) {
         return axios.put(`/groups/lists/${listId}/claim`)
     },
+
+    unclaimList(listId){
+        return axios.put(`/groups/lists/${listId}/unclaim`)
+    },
+
     getAllItemsInList(listId) {
         return axios.get(`items/list/${listId}`)
     },
@@ -17,6 +22,7 @@ export default {
         return axios.post(`/groups/lists/create`, shoppingList)
     }
 
+    
 // getAllItemsInListById(listId) {
 //     return axios.get(`/groups/lists/list/${listId}`)
 // }

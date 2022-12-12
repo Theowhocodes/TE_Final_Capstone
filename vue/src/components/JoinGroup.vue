@@ -41,7 +41,10 @@ export default {
 
     joinGroupByInvitationCode() {
         groupService.getGroupByInvitationCode(this.groupToJoin.invitationCode).then(response => {
-            console.log(response);
+           // console.log(response);
+           // console.log(response.data.groupId)
+            groupService.joinShoppingGroup(response.data.groupId)
+            window.location.reload();
 
             // make call to get group id, then make another call to join group 
             
