@@ -1,24 +1,44 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class ItemDto {
+
     private int itemId;
     private int itemListId;
-    private User addedBy;
+    private int addedBy;
     private String itemName;
     private int itemQuantity;
     private Date dateAdded;
     private boolean isCompleted;
+    private Timestamp lastModified;
+    private int lastModifiedBy;
+    private String category;
 
-    public ItemDto(int itemId, int itemListId, User addedBy, String itemName, int itemQuantity, Date dateAdded, boolean isCompleted) {
-        this.itemId = itemId;
-        this.itemListId = itemListId;
-        this.addedBy = addedBy;
-        this.itemName = itemName;
-        this.itemQuantity = itemQuantity;
-        this.dateAdded = dateAdded;
-        this.isCompleted = isCompleted;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    public String getCategory() {
+        return category;
+    }
+
+    public Timestamp getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Timestamp lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public int getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(int lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public int getItemId() {
@@ -37,11 +57,11 @@ public class ItemDto {
         this.itemListId = itemListId;
     }
 
-    public User getAddedBy() {
+    public int getAddedBy() {
         return addedBy;
     }
 
-    public void setAddedBy(User addedBy) {
+    public void setAddedBy(int addedBy) {
         this.addedBy = addedBy;
     }
 

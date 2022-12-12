@@ -7,18 +7,19 @@ public class Item {
 
     private int itemId;
     private int itemListId;
-    private User addedBy; //should this return a user or a string?
+    private int addedBy; //should this return a user or a string?
     private String itemName;
     private int itemQuantity;
     private Date dateAdded;
     private boolean isCompleted;
     private Timestamp lastModified;
-    private User lastModifiedBy;
+    private int lastModifiedBy;
+    private String category;
 
     public Item() {};
 
-    public Item(int itemId, int itemListId, User addedBy, String itemName, int itemQuantity, Date dateAdded,
-                boolean isCompleted, Timestamp lastModified, User lastModifiedBy) {
+    public Item(int itemId, int itemListId, int addedBy, String itemName, int itemQuantity, Date dateAdded,
+                boolean isCompleted, Timestamp lastModified, int lastModifiedBy, String category) {
         this.itemId = itemId;
         this.itemListId = itemListId;
         this.addedBy = addedBy;
@@ -28,6 +29,15 @@ public class Item {
         this.isCompleted = isCompleted;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getItemId() {
@@ -46,11 +56,11 @@ public class Item {
         this.itemListId = itemListId;
     }
 
-    public User getAddedBy() {
+    public int getAddedBy() {
         return addedBy;
     }
 
-    public void setAddedBy(User addedBy) {
+    public void setAddedBy(int addedBy) {
         this.addedBy = addedBy;
     }
 
@@ -86,11 +96,11 @@ public class Item {
         this.lastModified = lastModified;
     }
 
-    public User getLastModifiedBy() {
+    public int getLastModifiedBy() {
         return lastModifiedBy;
     }
 
-    public void setLastModifiedBy(User lastModifiedBy) {
+    public void setLastModifiedBy(int lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
 

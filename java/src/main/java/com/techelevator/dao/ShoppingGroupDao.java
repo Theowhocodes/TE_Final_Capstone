@@ -13,11 +13,15 @@ public interface ShoppingGroupDao {
     // GET ONE GROUP BY ID
     ShoppingGroup getGroupById(int groupId);
 
+    // GET ONE GROUP BY INVITATION CODE
+    ShoppingGroup getGroupByInvitationCode(int invitationCode);
+
+
     // CREATE A GROUP
-    ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto);
+   ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto);
 
     // JOIN A GROUP
-    boolean joinGroup(int groupId, int userId);
+    void joinGroup(int groupId, int userId);
 
     // LEAVE A GROUP
     void leaveGroup(int groupId, int userId);
