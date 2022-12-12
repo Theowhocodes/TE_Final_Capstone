@@ -18,7 +18,7 @@
       v-bind:item="item"
       > 
       <router-link v-bind:to="{ name: 'item', params: { itemId: item.itemId } }">
-          {{ item.itemName }} </router-link>
+          {{ item.itemName }} </router-link> | Quantity: {{item.itemQuantity}} 
       </div>
 
       
