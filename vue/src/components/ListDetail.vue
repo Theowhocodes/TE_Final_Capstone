@@ -14,7 +14,7 @@
 
       <div class= "itemsInList"
       v-for="item in items"
-      v-bind:key="item.listId"
+      v-bind:key="item.itemId"
       v-bind:item="item"
       > 
       <router-link v-bind:to="{ name: 'item', params: { itemId: item.itemId } }">
