@@ -3,7 +3,7 @@
       <div class="leave-group">
         
         <button type="button" v-on:click="leaveShoppingGroup()" name="leave" id="leave">Leave this Group</button>
-        
+        <br>
       </div>
   </div>
 </template>
