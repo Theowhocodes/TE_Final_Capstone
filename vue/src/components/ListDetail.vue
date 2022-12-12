@@ -1,9 +1,7 @@
 <template>
   <div>
       <h3> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "Unclaimed" }} </h3>
-     <!--<button @click="claimList()">
-         {{ list.claimed ? "Unclaim" : "Claim" }}
-         </button> -->
+     
 
          <button @click="claimList()"> Claim List</button>
 
@@ -21,7 +19,8 @@
           {{ item.itemName }} </router-link> | Quantity: {{item.itemQuantity}} 
       </div>
 
-      
+        <p>Warning: clearing a list is permanent and cannot be undone!</p>
+      <button @click="clearAllItemsFromList()">Clear all items from list</button>
 
 
 
@@ -73,10 +72,22 @@ export default {
          listService.unclaimList(listId).then(response => {
             if (response.status === 200){
           window.location.reload();
-          }
-
-            
+          } 
         })
+    },
+
+    clearAllItemsFromList() {
+        const listId = this.$route.params.listId
+            listService.clearAllItemsFromList(listId).then(response => {
+                if (response.status === 200){
+                    listService.unclaimList(listId).then(response =>{
+                        if (response.status === 200){
+                            window.location.reload();
+                        }
+                    })
+                    
+                }
+            })
     }
   }
 

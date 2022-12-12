@@ -62,4 +62,10 @@ public class ListController {
 
     }
 
+    // clear all items from a list
+    @DeleteMapping("/list/{listId}/clear")
+    public void clearList(@PathVariable("listId") int listId){
+        listDao.clearList(listId);
+    }
+
 }
