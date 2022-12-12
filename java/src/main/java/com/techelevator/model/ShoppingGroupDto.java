@@ -6,7 +6,6 @@ public class ShoppingGroupDto {
 
     private int groupId;
     private String groupName;
-    @JsonProperty("invitation_code")
     private int invitationCode;
 
 

@@ -43,9 +43,9 @@ public class ItemController {
         return item;
     }
 
-    @PostMapping("create")//not sure this is what the path should be
+    @PostMapping("/create")//not sure this is what the path should be
     @ResponseStatus(HttpStatus.CREATED)//worked in postman
-    public void createItem(@Valid @RequestBody ItemDto itemDto) {
+    public void createItem( @Valid @RequestBody ItemDto itemDto) {
          itemDao.createItem(itemDto);
     }
 

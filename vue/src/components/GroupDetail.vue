@@ -1,8 +1,7 @@
 <template>
   <div >
      
-      <h3> {{group.groupName}} | Invitation Code: {{group.groupId}}</h3>
-      <h4>Create a list</h4>
+      <h3> {{group.groupName}} | Invitation Code: {{group.invitationCode}}</h3>
       <h4>Your Group Lists</h4>
       <div class= "groupList"
       v-for="list in lists"
@@ -42,6 +41,7 @@ export default {
     const groupId = this.$route.params.groupId; 
 
     groupService.getAllListsByGroupId(groupId).then(response => {
+      console.log(response)
     this.lists = response.data; 
       
     });

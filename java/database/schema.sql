@@ -15,7 +15,10 @@ CREATE TABLE users (
 
 CREATE TABLE shopping_group (
     group_id serial NOT NULL PRIMARY KEY,
-	group_name varchar(200)
+	group_name varchar(200),
+	invitation_code int UNIQUE,
+
+	CONSTRAINT uq_invitation_code UNIQUE (invitation_code)
 
 );
 

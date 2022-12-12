@@ -6,7 +6,7 @@ import java.util.Date;
 public class Item {
 
     private int itemId;
-    private int itemListId;
+    private int listId;
     private int addedBy; //should this return a user or a string?
     private String itemName;
     private int itemQuantity;
@@ -18,10 +18,10 @@ public class Item {
 
     public Item() {};
 
-    public Item(int itemId, int itemListId, int addedBy, String itemName, int itemQuantity, Date dateAdded,
+    public Item(int itemId, int listId, int addedBy, String itemName, int itemQuantity, Date dateAdded,
                 boolean isCompleted, Timestamp lastModified, int lastModifiedBy, String category) {
         this.itemId = itemId;
-        this.itemListId = itemListId;
+        this.listId = listId;
         this.addedBy = addedBy;
         this.itemName = itemName;
         this.itemQuantity = itemQuantity;
@@ -48,12 +48,12 @@ public class Item {
         this.itemId = itemId;
     }
 
-    public int getItemListId() {
-        return itemListId;
+    public int getlistId() {
+        return listId;
     }
 
-    public void setItemListId(int itemListId) {
-        this.itemListId = itemListId;
+    public void setlistId(int listId) {
+        this.listId = listId;
     }
 
     public int getAddedBy() {
