@@ -1,9 +1,15 @@
 <template>
   <div>
-      <h3> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwner}` : "Unclaimed" }} </h3>
-      <button @click="claimList()">
+      <h3> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "Unclaimed" }} </h3>
+     <!--<button @click="claimList()">
          {{ list.claimed ? "Unclaim" : "Claim" }}
-         </button>
+         </button> -->
+
+         <button @click="claimList()"> Claim List</button>
+
+         <button @click="unclaimList()">Unclaim List</button> 
+
+         
     
 
       <div class= "itemsInList"
@@ -48,14 +54,34 @@ export default {
             this.items = response.data;
         });
 
-        // listService.claimList(listId).then(response => {
+    }, 
 
-        // })
+    methods: {
+    claimList() {
+       const listId = this.$route.params.listId
+         listService.claimList(listId).then(response => {
+            if (response.status === 200){
+          window.location.reload();
+          }
 
+            
+        })
+    }, 
 
+    unclaimList() {
+       const listId = this.$route.params.listId
+         listService.unclaimList(listId).then(response => {
+            if (response.status === 200){
+          window.location.reload();
+          }
+
+            
+        })
     }
+  }
 
 }
+
 </script>
 
 <style>

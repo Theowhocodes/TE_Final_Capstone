@@ -1,7 +1,5 @@
 package com.techelevator.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class ListDto {
     private int listId;
     private String listName;
@@ -9,6 +7,7 @@ public class ListDto {
     private boolean claimed;
     private int listOwner;
     private boolean completed;
+    private String listOwnerName;
 
 //    public ListDto(int listId, String listName, int groupId, boolean claimed, int listOwner, boolean completed) {
 //        this.listId = listId;
@@ -66,5 +65,13 @@ public class ListDto {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public String getListOwnerName() {
+        return listOwnerName;
+    }
+
+    public void setListOwnerName(String listOwnerName) {
+        this.listOwnerName = listOwnerName;
     }
 }
