@@ -1,6 +1,6 @@
 <template>
   <div >
-      <h3>Your Shopping Groups</h3>
+      <h3>Your Shopping Groups</h3> <br>
       <div class= "groupList"
       v-for="group in groups"
       v-bind:key="group.groupId"

@@ -38,7 +38,7 @@ public class ListController {
     // show all lists belonging to one group
     @GetMapping("/{groupId}")
     public List <Lists> getAllListsByGroupId(@PathVariable("groupId") int groupId){
-    return listDao.getAllListsByGroupId(groupId);
+        return listDao.getAllListsByGroupId(groupId);
     }
 
     // create a new list
