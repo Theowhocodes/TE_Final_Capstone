@@ -55,6 +55,12 @@ public class JdbcListDao implements ListDao {
         return allGroupLists;
     }
 
+
+
+    public Lists getByGroupId(int groupId) {
+        return null;
+    }
+
 //    public List<Lists> getAllListsByGroupId(int groupId) {
 //        List<Lists> allGroupLists = new ArrayList<>();
 //        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, completed " +
@@ -65,6 +71,7 @@ public class JdbcListDao implements ListDao {
 //        }
 //        return allGroupLists;
 //    }
+
 
     @Override
     public Lists createList(ListDto listDto) {

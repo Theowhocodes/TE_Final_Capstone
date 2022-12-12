@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="create-group">
-        <h3>Create a New Group</h3>
+        <h3>Create a New Group</h3> <br>
         <p> Enter a group name below to create a new shopping group:</p>
 
         <form class="group-form">

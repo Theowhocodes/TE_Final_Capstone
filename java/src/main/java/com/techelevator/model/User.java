@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class User {
 
@@ -100,4 +102,18 @@ public class User {
               ", authorities=" + authorities +
               '}';
    }
+
+   public boolean isValid(String password) {
+      String regex = "^(?=.*[0-9])"
+              + "(?=.*[a-z])(?=.*[A-Z])"
+              + "(?=.*[@#$%^&+=])"
+              + "(?=\\S+$).{8,20}$";
+      Pattern i = Pattern.compile(regex);
+      if(password == null) {
+         return false;
+      }
+      Matcher p = i.matcher(password);
+      return p.matches();
+   }
+
 }

@@ -1,6 +1,10 @@
 package com.techelevator.model;
 
+
+
+
 public class Lists {
+
 
 
     private int listId;

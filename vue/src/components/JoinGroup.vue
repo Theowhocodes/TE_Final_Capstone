@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="join-group">
-        <h3>Join a group</h3>
+        <h3>Join a group and start collaborating!</h3> <br>
         <p>If you have received an invitation code to join a group, enter it below:</p>
 
         <form class="group-form">
