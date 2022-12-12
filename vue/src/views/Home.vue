@@ -1,13 +1,21 @@
 <template>
-  <div class="home" >
-    <h3>Welcome back!</h3>
+  <header class="header">
+  <hgroup>
+      <h1>Welcome Back!</h1>
+      </hgroup>
     <join-group />
-    <all-groups/>
     <br />
     <br />
-    <create-group />
-  </div>
+    <create-group/>
+ 
+      <dt>Your shopping groups</dt>
+    <dt> <all-groups/> </dt>
+
+  <!-- <a href="#" class="toggle">Toggle</a> -->
+</header>
 </template>
+
+
 
 <script>
 import AllGroups from '../components/AllGroups.vue';
@@ -35,6 +43,7 @@ export default {
   margin: 0;
   padding: 0;
   border: 0;
+  position: absolute;
 }
 
 

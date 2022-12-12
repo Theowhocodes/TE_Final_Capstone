@@ -1,25 +1,4 @@
 <template>
-<<<<<<< HEAD
-<div>
-{{ item.itemName }}
-    </div>
-</template>
-
-<script>
-
-// import ItemService from '../services/ItemService.js'; 
-export default { 
-    data() {
-        return {
-           
-        };
-    }
-}
-
-</script>
-
-
-=======
   <div>
       <h3> {{ list.listName }} </h3>
 
@@ -74,7 +53,6 @@ export default {
 
 }
 </script>
->>>>>>> 489e82f5c6f05b6feee348b70a9680f5bf99d00b
 
 <style>
 

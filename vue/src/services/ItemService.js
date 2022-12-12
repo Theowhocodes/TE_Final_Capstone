@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import axios from "axios";
-
-export default {
-    getAllItemsByListId(listId) {
-        return axios.get(`/groups/lists/items/${listId}`)
-    }
-    
-    
-=======
 import axios from 'axios';
 
 export default {
@@ -22,5 +12,4 @@ export default {
         return axios.put(`/items/${itemId}/modify`, item)
     }
 
->>>>>>> 489e82f5c6f05b6feee348b70a9680f5bf99d00b
 }
