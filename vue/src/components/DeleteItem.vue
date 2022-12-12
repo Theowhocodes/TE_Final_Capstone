@@ -23,7 +23,7 @@ export default {
           const itemId = this.$route.params.itemId;
           itemService.deleteItem(itemId).then(response => {
               if(response.status === 200) {
-                  this.$router.push({ name: 'list'})
+                  this.$router.go(-1)
               }
           })
       }
