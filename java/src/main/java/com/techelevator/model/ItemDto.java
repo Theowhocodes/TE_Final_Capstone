@@ -50,11 +50,11 @@ public class ItemDto {
         this.itemId = itemId;
     }
 
-    public int getItemListId() {
+    public int getListId() {
         return listId;
     }
 
-    public void setItemListId(int itemListId) {
+    public void setListId(int itemListId) {
         this.listId = itemListId;
     }
 

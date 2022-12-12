@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="modify-item">
-      <h2>Modify {{item.itemName}}</h2>
+      <h2>Modify {{item.itemName}} </h2>
 
       <form>
         <div class="modify-element">
@@ -45,15 +45,17 @@ export default {
     data() {
         return {
             item: {
-                itemName: "",
-                itemId: this.$route.params.itemId
+              itemName: "",
+              itemId: this.$route.params.itemId,
+              itemQuantity: "",
+              modifiedBy: this.$store.state.user.id
             }
         };
     },
     methods: {
         modifyItem() {
-          //build an object here key: this.item.key
-            ItemService.modifyItem(this.item).then(response => {
+         
+            ItemService.modifyItem(this.item.itemId).then(response => {
                 if (response.status === 201){
               this.$router.push({ name: 'list'});
             }});

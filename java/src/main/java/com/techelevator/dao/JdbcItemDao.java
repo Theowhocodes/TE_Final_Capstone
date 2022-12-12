@@ -76,7 +76,7 @@ public class JdbcItemDao implements ItemDao {
         String sql = "UPDATE item SET list_id = ?, added_by = ?, item_name = ?, item_quantity = ?, category = ?, " +
                 "date_added = ?, completed = ?, last_modified = current_timestamp, last_modified_by = ? where item_id = ?";
 
-        jdbcTemplate.update(sql, itemDto.getItemListId(), itemDto.getAddedBy(), itemDto.getItemName(),
+        jdbcTemplate.update(sql, itemDto.getListId(), itemDto.getAddedBy(), itemDto.getItemName(),
                             itemDto.getItemQuantity(), itemDto.getCategory(), itemDto.getDateAdded(), itemDto.isCompleted(),
                             itemDto.getLastModifiedBy(), itemDto.getItemId());
 
@@ -96,7 +96,7 @@ public class JdbcItemDao implements ItemDao {
         String sql = "INSERT into item (list_id, added_by, item_name, item_quantity, category, date_added, completed) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING item_id";
 
-        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, itemDto.getItemListId(), itemDto.getAddedBy(), itemDto.getItemName(),
+        jdbcTemplate.queryForObject(sql, Integer.class, itemDto.getListId(), itemDto.getAddedBy(), itemDto.getItemName(),
                 itemDto.getItemQuantity(), itemDto.getCategory(), itemDto.getDateAdded(), itemDto.isCompleted());
 
         //return this.getItemById(newId);
@@ -109,7 +109,7 @@ public class JdbcItemDao implements ItemDao {
         item.setCompleted(sqlRowSet.getBoolean("completed"));
         item.setDateAdded(sqlRowSet.getDate("date_added"));
         item.setItemId(sqlRowSet.getInt("item_id"));
-        item.setItemListId(sqlRowSet.getInt("list_id"));
+        item.setlistId(sqlRowSet.getInt("list_id"));
         item.setItemName(sqlRowSet.getString("item_name"));
         item.setItemQuantity(sqlRowSet.getInt("item_quantity"));
         item.setLastModified(sqlRowSet.getTimestamp("last_modified"));
