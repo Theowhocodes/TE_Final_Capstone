@@ -4,6 +4,7 @@
       <button @click="claimList()">
          {{ list.claimed ? "Unclaim" : "Claim" }}
          </button>
+         
     
 
       <div class= "itemsInList"
