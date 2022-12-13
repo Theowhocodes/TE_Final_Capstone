@@ -19,6 +19,7 @@ created() {
 },
   methods: {
     leaveShoppingGroup() {
+    if(confirm("Are you sure you want to leave this group?"));
     const groupId = this.$route.params.groupId; 
       groupService.leaveShoppingGroup(groupId).then(response => {
         if (response.status === 200){

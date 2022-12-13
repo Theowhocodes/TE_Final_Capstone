@@ -1,9 +1,7 @@
 <template>
   <div>
       <h3> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "Unclaimed" }} </h3>
-     <!--<button @click="claimList()">
-         {{ list.claimed ? "Unclaim" : "Claim" }}
-         </button> -->
+     
 
          <button @click="claimList()"> Claim List</button>
 
@@ -19,10 +17,11 @@
       > 
       <router-link v-bind:to="{ name: 'item', params: { itemId: item.itemId } }">
           {{ item.itemName }} </router-link> | Quantity: {{item.itemQuantity}} 
-      </div>
-
       
-
+      </div>
+      <div>
+      <button @click="clearAllItemsFromList()">Clear all items from list</button>
+        </div>
 
 
   </div>
@@ -73,15 +72,28 @@ export default {
          listService.unclaimList(listId).then(response => {
             if (response.status === 200){
           window.location.reload();
-          }
-
-            
+          } 
         })
+    },
+
+    clearAllItemsFromList() {
+       if(confirm("Clear list? This action cannot be undone!")){
+        const listId = this.$route.params.listId
+            listService.clearAllItemsFromList(listId).then(response => {
+                if (response.status === 200){
+                    listService.unclaimList(listId).then(response =>{
+                        if (response.status === 200){
+                            window.location.reload();
+                        }
+                    })
+                    
+                }
+            })
     }
   }
 
 }
-
+}
 </script>
 
 <style>
