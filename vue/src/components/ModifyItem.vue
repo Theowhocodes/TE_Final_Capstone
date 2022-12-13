@@ -9,7 +9,7 @@
           <input id="itemName" type="text" v-model="item.itemName" />
         </div>
         <div class="modify-element">
-          <label for="itemQuantity">Quantity</label>
+          <label for="itemQuantity"> Quantity: </label>
           <select id="quantity" v-model.number="item.itemQuantity">
             <option value="1">1</option>
             <option value="2">2</option>

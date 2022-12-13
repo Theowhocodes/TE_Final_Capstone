@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <group-detail />
+  <div id="groupview">
     <create-list />
+    <br>
+    <group-detail />
+    <br>
     <leave-group />
 
       
@@ -26,5 +28,21 @@ export default {
 </script>
 
 <style>
+#groupview {
+  
+}
+
+
+#group-detail{
+  
+
+}
+#create-list{
+
+}
+#leave-group{
+ 
+
+}
 
 </style>

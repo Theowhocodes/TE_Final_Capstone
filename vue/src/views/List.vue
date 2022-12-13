@@ -1,9 +1,13 @@
 <template>
+<section class="is-relative section">
   <div>
       <list-detail/>
-      
+        <br>
+        <br>
       <create-item/>
     </div>
+     
+</section>
 </template>
 
 <script>
@@ -22,3 +26,4 @@ export default {
 <style>
 
 </style>
+
