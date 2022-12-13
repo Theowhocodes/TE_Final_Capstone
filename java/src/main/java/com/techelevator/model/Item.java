@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -11,7 +13,7 @@ public class Item {
     private String itemName;
     private int itemQuantity;
     private Date dateAdded;
-    private boolean isCompleted;
+    private boolean completed;
     private Timestamp lastModified;
     private int lastModifiedBy;
     private String category;
@@ -19,14 +21,14 @@ public class Item {
     public Item() {};
 
     public Item(int itemId, int listId, int addedBy, String itemName, int itemQuantity, Date dateAdded,
-                boolean isCompleted, Timestamp lastModified, int lastModifiedBy, String category) {
+                boolean completed, Timestamp lastModified, int lastModifiedBy, String category) {
         this.itemId = itemId;
         this.listId = listId;
         this.addedBy = addedBy;
         this.itemName = itemName;
         this.itemQuantity = itemQuantity;
         this.dateAdded = dateAdded;
-        this.isCompleted = isCompleted;
+        this.completed = completed;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.category = category;
@@ -105,10 +107,10 @@ public class Item {
     }
 
     public boolean isCompleted() {
-        return isCompleted;
+        return completed;
     }
 
     public void setCompleted(boolean completed) {
-        isCompleted = completed;
+        completed = completed;
     }
 }

@@ -13,6 +13,9 @@ export default {
     },
     modifyItem(itemId, item) {
         return axios.put(`/items/${itemId}/modify`, item)
+    },
+    completeStatus(item) {
+        return axios.put('/items/complete', item)
     }
 
 }
