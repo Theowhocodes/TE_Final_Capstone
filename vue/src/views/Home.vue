@@ -1,10 +1,14 @@
 <template>
 <section id="homescreen" class="is-sticky section">
+  <div >
+    <weather />
+  </div>
     <div class="columns">
       <div class="column is-full">
         <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
          <br> <h2 class="title is-size-4 has-leading-2 has-text-link has-text-centered">Welcome Back <br> Let's Start Shopping!</h2> <br>
         </div>
+        
   <div class="home has-text-centered">
     <div class="column is-full">
         <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
@@ -36,6 +40,8 @@
 import AllGroups from '../components/AllGroups.vue';
 import CreateGroup from '../components/CreateGroup.vue';
 import JoinGroup from '../components/JoinGroup.vue';
+import Weather from '@/components/Weather.vue';
+
 
 
 export default {
@@ -43,6 +49,8 @@ export default {
     AllGroups,
     CreateGroup,
     JoinGroup,
+    Weather,
+  
     
   },
   name: "home"
