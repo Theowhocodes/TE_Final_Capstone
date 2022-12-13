@@ -31,15 +31,19 @@ export default {
     createShoppingGroup() {
       groupService.createShoppingGroup(this.shoppingGroup).then(response => {
         if (response.status === 201){
-          window.location.reload();
-          //this.$router.push({ name: 'home'});
+          window.location.reload(); 
+          }})
+         .catch((error) => {
+            if (error.response.status === 404) {
+          this.$alert("Group Name is Required");
         }
-
+         
       })
 
     }
   }
-};
+  }
+
 </script>
 
 <style>
