@@ -20,6 +20,10 @@ export default {
 
     createShoppingList(shoppingList){
         return axios.post(`/groups/lists/create`, shoppingList)
+    },
+
+    clearAllItemsFromList(listId){
+        return axios.delete(`/groups/lists/list/${listId}/clear`)
     }
 
     

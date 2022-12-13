@@ -60,7 +60,7 @@ export default {
   padding: 0;
   border: 0;
 }
-.homescreen{
+.homescreen {
 background-color: chartreuse;
 }
 

@@ -7,6 +7,7 @@ import com.techelevator.model.ShoppingGroupDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 
 import javax.validation.Valid;
@@ -60,10 +61,13 @@ public class ShoppingGroupController {
    @ResponseStatus(HttpStatus.CREATED)
    public ShoppingGroup createGroup(@Valid @RequestBody ShoppingGroupDto shoppingGroupDto, Principal principal) {
        // receive ShoppingGroupDTO object -> make new ShoppingGroup object
+        if (shoppingGroupDto.getGroupName().length() > 0) {
        ShoppingGroup newGroup = shoppingGroupDao.createGroup(shoppingGroupDto);
        // after creating group, insert user as the first member
        shoppingGroupDao.joinGroup(newGroup.getGroupId(), userDao.findIdByUsername(principal.getName()));
-       return newGroup;
+       return newGroup; } else{
+           throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+       }
        }
 
    // leave a group

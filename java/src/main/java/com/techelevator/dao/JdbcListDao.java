@@ -80,16 +80,23 @@ public class JdbcListDao implements ListDao {
         return this.getListById(newListId);
     }
 
-
+    @Override
     public void claimList(int listId, int listOwner) {
         String sql = "UPDATE list SET claimed = true, list_owner = ? where list_id = ?;";
         jdbcTemplate.update(sql, listOwner, listId);
     }
 
+    @Override
     public void unclaimList(int listId) {
         String sql = "UPDATE list SET claimed = false, list_owner = null where list_id = ?;";
         jdbcTemplate.update(sql, listId);
 
+    }
+
+    @Override
+    public void clearList(int listId) {
+        String sql = "DELETE FROM item WHERE list_id = ?";
+        jdbcTemplate.update(sql, listId);
     }
 
     private Lists mapRowToList(SqlRowSet rowSet){

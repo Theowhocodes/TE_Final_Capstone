@@ -6,6 +6,7 @@ import com.techelevator.model.ItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -46,7 +47,11 @@ public class ItemController {
     @PostMapping("/create")//not sure this is what the path should be
     @ResponseStatus(HttpStatus.CREATED)//worked in postman
     public void createItem( @Valid @RequestBody ItemDto itemDto) {
-         itemDao.createItem(itemDto);
+        if (itemDto.getItemName().length() > 0 && itemDto.getItemQuantity() > 0) {
+            itemDao.createItem(itemDto);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping("{itemId}/modify")//worked in postman
