@@ -92,6 +92,13 @@ public class JdbcItemDao implements ItemDao {
     }
 
     @Override
+    public void isCompleted(ItemDto itemDto) {
+        String sql = "UPDATE item SET completed = ? WHERE item_id = ?";
+
+        jdbcTemplate.update(sql, itemDto.isCompleted(), itemDto.getItemId());
+    }
+
+    @Override
     public void createItem(ItemDto itemDto) {
         String sql = "INSERT into item (list_id, added_by, item_name, item_quantity, category, date_added, completed) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING item_id";
@@ -101,6 +108,7 @@ public class JdbcItemDao implements ItemDao {
 
         //return this.getItemById(newId);
     }
+
 
     private Item mapRowToItem(SqlRowSet sqlRowSet) {
         Item item = new Item();

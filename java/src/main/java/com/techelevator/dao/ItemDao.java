@@ -21,6 +21,8 @@ public interface ItemDao {
 
     void createItem(ItemDto itemDto);
 
+    void isCompleted(ItemDto itemDto);
+
 
 
 
