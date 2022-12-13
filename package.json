@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "i": "^0.3.7",
-    "npm": "^9.2.0",
-    "vue-simple-alert": "^1.1.1"
-  }
-}
