@@ -1,6 +1,6 @@
 <template>
-  <div >
-      <h3>Your Shopping Groups</h3> <br>
+  <div class="has-text-link has-text-weight-bold" >
+      <h3 class="has-text-link has-text-weight-bold">Pick a group and start making lists!</h3> <br>
       <div class= "groupList"
       v-for="group in groups"
       v-bind:key="group.groupId"
@@ -44,6 +44,16 @@ export default {
 </script>
 
 <style>
+#all-groups{
+ margin: auto;
+ width: 300px; 
+ background: yellow;
+ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EBEB00), to(#C5C500));
+ background: -moz-linear-gradient(100% 100% 90deg, #C5C500, #EBEB00);
+ padding: 20px 20px 20px 20px;
+ -webkit-box-shadow: 0px 10px 30px #000;
+ -moz-box-shadow: 0px 10px 30px #000
+}
 
 
 

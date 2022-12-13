@@ -1,17 +1,16 @@
 <template>
+<div id="reg">
 <section class="is-relative section has-background-light">
-  <div class="container">
     <div class="columns is-vcentered">
       <div class="column is-6 mb-14 mb-0-tablet">
         <div class="has-mw-md mx-auto">
-          <h2 class="title is-size-3 has-leading-3 has-text-primary">Invite your friends and collaborate on a shared shopping list for any occasion!</h2>
-
+          <h2 class="title is-size-3 has-leading-3 has-text-link">Invite your friends and collaborate on a shared shopping list for any occasion!</h2>
         </div>
-      </div>
+        </div>
       <div class="column is-6">
         <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
-          <span class="is-block has-text-info has-text-weight-semibold is-uppercase has-letter-space">start making lists</span><br>
-          <h3 class="title is-size-4 has-text-primary">Create new account</h3>
+          <span class="is-block has-text-info is-size-4 is-uppercase has-letter-space">start making lists</span><br>
+          <h3 class="title is-size-4 has-text-link">Create new account</h3>
   <div id="register">
     <form @submit.prevent="register">   
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
@@ -75,8 +74,8 @@
       </div>
       </div>
     </div>
-  </div>
 </section>
+</div>
 </template>
 
 <script>
@@ -141,5 +140,4 @@ export default {
   justify-content: center;
   position: absolute;
 }
-
 </style>

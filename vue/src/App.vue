@@ -25,13 +25,14 @@
   padding: 0;
   border: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow: auto;
 } 
 #nav{
   width: 100%;
   position: relative;
   text-align: center;
   top: 0;
-
+  overflow: auto;
 } 
 
 </style>
