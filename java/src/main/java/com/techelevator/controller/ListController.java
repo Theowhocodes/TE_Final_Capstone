@@ -7,6 +7,7 @@ import com.techelevator.model.ListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -45,9 +46,12 @@ public class ListController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Lists createList(@Valid @RequestBody ListDto listDto) {
-        return listDao.createList(listDto);
+        if (listDto.getListName().length() > 0) {
+            return listDao.createList(listDto);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
     }
-
     // claim a list
     @PutMapping("/{listId}/claim")
     public void claimList(@RequestBody @PathVariable("listId") int listId, Principal principal){

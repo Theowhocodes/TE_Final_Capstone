@@ -35,7 +35,7 @@ export default {
           }})
          .catch((error) => {
             if (error.response.status === 400) {
-          alert("Group Name is Required");
+          alert("Group Name is Required!");
         }
          
       })
