@@ -77,9 +77,7 @@ public class JdbcShoppingGroupDaoTests extends BaseDaoTests {
 
         ShoppingGroup fake = sut.createGroup(GROUP_DTO);
 
-
         Assert.assertEquals(GROUP_1.getGroupName(), sut.getGroupById(fake.getGroupId()).getGroupName());
-
 
     }
 }

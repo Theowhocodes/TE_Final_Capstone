@@ -45,11 +45,6 @@ export default {
 
 <style>
 
-.musicPlayer{
-  display: inline-flex;
-  width: 30%;
-}
-
 
 
 </style>
