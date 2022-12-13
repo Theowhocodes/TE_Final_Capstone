@@ -19,5 +19,7 @@ public interface ListDao {
 
     void unclaimList(int listId);
 
+    void clearList(int listId);
+
 }
 

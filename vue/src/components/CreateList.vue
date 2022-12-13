@@ -33,8 +33,12 @@ export default {
         if (response.status === 201){
           window.location.reload();
           //this.$router.push({ name: 'home'});
+        }})
+        .catch((error) => {
+            if (error.response.status === 400) {
+          alert("List name is required!");
         }
-
+         
       })
 
     }
