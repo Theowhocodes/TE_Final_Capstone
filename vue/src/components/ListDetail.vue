@@ -18,10 +18,9 @@
       <router-link v-bind:to="{ name: 'item', params: { itemId: item.itemId } }">
           {{ item.itemName }} </router-link> | Quantity: {{item.itemQuantity}} 
       </div>
-
-        <p>Warning: clearing a list is permanent and cannot be undone!</p>
+      <div>
       <button @click="clearAllItemsFromList()">Clear all items from list</button>
-
+        </div>
 
 
   </div>
@@ -77,6 +76,7 @@ export default {
     },
 
     clearAllItemsFromList() {
+       if(confirm("Clear list? This action cannot be undone!")){
         const listId = this.$route.params.listId
             listService.clearAllItemsFromList(listId).then(response => {
                 if (response.status === 200){
@@ -92,7 +92,7 @@ export default {
   }
 
 }
-
+}
 </script>
 
 <style>

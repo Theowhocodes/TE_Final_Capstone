@@ -6,7 +6,7 @@
 
         <form class="group-form">
          <label for="groupName">Group Name:</label>
-        <input type="text" placeholder="Group Name" name="groupName" v-model="shoppingGroup.groupName" maxlength="200" id="groupName">
+        <input type="text" placeholder="Group Name" name="groupName" v-model="shoppingGroup.groupName" maxlength="200" id="groupName" required>
         <button type="button" v-on:click="createShoppingGroup()" name="create" id="create">Create Group</button>
         </form>
       </div>
@@ -34,8 +34,8 @@ export default {
           window.location.reload(); 
           }})
          .catch((error) => {
-            if (error.response.status === 404) {
-          this.$alert("Group Name is Required");
+            if (error.response.status === 400) {
+          alert("Group Name is Required");
         }
          
       })
