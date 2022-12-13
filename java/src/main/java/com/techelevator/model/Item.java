@@ -111,6 +111,6 @@ public class Item {
     }
 
     public void setCompleted(boolean completed) {
-        completed = completed;
+        this.completed = completed;
     }
 }

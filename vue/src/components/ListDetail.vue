@@ -23,7 +23,7 @@
       > 
       <p>
         Complete?
-        <input @click="item.completed = true" type="checkbox" v-model="item.completed" v-bind:class="{ completed: item.completed }"/>
+        <input type="checkbox" v-model="item.completed" v-bind:class="{ completed: item.completed }" @change="completed(item)"/>
       </p>
       <router-link v-bind:to="{ name: 'item', params: { itemId: item.itemId } }">
           {{ item.itemName }} </router-link> | Quantity: {{item.itemQuantity}} 
@@ -65,9 +65,9 @@ export default {
         listService.getAllItemsInList(listId).then(response => {
             this.items = response.data;
         });
-        itemService.getItem(this.item.itemId).then(response => {
-            this.item.completed = response.data.completed
-        })
+        // itemService.getItem(this.item.itemId).then(response => {
+        //     this.item.completed = response.data.completed
+        // })
     }, 
 
     methods: {
@@ -107,11 +107,10 @@ export default {
             })
        }
     },
-    completed() {
-      itemService.completeStatus(this.item).then(response => {
-          if (response.status === 200){
-          window.location.reload()
-        }
+    completed(item) {
+      itemService.completeStatus(item).then(response => {
+         response.data = this.item.completed
+        
       })
     }
   }
