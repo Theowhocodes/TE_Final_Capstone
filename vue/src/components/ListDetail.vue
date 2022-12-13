@@ -1,9 +1,9 @@
 <template>
   <div>
       <h3> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "Unclaimed" }} </h3>
-     <!--<button @click="claimList()">
+    <!--<button @click="claimList()">
          {{ list.claimed ? "Unclaim" : "Claim" }}
-         </button> -->
+         </button> --> 
 
          <button @click="claimList()"> Claim List</button>
 

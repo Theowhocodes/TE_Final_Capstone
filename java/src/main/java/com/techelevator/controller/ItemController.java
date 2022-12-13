@@ -50,7 +50,10 @@ public class ItemController {
     }
 
     @PutMapping("{itemId}/modify")//worked in postman
-    public Item modifyItem(@Valid @RequestBody ItemDto itemDto) {
+    public Item modifyItem(@PathVariable("itemId") int itemId, @Valid @RequestBody ItemDto itemDto) {
+        if(itemDto.getItemName().equalsIgnoreCase("")) {
+            itemDto.setItemName(itemDao.getItemById(itemId).getItemName());
+        }
        return itemDao.modifyItem(itemDto);
     }
 
