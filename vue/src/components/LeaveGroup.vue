@@ -1,8 +1,8 @@
 <template>
   <div>
-      <div class="leave-group">
+      <div class="leave-group has-text-centered">
         
-        <button type="button" v-on:click="leaveShoppingGroup()" name="leave" id="leave">Leave this Group</button>
+        <button class="button is-link is-light is-medium is-outlined center" type="button" v-on:click="leaveShoppingGroup()" name="leave" id="leave">Leave This Group?</button>
         <br>
       </div>
   </div>
@@ -33,5 +33,8 @@ created() {
 </script>
 
 <style>
+#leave{
+margin: auto;
+}
 
 </style>

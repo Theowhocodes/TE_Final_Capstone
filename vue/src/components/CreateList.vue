@@ -1,14 +1,16 @@
 <template>
   <div>
-      <div class="create-list">
-        <h4>Create a New List</h4>
-        <p> Enter a list name below to create a new shopping list:</p>
-
-        <form class="list-form">
-         <label for="listName">List Name:</label>
-        <input type="text" placeholder="List Name" name="listName" v-model="shoppingList.listName" maxlength="200" id="listName">
-        <button type="button" v-on:click="createShoppingList()" name="create" id="create">Create List</button>
+    <br><br>
+      <div class="create-list has-text-centered">
+        <h4 class="is-size-3 has-text-link has-text-weight-bold">Create a New List</h4>
+        <p class="is-size-5 has-text-weight-semibold has-text-link"> Let's Give Your List a Name:</p>
+<div>
+        <form id="listInput" class="list-form has-text-link">
+         <label for="listName"></label><br>
+        <input class="has-text-centered is-link" type="text" placeholder="Your New Listname" name="listName" v-model="shoppingList.listName" maxlength="200" id="listName">
+        <br> <br><button  class="button is-link is-light is-medium is-outlined center" type="button" v-on:click="createShoppingList()" name="create" id="create">Create List</button>
         </form>
+</div>
       </div>
   </div>
 </template>
@@ -42,5 +44,12 @@ export default {
 };
 </script>
 <style>
+input{
+  width: 30%;
+  height: 30px;
+  border: 2px solid rgb(74, 8, 230);
+}
+
+
 
 </style>

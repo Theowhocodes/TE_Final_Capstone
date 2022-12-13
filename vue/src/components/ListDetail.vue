@@ -1,13 +1,19 @@
 <template>
   <div>
-      <h3> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "Unclaimed" }} </h3>
+      <h3 class="is-size-3 has-text-centered has-text-link has-text-weight-bold"> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "This List is Unclaimed" }}</h3>
      <!--<button @click="claimList()">
          {{ list.claimed ? "Unclaim" : "Claim" }}
          </button> -->
 
-         <button @click="claimList()"> Claim List</button>
+         <div class="has-text-centered">
+           <br>
+          
+         <button class="button is-link is-light is-small is-outlined center" type="button" @click="claimList()"> Claim List</button>
+          
+         <button class="button is-link is-light is-small is-outlined center" type="button" @click="unclaimList()">Unclaim List</button> 
+          
 
-         <button @click="unclaimList()">Unclaim List</button> 
+         </div>
 
          
     
@@ -85,5 +91,16 @@ export default {
 </script>
 
 <style>
+#list-detail{
+ margin: auto;
+ width: 400px; 
+ height: 400px;
+ background: yellow;
+ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EBEB00), to(#C5C500));
+ background: -moz-linear-gradient(100% 100% 90deg, #C5C500, #EBEB00);
+ padding: 20px 20px 20px 20px;
+ -webkit-box-shadow: 0px 10px 30px #000;
+ -moz-box-shadow: 0px 10px 30px #000
+}
 
 </style>
