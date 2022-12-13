@@ -1,6 +1,10 @@
 package com.techelevator.model;
 
+
+
+
 public class Lists {
+
 
 
     private int listId;
@@ -10,10 +14,11 @@ public class Lists {
     private int listOwner;
     private boolean completed;
     private int count;
+    private String listOwnerName;
 
 
 
-    public Lists(int listId, String listName, int groupId, boolean claimed, int listOwner, boolean completed, int itemCount) {
+    public Lists(int listId, String listName, int groupId, boolean claimed, int listOwner, boolean completed, int count, String listOwnerName) {
         this.listId = listId;
         this.listName = listName;
         this.groupId = groupId;
@@ -21,6 +26,8 @@ public class Lists {
         this.listOwner = listOwner;
         this.completed = completed;
         this.count = count;
+        this.listOwnerName = listOwnerName;
+
     }
 
     public Lists() {
@@ -80,5 +87,13 @@ public class Lists {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getListOwnerName() {
+        return listOwnerName;
+    }
+
+    public void setListOwnerName(String listOwnerName) {
+        this.listOwnerName = listOwnerName;
     }
 }

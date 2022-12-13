@@ -10,7 +10,7 @@
         </div>
         <div class="form-element">
           <label for="itemQuantity">Quantity</label>
-          <select id="quantity" v-model.number="item.itemQuantity">
+          <select id="quantity" v-model.number="item.itemQuantity" required>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -31,25 +31,30 @@
 
 <script>
 import itemService from "../services/ItemService.js";
+import moment from 'moment';
+
 
 export default {
   name: "create-item",
 
   data() {
     return {
+     
       item: {
           itemName: "",
-          listId: "",
-          addedBy: "",
-
-      },
+          itemQuantity: "",
+          listId: Number(this.$route.params.listId),
+          addedBy: this.$store.state.user.id,
+          dateAdded: moment().format("YYYY-MM-DD")
+        },
     };
   },
   methods: {
       createNewItem() {
+
       itemService.createNewItem(this.item).then(response => {
           if (response.status === 201){
-              this.$router.push({ name: 'list'});
+              window.location.reload();
           }
       })
   }

@@ -1,12 +1,6 @@
 <template>
   <div >
-      <form class="has-text-centered">
-          <input class="has-text-centered" type="text" placeholder="Enter Invite Code" /> 
-      </form>
-
-      <h1 class="has-text-centered">Your Shopping Groups</h1>
-      <div class= " groupList section is-medium"
-      <h3>Your Shopping Groups</h3>
+      <h3>Your Shopping Groups</h3> <br>
       <div class= "groupList"
       v-for="group in groups"
       v-bind:key="group.groupId"

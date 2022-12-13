@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="modify-item">
-      <h2>Modify {{item.itemName}}</h2>
+      <h2>Modify {{ this.originalName }} </h2> 
 
       <form>
         <div class="modify-element">
@@ -37,26 +37,48 @@
 </template>
 
 <script>
-import ItemService from '../services/ItemService';
+import itemService from '../services/ItemService';
+import moment from 'moment';
 
 export default {
     name: "modify-item",
 
     data() {
         return {
+            originalName: "",
             item: {
-                itemName: "",
-                itemId: "",
+              itemName: "",
+              listId: "",
+              dateAdded:"",
+              addedBy:"",
+              itemId: this.$route.params.itemId,
+              itemQuantity: "",
+              lastModifiedBy: this.$store.state.user.id,
+              lastModified: moment().format()
             }
         };
     },
     methods: {
         modifyItem() {
-            ItemService.modifyItem(this.item).then(response => {
-                if (response.status === 201){
-              this.$router.push({ name: 'list'});
-            }});
-        }
+            itemService.getItem(this.$route.params.itemId).then(response => {
+            
+            itemService.modifyItem(response.data.itemId, this.item).then(response => {
+               
+                if (response.status === 200){
+                this.$router.go(-1);
+            }})
+            })
+        }, 
+        
+
+    },
+    created() {
+      itemService.getItem(this.$route.params.itemId).then(response => {
+        this.originalName = response.data.itemName,
+        this.item.listId = response.data.listId,
+        this.item.dateAdded = response.data.dateAdded,
+        this.item.addedBy = response.data.addedBy
+      })
     }
 };
 </script>

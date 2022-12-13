@@ -1,6 +1,6 @@
 <template>
   <div >
-     
+    
       <h3> {{group.groupName}} | Invitation Code: {{group.invitationCode}}</h3>
       <h4>Your Group Lists</h4>
       <div class= "groupList"
@@ -10,7 +10,7 @@
       >
       
       List name: <router-link v-bind:to="{ name: 'list', params: { listId: list.listId } }">
-          {{list.listName}} </router-link> | Total items on list: {{list.count}}
+          {{list.listName}} </router-link> | Total items on list: {{list.count}} | List status: {{ list.claimed ? "Claimed" : "Unclaimed" }}
     
     
       </div>
