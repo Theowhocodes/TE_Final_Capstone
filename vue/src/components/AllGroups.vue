@@ -55,4 +55,6 @@ export default {
  -moz-box-shadow: 0px 10px 30px #000
 }
 
+
+
 </style>

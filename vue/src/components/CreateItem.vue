@@ -59,12 +59,18 @@ export default {
       itemService.createNewItem(this.item).then(response => {
           if (response.status === 201){
               window.location.reload();
-          }
+          }})
+          .catch((error) => {
+            if (error.response.status === 400) {
+          alert("Please make sure you have entered an item name and quantity of at least one!");
+        }
+         
       })
+
+    }
   }
   }
   
-};
 </script>
 
 <style>
