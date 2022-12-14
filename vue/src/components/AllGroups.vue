@@ -35,7 +35,6 @@
 </template>
 
 <script>
-// can maybe use a created property to return membership age another way aside from days?
 
 import groupService from "../services/GroupService.js";
 

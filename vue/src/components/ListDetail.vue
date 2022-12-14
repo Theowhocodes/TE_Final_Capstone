@@ -72,6 +72,11 @@
               Clear all items from list
             </button>
           </div>
+          <div>
+            <button @click="deleteList()">
+              Delete List
+            </button>
+          </div>
   </div>
 </template>
 
@@ -101,9 +106,6 @@ export default {
     listService.getAllItemsInList(listId).then((response) => {
       this.items = response.data;
     });
-    // itemService.getItem(this.item.itemId).then(response => {
-    //     this.item.completed = response.data.completed
-    // })
   },
 
   methods: {
@@ -144,6 +146,15 @@ export default {
         response.data = this.item.completed;
       });
     },
+    deleteList() {
+      if(confirm("Delete List? It will be gone forever!")) {
+      const listId = this.$route.params.listId
+      listService.deleteList(listId).then(response => {
+        if (response.status === 200) {
+          this.$router.go(-1);
+        }
+      })
+    }}
   },
 };
 </script>

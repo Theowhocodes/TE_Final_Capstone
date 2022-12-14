@@ -9,8 +9,6 @@ import java.util.List;
 public interface ListDao {
     List <Lists> getAllListsByGroupId(int groupId);
 
-    //Lists getListByGroupId(int groupId);
-
     Lists getListById(int listId);
 
     Lists createList(ListDto listDto);
@@ -20,6 +18,8 @@ public interface ListDao {
     void unclaimList(int listId);
 
     void clearList(int listId);
+
+    void deleteList(int listId);
 
 }
 
