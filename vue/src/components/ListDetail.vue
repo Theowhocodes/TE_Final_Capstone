@@ -26,7 +26,7 @@
       
       </div>
       <div>
-      <button @click="clearAllItemsFromList()">Clear all items from list</button>
+      <button class="button is-link is-light is-small is-outlined center" @click="clearAllItemsFromList()">Clear all items from list</button>
         </div>
 
 

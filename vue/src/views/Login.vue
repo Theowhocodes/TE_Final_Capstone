@@ -4,13 +4,13 @@
     <div class="columns is-vcentered">
       <div class="column is-6 mb-14 mb-0-tablet">
         <div class="has-mw-md mx-auto">
-          <h2 class="title is-size-3 has-leading-3 has-text-primary">Invite your friends and collaborate on a shared shopping list for any occasion!</h2>
+          <h2 class="title is-size-3 has-leading-3 has-text-link">Invite your friends and collaborate on a shared shopping list for any occasion!</h2>
         </div>
       </div>
       <div class="column is-6">
         <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
-          <span class="is-block has-text-info has-text-weight-semibold is-uppercase has-letter-space">Start Making Lists</span><br>
-          <h3 class="title is-size-4 has-text-primary">Sign in to your account</h3>
+          <span class="is-block is-size-4 has-text-link has-text-weight-bold is-uppercase has-letter-space">Start Making Lists</span><br>
+          <h3 class="title is-size-5 has-text-link has-text-weight-semibold">Sign in to your account</h3>
     <form @submit.prevent="login">
       <div
         class="alert alert-danger"
@@ -46,7 +46,7 @@
       />
       </div>
       <div>
-      <button class="button is-fullwidth is-warning mb-4" type="submit">Sign in</button>
+      <button class="button is-fullwidth is-link is-light is-outlined mb-4" type="submit">Sign in</button>
       </div>
       <div class="has-text-centered mb-4">
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
