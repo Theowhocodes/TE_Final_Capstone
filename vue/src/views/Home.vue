@@ -1,9 +1,13 @@
 <template>
-<section id="homescreen" class="is-relative section">
+<section class="is-relative section">
     <div class="columns">
       <div class="column is-full">
         <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
+<<<<<<< HEAD
          <br> <h2 class="title is-size-2 has-leading-2 has-text-link has-text-centered has-text-weight-bold">Welcome Back to Listmate<br> Let's Start Shopping!</h2> <br>
+=======
+         <br> <h2 class="title is-size-3 has-leading-3 has-text-link has-text-centered has-text-weight-bold">Welcome Back <br> Let's Start Shopping!</h2> <br>
+>>>>>>> b492c12f3cac025d9f951ef659a4151036356618
         </div>
   <div class="home has-text-centered">
     <div class="column is-full">
@@ -60,5 +64,17 @@ export default {
   padding: 0;
   border: 0;
 }
+<<<<<<< HEAD
+=======
+/*#all-groups{
+ margin: auto;
+ width: 300px; 
+ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EBEB00), to(#C5C500));
+ background: -moz-linear-gradient(100% 100% 90deg, #C5C500, #EBEB00);
+ padding: 20px 20px 20px 20px;
+ -webkit-box-shadow: 0px 10px 30px #000;
+ -moz-box-shadow: 0px 10px 30px #000  
+} */
+>>>>>>> b492c12f3cac025d9f951ef659a4151036356618
 
 </style>

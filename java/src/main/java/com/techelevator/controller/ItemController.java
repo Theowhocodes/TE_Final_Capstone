@@ -6,6 +6,7 @@ import com.techelevator.model.ItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
@@ -55,8 +56,15 @@ public class ItemController {
     }
 
     @PutMapping("{itemId}/modify")//worked in postman
-    public Item modifyItem(@Valid @RequestBody ItemDto itemDto) {
+    public Item modifyItem(@PathVariable("itemId") int itemId, @Valid @RequestBody ItemDto itemDto) {
+        if(itemDto.getItemName().equalsIgnoreCase("")) {
+            itemDto.setItemName(itemDao.getItemById(itemId).getItemName());
+        }
        return itemDao.modifyItem(itemDto);
+    }
+    @PutMapping("/complete")
+    public void completeStatus(@Valid @RequestBody ItemDto itemDto) {
+        itemDao.isCompleted(itemDto);
     }
 
     @DeleteMapping("/{itemId}/delete")//worked in postman
