@@ -1,9 +1,9 @@
 <template>
 <section>
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav id="testNav" class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="http://localhost:8082">
-      <img src="../../src/assets/twitter_header_photo_1.png" width="112" height="28">
+      <img src="../../src/assets/transparent_white.png" width="120" height="120">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -15,14 +15,14 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <router-link class="navbar-item" v-bind:to="{ name: 'home' }">Home</router-link>
+      <router-link class="navbar-item has-text-white" v-bind:to="{ name: 'home' }">Home</router-link>
       
 
-       <router-link class="navbar-item" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+       <router-link class="navbar-item has-text-white" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+        <a class="navbar-link has-text-white is-arrowless">
           More
         </a>
 
@@ -33,35 +33,79 @@
           <a class="navbar-item">
             Jobs
           </a>
-          <a class="navbar-item">
-            Contact
-          </a>
+          
         </div>
       </div>
     </div>
+
+  
   </div>
 </nav>
-<section class="is-relative section">
+<div id="bannerColumns" class="columns is-vcentered">
+  <div class="column is-two-thirds">
+    <figure class="image">
+    <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+    <img src="../../src/assets/logo_transparent.png">
+    </figure>
+  </div>
+  </div>
   <div>
-   
-      <list-detail/>
-       
-        
+
+    <div id ="groupTile" class="tile is-ancestor">
+  <div class="tile is-3 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p id="tileTitle" class="title">Add to your list</p>
+         
       <create-item/>
+   
     </div>
+    <div class="tile is-child box">
+       <p id="tileTitle" class="title">Weather</p>
+      Never be caught off guard, check the forecast before you go out to shop!
+      <weather />
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p id="tileTitle" class="title">List details</p>
+    <list-detail/>
+    </div>
+  </div>
+   <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p id="tileTitle" class="title">Placeholder</p>
+      
+    </div>
+  </div>
+  
+</div>
+    </div>
+     <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+    </p>
+  </div>
+</footer>
         
 </section>
-</section>
+
 </template>
 
 <script>
 import CreateItem from '../components/CreateItem.vue'
 import ListDetail from '../components/ListDetail.vue'
+import Weather from '../components/Weather.vue'
 
 export default {
   components: {
     ListDetail,
     CreateItem, 
+    Weather
   }
 }
 </script>

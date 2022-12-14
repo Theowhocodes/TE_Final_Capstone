@@ -2,10 +2,10 @@
   <div>
 
       <label for="Temp"> Current Temp:
-    <weather-service v-text="kelvToFar()" />
+    <weather-service v-text="kelvToFar()" />°F
       </label>
 
-      <weather-service v-text="displayWeather()" />
+      
 
   </div>
 </template>
