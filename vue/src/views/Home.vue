@@ -1,38 +1,80 @@
 <template>
+<section>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://localhost:8082">
+      <img src="../../src/assets/twitter_header_photo_1.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <router-link class="navbar-item" v-bind:to="{ name: 'home' }">Home</router-link>
+      
+
+       <router-link class="navbar-item" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  
+  </div>
+</nav>
 <section class="is-relative section">
     <div class="columns">
       <div class="column is-full">
-        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
-<<<<<<< HEAD
-         <br> <h2 class="title is-size-2 has-leading-2 has-text-link has-text-centered has-text-weight-bold">Welcome Back to Listmate<br> Let's Start Shopping!</h2> <br>
-=======
+        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-light">
          <br> <h2 class="title is-size-3 has-leading-3 has-text-link has-text-centered has-text-weight-bold">Welcome Back <br> Let's Start Shopping!</h2> <br>
->>>>>>> b492c12f3cac025d9f951ef659a4151036356618
         </div>
   <div class="home has-text-centered">
     <div class="column is-full">
-        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
+        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-light">
           <h3 class="title is-size-3 has-leading-3 has-text-link has-text-bold">Join</h3> 
     <join-group />
         </div>
     </div>
     <div class="column is-full">
-        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
+        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-light">
           <h3 class="title is-size-3 has-leading-2 has-text-link has-text-bold">Create</h3> 
           <create-group />
         </div>
     </div>
      <div class="column is-full">
-        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
+       <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-light">
           <h2 class="title is-size-3 has-leading-2 has-text-link">Your Groups</h2> 
     <all-groups/>
         </div>
+     </div>
      </div>
     <br />
     <br />
   </div>
   </div>
-  </div>
+</section>
 </section>
 </template>
 
@@ -64,17 +106,5 @@ export default {
   padding: 0;
   border: 0;
 }
-<<<<<<< HEAD
-=======
-/*#all-groups{
- margin: auto;
- width: 300px; 
- background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EBEB00), to(#C5C500));
- background: -moz-linear-gradient(100% 100% 90deg, #C5C500, #EBEB00);
- padding: 20px 20px 20px 20px;
- -webkit-box-shadow: 0px 10px 30px #000;
- -moz-box-shadow: 0px 10px 30px #000  
-} */
->>>>>>> b492c12f3cac025d9f951ef659a4151036356618
 
 </style>

@@ -57,22 +57,7 @@ export default {
 }
 </script>
 
-<<<<<<< HEAD
 <style>
 
-=======
-<style> /*
-#groupDetails{
- margin: auto;
- overflow: auto;
- width: 300px; 
- height: 300px;
- background: yellow;
- background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EBEB00), to(#C5C500));
- background: -moz-linear-gradient(100% 100% 90deg, #C5C500, #EBEB00);
- padding: 20px 20px 20px 20px;
- -webkit-box-shadow: 0px 10px 30px #000;
- -moz-box-shadow: 0px 10px 30px #000
-} */
->>>>>>> b492c12f3cac025d9f951ef659a4151036356618
+
 </style>

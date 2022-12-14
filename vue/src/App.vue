@@ -1,9 +1,5 @@
 <template>
   <div id="app" >
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home </router-link>
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">| Logout</router-link>
-    </div>
     <router-view />
   </div>
 </template>
@@ -14,11 +10,7 @@
 @import "~bulma/css/bulma.css";
 
 #app{
-<<<<<<< HEAD
- /* background-image: url("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/yellow-notebook-paper-background-design-template-d7dfa26f8c8c759652e2521f0ecd24eb_screen.jpg?ts=1636990781");*/ 
-=======
-  background-image: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); 
->>>>>>> b492c12f3cac025d9f951ef659a4151036356618
+
   height:100vh ;
   width: 100vmax;
   background-size: 100% ;
