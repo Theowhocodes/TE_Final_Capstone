@@ -24,11 +24,10 @@ export default {
 
     clearAllItemsFromList(listId){
         return axios.delete(`/groups/lists/list/${listId}/clear`)
-    }
+    },
 
-    
-// getAllItemsInListById(listId) {
-//     return axios.get(`/groups/lists/list/${listId}`)
-// }
+    deleteList(listId){
+        return axios.delete(`/groups/lists/list/${listId}/delete`)
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.ItemDao;
 import com.techelevator.dao.ListDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Lists;
@@ -23,6 +24,8 @@ public class ListController {
     private ListDao listDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private ItemDao itemDao;
 
     //get one list by listId
     @GetMapping("/list/{listId}")
@@ -72,4 +75,16 @@ public class ListController {
         listDao.clearList(listId);
     }
 
+    @DeleteMapping("/list/{listId}/delete")
+    public boolean deleteList(@PathVariable("listId") int listId, Principal principal) {
+        if(!listDao.getListById(listId).isClaimed()) {
+            return false;
+        } else if (!(principal.getName()).equals(listDao.getListById(listId).getListOwnerName())) {
+            return false;
+        } else {
+            listDao.clearList(listId);
+            listDao.deleteList(listId);
+        } return true;
+
+    }
 }
