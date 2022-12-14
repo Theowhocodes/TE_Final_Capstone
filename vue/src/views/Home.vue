@@ -125,14 +125,5 @@ export default {
   margin-left: 5px;
   margin-right: 5px;
 }
-/*#all-groups{
- margin: auto;
- width: 300px; 
- background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EBEB00), to(#C5C500));
- background: -moz-linear-gradient(100% 100% 90deg, #C5C500, #EBEB00);
- padding: 20px 20px 20px 20px;
- -webkit-box-shadow: 0px 10px 30px #000;
- -moz-box-shadow: 0px 10px 30px #000  
-} */
 
 </style>

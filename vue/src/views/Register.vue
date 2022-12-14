@@ -61,7 +61,7 @@
          <span>Your password must be at least 8 characters including a lowercase letter, an uppercase letter, a special character and a number.</span>
               </label>
             </div>
-      <button class="button is-fullwidth is-warning" type="submit">
+      <button class="button is-fullwidth is-link is-light is-outlined" type="submit">
         Create Account
       </button>
       <br>

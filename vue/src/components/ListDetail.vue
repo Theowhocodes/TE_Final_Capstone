@@ -1,66 +1,37 @@
 <template>
   <div>
-    <h3 class="is-size-3 has-text-centered has-text-link has-text-weight-bold">
-      {{ list.listName }} |
-      {{
-        list.claimed
-          ? `Claimed by: ${list.listOwnerName}`
-          : "This List is Unclaimed"
-      }}
-    </h3>
+      <h3 class="is-size-3 has-text-centered has-text-link has-text-weight-bold"> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "This List is Unclaimed" }} </h3>
+     
 
-    <div class="has-text-centered">
-      <br />
+         <div class="has-text-centered">
+           <br>
+          
+         <button class="button is-link is-light is-small is-outlined center" type="button" @click="claimList()"> Claim List</button>
+          
+         <button class="button is-link is-light is-small is-outlined center" type="button" @click="unclaimList()">Unclaim List</button> 
+          
 
-      <button
-        class="button is-link is-light is-small is-outlined center"
-        type="button"
-        @click="claimList()"
-      >
-        Claim List
-      </button>
+         </div>
 
-      <button
-        class="button is-link is-light is-small is-outlined center"
-        type="button"
-        @click="unclaimList()"
-      >
-        Unclaim List
-      </button>
-    </div>
+         
+    
 
-    <table>
-      <thead>
-        <tr>
-          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-          <th>Item</th>&nbsp;&nbsp;&nbsp;&nbsp;
-          <th>Qty</th>
-        </tr>
-      </thead><br>
-      <tbody>
-        <tr
-          class="itemsInList"
-          v-for="item in items"
-          v-bind:key="item.itemId"
-          v-bind:item="item"
-        >
-          <td>
-            
-              <input
-                type="checkbox"
-                v-model="item.completed"
-                v-bind:class="{ completed: item.completed }"
-                @change="completed(item)"
-              />
-            
-          </td>
-          <td>
-          <router-link
-            v-bind:to="{ name: 'item', params: { itemId: item.itemId } }"
-          >
-            {{ item.itemName }}
-          </router-link></td>&nbsp;
-          <td>{{ item.itemQuantity }}</td>
+      <div class= "itemsInList"
+      v-for="item in items"
+      v-bind:key="item.itemId"
+      v-bind:item="item"
+      > 
+      <p>
+        Complete?
+        <input type="checkbox" v-model="item.completed" v-bind:class="{ completed: item.completed }" @change="completed(item)"/>
+      </p>
+      <router-link v-bind:to="{ name: 'item', params: { itemId: item.itemId } }">
+          {{ item.itemName }} </router-link> | Quantity: {{item.itemQuantity}} 
+      
+      </div>
+      <div>
+      <button class="button is-link is-light is-small is-outlined center" @click="clearAllItemsFromList()">Clear all items from list</button>
+        </div>
 
 
           

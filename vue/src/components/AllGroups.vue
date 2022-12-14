@@ -55,20 +55,7 @@ export default {
 </script>
 
 <style>
-#all-groups {
-  margin: auto;
-  width: 300px;
-  background: yellow;
-  background: -webkit-gradient(
-    linear,
-    0% 0%,
-    0% 100%,
-    from(#ebeb00),
-    to(#c5c500)
-  );
-  background: -moz-linear-gradient(100% 100% 90deg, #c5c500, #ebeb00);
-  padding: 20px 20px 20px 20px;
-  -webkit-box-shadow: 0px 10px 30px #000;
-  -moz-box-shadow: 0px 10px 30px #000;
-}
+
+
+
 </style>
