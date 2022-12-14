@@ -1,78 +1,9 @@
 <template>
-<section>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="http://localhost:8082">
-      <img src="../../src/assets/twitter_header_photo_1.png" width="112" height="28">
-    </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
+<create-list/>
+<group-detail/>
+<leave-group/>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <router-link class="navbar-item" v-bind:to="{ name: 'home' }">Home</router-link>
-      
-
-       <router-link class="navbar-item" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-
-        </div>
-      </div>
-    </div>
-
-  
-  </div>
-</nav>
-
-<div class="tile is-ancestor">
-  <div class="tile is-3 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p class="title">Get started on a list: </p>
-      <create-list/>
-    </div>
-    <div class="tile is-child box">
-      <p class="title">Want to leave this group?</p>
-      <leave-group/>
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <div class="tile is-child box">
-      <p class="title">All of your lists: </p>
-      <group-detail/>
-    </div>
-    </div>
-    <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-     <img src="../../src/assets/logo.png">
-    </div>
-    <div class="tile is-child box">
-      <p class="title">Weather</p>
-      Never be caught off guard, check the forecast before you go out to shop
-    </div>
-  </div>
-</div>
-</section>
 </template>
 
 
