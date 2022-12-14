@@ -1,9 +1,9 @@
 <template>
 <section>
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav id="testNav" class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="http://localhost:8082">
-      <img src="../../src/assets/facebook_cover_photo_1.png" width="120" height="120">
+      <img src="../../src/assets/transparent_white.png" width="120" height="120">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -15,14 +15,14 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <router-link class="navbar-item" v-bind:to="{ name: 'home' }">Home</router-link>
+      <router-link class="navbar-item has-text-white" v-bind:to="{ name: 'home' }">Home</router-link>
       
 
-       <router-link class="navbar-item" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+       <router-link class="navbar-item has-text-white" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+        <a class="navbar-link has-text-white is-arrowless">
           More
         </a>
 
@@ -33,10 +33,7 @@
           <a class="navbar-item">
             Jobs
           </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-
+          
         </div>
       </div>
     </div>
@@ -53,7 +50,7 @@
   </div>
   <div class="column">
     <figure class="image">
-    <img src="../../src/assets/facebook_cover_photo_1.png">
+    <img src="../../src/assets/logo_transparent.png">
     </figure>
   </div>
   </div>
@@ -63,24 +60,24 @@
 <div id ="groupTile" class="tile is-ancestor">
   <div class="tile is-3 is-vertical is-parent">
     <div class="tile is-child box">
-      <p class="title">Join a group</p>
+      <p id="tileTitle" class="title">JOIN A GROUP</p>
       <join-group />
     </div>
     <div class="tile is-child box">
-       <p class="title">Weather</p>
+       <p id="tileTitle" class="title">WEATHER</p>
       Never be caught off guard, check the forecast before you go out to shop!
       <weather />
     </div>
   </div>
   <div class="tile is-parent">
     <div class="tile is-child box">
-      <p class="title">See all your groups</p>
+      <p id="tileTitle" class="title">SEE ALL YOUR GROUPS</p>
     <all-groups />
     </div>
   </div>
    <div class="tile is-4 is-vertical is-parent">
     <div class="tile is-child box">
-      <p class="title">Create a group</p>
+      <p id="tileTitle" class="title">CREATE A GROUP</p>
       <create-group />
     </div>
   </div>
@@ -88,6 +85,13 @@
 </div>
     </div></div>
 
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+    </p>
+  </div>
+</footer>
 
 </section>
 </template>
@@ -114,6 +118,12 @@ export default {
 </script>
 
 <style>
+
+#testNav{ 
+  background: #53435b;
+  
+}
+
 
 #coverImage {
   margin-top: 15px;

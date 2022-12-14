@@ -4,6 +4,9 @@
     <div class="columns is-vcentered">
       <div class="column is-6 mb-14 mb-0-tablet">
         <div class="has-mw-md mx-auto">
+          <img src="../../src/assets/logo_transparent_cropped.png">
+        </div>
+        <div>
           <h2 class="title is-size-3 has-leading-3 has-text-link">Invite your friends and collaborate on a shared shopping list for any occasion!</h2>
         </div>
         </div>
@@ -74,6 +77,13 @@
       </div>
       </div>
     </div>
+    <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+    </p>
+  </div>
+</footer>
 </section>
 </div>
 </template>

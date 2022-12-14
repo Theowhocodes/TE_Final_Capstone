@@ -27,7 +27,7 @@ export default {
 
 #app{
   
-  background-color: #7aa5d2;
+  background-color: #f2f2f3;
   height:100% ;
   width: 100%;
   background-size: 100% ;
@@ -36,14 +36,25 @@ export default {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /*font-family: Roboto, Geneva, Tahoma, sans-serif;*/
 } 
 #nav{
   width: 100%;
   position: relative;
   text-align: center;
   top: 0;
+  font-family: Roboto, sans-serif;
 
 } 
+
+#tileTitle{
+  color: #53435b;
+  font-family: Roboto, sans-serif;
+}
+
+#tileText{
+ Font-Family: 'Droid Serif', serif;
+color: #000000;
+}
 
 </style>
