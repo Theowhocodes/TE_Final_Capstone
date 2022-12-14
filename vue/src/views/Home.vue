@@ -3,7 +3,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="http://localhost:8082">
-      <img src="../../src/assets/twitter_header_photo_1.png" width="112" height="28">
+      <img src="../../src/assets/facebook_cover_photo_1.png" width="120" height="120">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -45,15 +45,30 @@
   </div>
 </nav>
 
-<div class="tile is-ancestor">
+<div id="bannerColumns" class="columns is-vcentered">
+  <div class="column is-two-thirds">
+    <figure class="image">
+    <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+    <img src="../../src/assets/facebook_cover_photo_1.png">
+    </figure>
+  </div>
+  </div>
+  <div class="columns">
+    <div class="column is-full">
+
+<div id ="groupTile" class="tile is-ancestor">
   <div class="tile is-3 is-vertical is-parent">
     <div class="tile is-child box">
       <p class="title">Join a group</p>
       <join-group />
     </div>
     <div class="tile is-child box">
-      <p class="title">Create a group</p>
-      <create-group />
+       <p class="title">Weather</p>
+      Never be caught off guard, check the forecast before you go out to shop!
     </div>
   </div>
   <div class="tile is-parent">
@@ -64,16 +79,13 @@
   </div>
    <div class="tile is-4 is-vertical is-parent">
     <div class="tile is-child box">
-     <img src="../../src/assets/logo.png">
-    </div>
-    <div class="tile is-child box">
-      <p class="title">Weather</p>
-      Never be caught off guard, check the forecast before you go out to shop!
+      <p class="title">Create a group</p>
+      <create-group />
     </div>
   </div>
   
 </div>
-
+    </div></div>
 
 
 </section>
@@ -97,15 +109,16 @@ export default {
 </script>
 
 <style>
-#groupBoard{
-  height:100vh ;
-  width: 100vmax;
-  background-size: 100% ;
-  background-repeat: no-repeat;
-  background-size:contain ;
-  margin: 0;
-  padding: 0;
-  border: 0;
+
+#coverImage {
+  margin-top: 15px;
+  margin-left: 15px;
+  border-radius: 4px;
+}
+
+#groupTile{
+  margin-left: 5px;
+  margin-right: 5px;
 }
 /*#all-groups{
  margin: auto;

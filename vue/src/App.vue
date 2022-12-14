@@ -11,12 +11,18 @@
 
 <style>
 
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif|Roboto:300');
+
 @import "~bulma/css/bulma.css";
 
+
+
 #app{
-  /*background-image: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); */
-  height:100vh ;
-  width: 100vmax;
+  
+  background-color: #7aa5d2;
+
+  height:100% ;
+  width: 100%;
   background-size: 100% ;
   background-repeat: no-repeat;
   background-size: cover ;
