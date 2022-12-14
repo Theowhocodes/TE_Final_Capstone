@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
     
       <h3> {{group.groupName}} | Invitation Code: {{group.invitationCode}}</h3>
       <h4>Your Group Lists</h4>
@@ -57,6 +57,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style> /*
+#groupDetails{
+ margin: auto;
+ overflow: auto;
+ width: 300px; 
+ height: 300px;
+ background: yellow;
+ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EBEB00), to(#C5C500));
+ background: -moz-linear-gradient(100% 100% 90deg, #C5C500, #EBEB00);
+ padding: 20px 20px 20px 20px;
+ -webkit-box-shadow: 0px 10px 30px #000;
+ -moz-box-shadow: 0px 10px 30px #000
+} */
 </style>

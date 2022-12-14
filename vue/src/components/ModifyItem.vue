@@ -9,18 +9,18 @@
           <input id="itemName" type="text" v-model="item.itemName" />
         </div>
         <div class="modify-element">
-          <label for="itemQuantity">Quantity</label>
+          <label for="itemQuantity"> Quantity: </label>
           <select id="quantity" v-model.number="item.itemQuantity">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-            <option value="5">6</option>
-            <option value="5">7</option>
-            <option value="5">8</option>
-            <option value="5">9</option>
-            <option value="5">10</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
           </select>
         </div>
         <button
@@ -31,6 +31,8 @@
         >
           Keep Changes
         </button>
+        <button type="button" @click="$router.go(-1)" name="cancelModification" id="cancelModification">Cancel</button>
+        
       </form>
     </div>
   </div>
@@ -63,7 +65,9 @@ export default {
             itemService.getItem(this.$route.params.itemId).then(response => {
             
             itemService.modifyItem(response.data.itemId, this.item).then(response => {
-               
+                if (this.item.itemName === "") {
+                  this.item.itemName = this.originalName
+                }
                 if (response.status === 200){
                 this.$router.go(-1);
             }})
@@ -74,10 +78,12 @@ export default {
     },
     created() {
       itemService.getItem(this.$route.params.itemId).then(response => {
+        //this.item.itemName = response.data.itemName,
         this.originalName = response.data.itemName,
         this.item.listId = response.data.listId,
         this.item.dateAdded = response.data.dateAdded,
         this.item.addedBy = response.data.addedBy
+        this.item.itemQuantity = response.data.itemQuantity
       })
     }
 };

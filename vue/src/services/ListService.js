@@ -15,7 +15,7 @@ export default {
     },
 
     getAllItemsInList(listId) {
-        return axios.get(`items/list/${listId}`)
+        return axios.get(`/items/list/${listId}`)
     },
 
     createShoppingList(shoppingList){

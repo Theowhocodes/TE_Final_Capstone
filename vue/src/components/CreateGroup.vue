@@ -1,13 +1,13 @@
 <template>
   <div>
       <div class="create-group">
-        <h3>Create a New Group</h3> <br>
-        <p> Enter a group name below to create a new shopping group:</p>
+        <h3 class="has-text-link has-text-weight-bold">Create a new group and invite your friends!</h3> <br>
+        <p class="has-text-link has-text-weight-bold"> Enter a group name below to create a new shopping group:</p><br>
 
-        <form class="group-form">
-         <label for="groupName">Group Name:</label>
-        <input type="text" placeholder="Group Name" name="groupName" v-model="shoppingGroup.groupName" maxlength="200" id="groupName" required>
-        <button type="button" v-on:click="createShoppingGroup()" name="create" id="create">Create Group</button>
+        <form class="group-form has-text-link has-text-weight-bold">
+         <label for="groupName">Group Name: </label>
+        <input class="input is-small" type="text" placeholder="Group Name" name="groupName" v-model="shoppingGroup.groupName" maxlength="200" id="groupName">
+        <button class="button is-link is-light is-small is-outlined center" type="button" v-on:click="createShoppingGroup()" name="create" id="create">Create Group</button>
         </form>
       </div>
   </div>
@@ -49,6 +49,10 @@ export default {
 <style>
 .group-form{
     display: inline-block;
+    
+}
+.button{
+  margin: 4px;
 }
 
 </style>

@@ -14,7 +14,7 @@ public class ItemDto {
     private String itemName;
     private int itemQuantity;
     private Date dateAdded;
-    private boolean isCompleted;
+    private boolean completed;
     private Timestamp lastModified;
     private int lastModifiedBy;
     private String category;
@@ -91,10 +91,10 @@ public class ItemDto {
     }
 
     public boolean isCompleted() {
-        return isCompleted;
+        return this.completed;
     }
 
     public void setCompleted(boolean completed) {
-        isCompleted = completed;
+        this.completed = completed;
     }
 }
