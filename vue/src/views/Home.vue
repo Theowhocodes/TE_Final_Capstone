@@ -69,6 +69,7 @@
     <div class="tile is-child box">
        <p class="title">Weather</p>
       Never be caught off guard, check the forecast before you go out to shop!
+      <weather />
     </div>
   </div>
   <div class="tile is-parent">
@@ -95,6 +96,8 @@
 import AllGroups from '../components/AllGroups.vue';
 import CreateGroup from '../components/CreateGroup.vue';
 import JoinGroup from '../components/JoinGroup.vue';
+import Weather from '@/components/Weather.vue';
+
 
 
 export default {
@@ -102,6 +105,8 @@ export default {
     AllGroups,
     CreateGroup,
     JoinGroup,
+    Weather
+  
     
   },
   name: "home"
