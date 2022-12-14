@@ -6,9 +6,16 @@
       v-bind:key="group.groupId"
       v-bind:group="shoppingGroup"
       >
+<<<<<<< HEAD
   
        Group name: <router-link v-bind:to="{ name: 'group', params: { groupId: group.groupId}  }">
           {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} | Invitation Code: {{group.invitationCode}}
+=======
+      
+      <router-link v-bind:to="{ name: 'group', params: { groupId: group.groupId}  }">
+          {{ group.groupName }} </router-link> | Member since: {{group.memberSince}} 
+   
+>>>>>>> 5e45b06ece06bfeef7750309df1e4e2ddad72eef
       </div>
   </div>
 </template>

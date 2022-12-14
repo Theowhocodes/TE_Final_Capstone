@@ -78,7 +78,7 @@
 
 
 <script>
-import CreateList from '../components/CreateList.vue'
+import CreateList from '../components/CreateList.vue';
 import GroupDetail from '../components/GroupDetail.vue';
 import LeaveGroup from '../components/LeaveGroup.vue';
 
