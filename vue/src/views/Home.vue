@@ -46,7 +46,7 @@
 </nav>
 
 <div class="tile is-ancestor">
-  <div class="tile is-4 is-vertical is-parent">
+  <div class="tile is-3 is-vertical is-parent">
     <div class="tile is-child box">
       <p class="title">Join a group</p>
       <join-group />
