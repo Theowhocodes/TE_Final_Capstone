@@ -76,15 +76,15 @@ public class ListController {
     }
 
     @DeleteMapping("/list/{listId}/delete")
-    public void deleteList(@PathVariable("listId") int listId, Principal principal) {
-
-        if(itemDao.listAll(listId).size() > 0) {
+    public boolean deleteList(@PathVariable("listId") int listId, Principal principal) {
+        if(!listDao.getListById(listId).isClaimed()) {
+            return false;
+        } else if (!(principal.getName()).equals(listDao.getListById(listId).getListOwnerName())) {
+            return false;
+        } else {
             listDao.clearList(listId);
-        }
-        if(listDao.getListById(listId).isClaimed() && (principal.getName()).equals(listDao.getListById(listId).getListOwnerName())) {
-            listDao.clearList(listId);
-        }
-        listDao.deleteList(listId);
+            listDao.deleteList(listId);
+        } return true;
 
     }
 }

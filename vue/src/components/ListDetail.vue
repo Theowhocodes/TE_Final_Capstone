@@ -153,6 +153,10 @@ export default {
         if (response.status === 200) {
           this.$router.go(-1);
         }
+      }).catch((error) => {
+        if(error.response.status === 500) {
+          alert("You must be the owner of this list to delete it")
+        }
       })
     }}
   },
