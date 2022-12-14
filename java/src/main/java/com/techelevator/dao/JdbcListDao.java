@@ -32,15 +32,6 @@ public class JdbcListDao implements ListDao {
         return oneListById;
     }
 
-//    public Lists getListByGroupId(int groupId){
-//        Lists singleList = new Lists();
-//        String sql = "SELECT group_id, COUNT(item.item_quantity) as item_count FROM list JOIN item ON item.list_id = list.list_id GROUP BY group_id ORDER BY group_id ASC;";
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
-//        if (results.next()) {
-//            singleList = mapRowToList(results);}
-//        return singleList;
-//
-//    }
 
     public List<Lists> getAllListsByGroupId(int groupId) {
         List<Lists> allGroupLists = new ArrayList<>();
@@ -54,23 +45,6 @@ public class JdbcListDao implements ListDao {
         }
         return allGroupLists;
     }
-
-
-
-    public Lists getByGroupId(int groupId) {
-        return null;
-    }
-
-//    public List<Lists> getAllListsByGroupId(int groupId) {
-//        List<Lists> allGroupLists = new ArrayList<>();
-//        String sql = "SELECT list_id, list_name, group_id, claimed, list_owner, completed " +
-//                "FROM list WHERE group_id = ?";
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
-//        while (results.next()) {
-//            allGroupLists.add(mapRowToList(results));
-//        }
-//        return allGroupLists;
-//    }
 
 
     @Override
@@ -96,6 +70,12 @@ public class JdbcListDao implements ListDao {
     @Override
     public void clearList(int listId) {
         String sql = "DELETE FROM item WHERE list_id = ?";
+        jdbcTemplate.update(sql, listId);
+    }
+
+    @Override
+    public void deleteList(int listId) {
+        String sql = "DELETE FROM list WHERE list_id = ?";
         jdbcTemplate.update(sql, listId);
     }
 
