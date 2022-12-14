@@ -1,12 +1,5 @@
 <template>
   <div id="app" >
-<<<<<<< HEAD
-=======
-    <!--<div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home </router-link>
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">| Logout</router-link>
-    </div> -->
->>>>>>> 5e45b06ece06bfeef7750309df1e4e2ddad72eef
     <router-view />
   </div>
 </template>
@@ -33,17 +26,10 @@ export default {
 
 
 #app{
-<<<<<<< HEAD
-
-  height:100vh ;
-  width: 100vmax;
-=======
   
   background-color: #7aa5d2;
-
   height:100% ;
   width: 100%;
->>>>>>> 5e45b06ece06bfeef7750309df1e4e2ddad72eef
   background-size: 100% ;
   background-repeat: no-repeat;
   background-size: cover ;
