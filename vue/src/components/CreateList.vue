@@ -4,10 +4,10 @@
       <div class="create-list">
         <p id="tileText">Create a new list and start adding items now! Enter a name for your new list below:</p>
 <div>
-        <form id="listInput" class="list-form has-text-link">
-         <label for="listName"></label><br>
-        <input class="has-text-centered is-link" type="text" placeholder="Your new list name" name="listName" v-model="shoppingList.listName" maxlength="200" id="listName">
-        <br> <br><button  class="button is-link is-light is-medium is-outlined center" type="button" v-on:click="createShoppingList()" name="create" id="create">Create List</button>
+        <form id="listInput">
+         <label for="listName"></label>
+         <input class="input is-small" type="text" placeholder="List Name" name="listName" v-model="shoppingList.listName" maxlength="200">
+      <br><button class="button" type="button" v-on:click="createShoppingList()" name="create" id="create">Create List</button>
         </form>
 </div>
       </div>
