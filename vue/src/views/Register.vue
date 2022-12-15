@@ -1,27 +1,31 @@
 <template>
-<div id="reg">
-<section class="is-relative section has-background-light">
-    <div class="columns is-vcentered">
-      <div class="column is-6 mb-14 mb-0-tablet">
-        <div class="has-mw-md mx-auto">
-          <img src="../../src/assets/logo_transparent_cropped.png">
-        </div>
-        <div>
-          <h2 class="title is-size-3 has-leading-3 has-text-link">Invite your friends and collaborate on a shared shopping list for any occasion!</h2>
-        </div>
-        </div>
-      <div class="column is-6">
-        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
-          <span class="is-block has-text-info is-size-4 is-uppercase has-letter-space">start making lists</span><br>
-          <h3 class="title is-size-4 has-text-link">Create new account</h3>
-  <div id="register">
+<section>
+
+  <div id="bannerColumns" class="columns is-vcentered">
+  <div class="column is-two-thirds">
+    <figure class="image">
+      <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
+      </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+      <img src="../../src/assets/logo_transparent.png">
+    </figure>
+  </div>
+  </div>
+  
+  <div class="columns">
+    <div class="column is-three-fifths is-offset-one-fifth">
+      <div class="box">
+          <p id="tileTitle" class="title is-3">CREATE NEW ACCOUNT</p>
+  
     <form @submit.prevent="register">   
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div class="control mb-2">
 <label  for="username">
-   <p>Username</p>
+   <p id="tileText">Username</p>
    <input
        class="input form-control"
        id="username"
@@ -34,7 +38,8 @@
       </label>
       </div>
       <div class="control mb-2">
-      <label for="password" >Password</label><br>
+      <label for="password">
+        <p id="tileText"> Password</p>
       <input
       class= "input form-control"
         type="password"
@@ -44,10 +49,10 @@
         title="Please follow password rules"
         v-model="user.password"
         required
-      />
+      /></label>
       </div>
       <div class="control mb-6">
-      <label for="confirmPassword">Confirm Password</label> <br>
+      <label id="tileText" for="confirmPassword">Confirm Password</label> <br>
       <input
       class= "input form-control"
         type="password"
@@ -61,7 +66,7 @@
       </div>
       <div class="control mb-4">
         <label class="checkbox has-text-grey">
-         <span>Your password must be at least 8 characters including a lowercase letter, an uppercase letter, a special character and a number.</span>
+         <p id="tileText">Your password must be at least 8 characters including a lowercase letter, an uppercase letter, a special character and a number.</p>
               </label>
             </div>
       <button class="button is-fullwidth is-link is-light is-outlined" type="submit">
@@ -76,17 +81,18 @@
         </div>
       </div>
       </div>
-    </div>
-    <footer class="footer">
-  <div class="content has-text-centered">
+  
+
+      <footer class="footer">
+  <div id="tileText" class="content has-text-centered">
     <p>
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>
 </section>
-</div>
 </template>
+
 
 <script>
 import authService from '../services/AuthService';

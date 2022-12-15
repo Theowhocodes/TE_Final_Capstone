@@ -1,16 +1,20 @@
 <template>
   <div>
-    <h3 class="is-size-3 has-text-centered has-text-link has-text-weight-bold">
-      {{ list.listName }} |
-      {{
-        list.claimed
-          ? `Claimed by: ${list.listOwnerName}`
-          : "This List is Unclaimed"
-      }}
-    </h3>
+      <div class="block">
+      <p id="tileText" class="has-text-centered"> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "Unclaimed List" }} </p>
+      </div>
 
-    <div class="has-text-centered">
-      <br />
+      <div class="block">
+        <p id="tileText">When you're ready to go shopping, claim the list so your group members know you are responsible for it. Click unclaim below to release your responsibility for the list.</p>
+        </div>
+
+
+         <div class="has-text-centered">
+          
+         <button class="button is-link is-light is-small is-outlined center" type="button" @click="claimList()"> Claim List</button>
+          
+         <button class="button is-link is-light is-small is-outlined center" type="button" @click="unclaimList()">Unclaim List</button> 
+          
 
       <button
         class="button is-link is-light is-small is-outlined center"
@@ -20,23 +24,15 @@
         Claim List
       </button>
 
-      <button
-        class="button is-link is-light is-small is-outlined center"
-        type="button"
-        @click="unclaimList()"
-      >
-        Unclaim List
-      </button>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-          <th>Item</th>&nbsp;&nbsp;&nbsp;&nbsp;
+         
+    
+<table id="tileText" class="table">
+    <thead>
+          <th>&nbsp; &nbsp;&nbsp;</th>
+          <th>Item</th>
           <th>Qty</th>
-        </tr>
-      </thead><br>
+          </thead>
+        
       <tbody>
         <tr
           class="itemsInList"
@@ -55,7 +51,7 @@
             
           </td>
           <td>
-          <router-link
+          <router-link id="tileLink"
             v-bind:to="{ name: 'item', params: { itemId: item.itemId } }"
           >
             {{ item.itemName }}

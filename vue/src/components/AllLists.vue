@@ -10,7 +10,7 @@
       v-bind:key="list.groupId"
       v-bind:list="list"
       >
-      
+      <table id="tileText" class="table">
       List name: <router-link v-bind:to="{ name: 'list', params: { id: groupId } }">
           {{list.listName}} </router-link>  | 
      

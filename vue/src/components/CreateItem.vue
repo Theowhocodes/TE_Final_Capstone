@@ -1,17 +1,17 @@
 <template>
   <div>
     <div id="create-new-item">
-      <h2 class=" has-text-centered has-text-weight-bold is-size-4 has-text-link">Add a New Item to Your List</h2>
+      <p id="tileText">Add a new item to your list</p>
     </div>
-<div class="has-text-link has-text-centered">
+<div>
       <form>
         <div class="form-element">
-          <label class=" has-text-centered has-text-weight-bold is-size-4 has-text-link" for="itemName">Name: </label>
-          <input class=" has-text-centered has-text-weight-bold is-size-4 has-text-link" id="itemName" type="text" v-model="item.itemName" />
+          <label id="tileText" for="itemName">Name: </label>
+          <input id="itemName" class="input is-small" placeholder="Item name" type="text" v-model="item.itemName" />
         </div>
         <br>
         <div class="form-element">
-          <label class=" has-text-centered has-text-weight-bold is-size-4 has-text-link" for="itemQuantity"> Quantity </label> 
+          <label id="tileText" for="itemQuantity"> Quantity: </label> 
           <select id="quantity" v-model.number="item.itemQuantity" required>
             <option value="1">1</option>
             <option value="2">2</option>

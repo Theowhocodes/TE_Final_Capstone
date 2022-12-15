@@ -54,39 +54,37 @@
   </div>
   <div>
 
-    <div id ="groupTile" class="tile is-ancestor">
-  <div class="tile is-3 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">Add to your list</p>
-         
-      <create-item/>
-   
-    </div>
-    <div class="tile is-child box">
-       <p id="tileTitle" class="title">Weather</p>
-      Never be caught off guard, check the forecast before you go out to shop!
-      <weather />
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">List details</p>
-    <list-detail/>
-    </div>
-  </div>
-   <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">Placeholder</p>
-      
-    </div>
-  </div>
-  
+     <div id="allBoxes" class="columns">
+        <div class="column is-three-fifths is-offset-one-fifth">
+ 
+      <div class="box"> 
+        <div class="block">
+          <p id="tileTitle" class="title">LIST DETAILS</p>
+          <list-detail />
+          </div>
+
+         <div class="block">
+          <p id="tileTitle" class="title">ADD TO YOUR LIST</p>
+        <create-item />
+        </div>
+          </div>
+          </div>
+          </div>
+
+          <!--<div id="allBoxes" class="columns">
+        <div class="column is-three-fifths is-offset-one-fifth">  
+      <div class="box">
+        <p id="tileTitle" class="title">ADD TO YOUR LIST</p>
+        <create-item />
+      </div> 
+    </div> 
+    </div> -->
 </div>
-    </div>
+
      <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>
@@ -98,13 +96,13 @@
 <script>
 import CreateItem from '../components/CreateItem.vue'
 import ListDetail from '../components/ListDetail.vue'
-import Weather from '../components/Weather.vue'
+
 
 export default {
   components: {
     ListDetail,
     CreateItem, 
-    Weather
+  
   }
 }
 </script>

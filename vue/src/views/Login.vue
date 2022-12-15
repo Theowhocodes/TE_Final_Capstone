@@ -1,32 +1,35 @@
 <template>
-<section class="is-relative section has-background-light">
-  <div class="container">
-    <div class="columns is-vcentered">
-      <div class="column is-6 mb-14 mb-0-tablet">
-        <div class="has-mw-md mx-auto">
-          <img src="../../src/assets/logo_transparent_cropped.png">
-        </div>
-        <div>
-          <h3 class="title is-size-3 has-leading-3 has-text-link">Invite your friends and collaborate on a shared shopping list for any occasion!</h3>
-        </div>
-      </div>
-      <div class="column is-6">
-        <div class="has-mw-md has-mw-xl-widescreen mx-auto py-12 px-8-mobile px-14-tablet has-background-white">
-          <span class="is-block is-size-4 has-text-link has-text-weight-bold is-uppercase has-letter-space">Start Making Lists</span><br>
-          <h3 class="title is-size-5 has-text-link has-text-weight-semibold">Sign in to your account</h3>
-    <form @submit.prevent="login">
-      <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="invalidCredentials"
-      >Invalid username and password!</div>
+<section>
+  
+<div id="bannerColumns" class="columns is-vcentered">
+  <div class="column is-two-thirds">
+    <figure class="image">
+      <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
+      </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+      <img src="../../src/assets/logo_transparent.png">
+    </figure>
+  </div>
+  </div>
+
+
+    <div class="columns">
+      <div class="column is-three-fifths is-offset-one-fifth">
+        <div class="box">
+          <p id="tileTitle" class="title is-3">INVITE YOUR FRIENDS AND COLLABORATE ON A SHARED SHOPPING LIST FOR ANY OCCASION!</p>
+
+          <p id="tileText">Sign in below or create an account to get started!</p><br>
+              <form @submit.prevent="login">
+                <div class="alert alert-danger" role="alert" v-if="invalidCredentials">Invalid username and password!</div>
       <div
         class="alert alert-success"
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
       <div class="control mb-2">
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" id="tileText" class="sr-only">Username</label>
       <input
         type="text"
         id="username"
@@ -38,7 +41,7 @@
       />
       </div>
       <div class="control mb-6">
-      <label for="password" class="sr-only">Password</label>
+      <label id="tileText" for="password" class="sr-only">Password</label>
       <input
         type="password"
         id="password"
@@ -59,11 +62,11 @@
   </div>
     </div>
     </div>
-      </div>
+  
       <footer class="footer">
-  <div class="content has-text-centered">
+  <div id="tileText" class="content has-text-centered">
     <p>
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>

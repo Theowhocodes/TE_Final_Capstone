@@ -1,6 +1,7 @@
 <template>
   <section>
 
+      <div id="tileText" class="block"> All users belonging to this group:</div>
       
       <div class= "userList"
       v-for="user in users"

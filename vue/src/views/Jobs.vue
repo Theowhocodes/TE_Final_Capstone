@@ -58,7 +58,7 @@
     <div id="jobColumns" class="columns">
         <div class="column is-full">
             <div class="box"> 
-                <h1 id="tileTitle">We are hiring!</h1>
+                <p id="tileTitle" class="title is-3">WE'RE HIRING!</p>
                     <p id="tileText">Do you think you have what it takes to be part of the Listmate team? If so, we'd love to hear from you!
                     We are currently seeking a front end developer with a passion for graphic design. 20+ years experience and a PhD in either computer science or design are required. Experience in MS Paint a plus! </p>
                     </div>
@@ -68,7 +68,7 @@
     <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Jenn Glick, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>
