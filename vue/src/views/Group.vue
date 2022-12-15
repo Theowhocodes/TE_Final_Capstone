@@ -30,9 +30,9 @@
           <a id="tileTitle" class="navbar-item">
             ABOUT
           </a>
-          <a id="tileTitle" class="navbar-item">
+          <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'jobs' }">
             JOBS
-          </a>
+          </router-link>
           
         </div>
       </div>
@@ -41,6 +41,64 @@
   
   </div>
 </nav>
+
+<div id="bannerColumns" class="columns is-vcentered">
+  <div class="column is-two-thirds">
+    <figure class="image">
+      <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
+      </figure>
+  </div>
+  <div class="column">
+    <figure class="image">
+      <img src="../../src/assets/logo_transparent.png">
+    </figure>
+  </div>
+  </div>
+
+  <div id="allBoxes" class="columns">
+    <div class="column is-half">
+      <div class="box">
+        <p id="tileTitle" class="title">CREATE A NEW LIST</p>
+        <create-list />
+          
+      </div>
+        
+      <div class="box">
+        <p id="tileTitle" class="title">LEAVE THIS GROUP?</p>
+          <leave-group />
+      </div>
+      
+  
+      </div>
+     
+
+      <div class="column">
+        <div class="box">
+          <p id="tileTitle" class="title">ALL LISTS FOR THIS GROUP</p>
+          <group-detail />
+          </div>
+
+        <div class="box">
+          <p id="tileTitle" class="title">ALL USERS IN THIS GROUP</p>
+        <all-group-users />
+      </div>
+      </div>
+
+      </div>
+
+
+   <div id="allBoxes" class="columns">
+      <div class="column is-full">  
+          <div class="box">
+            <p id="tileTitle" class="title">WEATHER</p>
+            <p id="tileText">Never be caught off guard, check the forecast before you go out to shop!</p>
+           <weather />
+          </div>
+      </div>
+      </div>
+    
+
+<!--
 <div id="bannerColumns" class="columns is-vcentered">
   <div class="column is-two-thirds">
     <figure class="image">
@@ -85,7 +143,7 @@
   </div>
   </div>
   </div>
-</div>
+</div> -->
 
 <footer class="footer">
   <div class="content has-text-centered">
@@ -133,5 +191,8 @@ export default {
   margin-right: 5px;
 }
 
+#allBoxes{
+  display: flex;
+}
 
 </style>

@@ -31,9 +31,9 @@
           <a id="tileTitle" class="navbar-item">
             ABOUT
           </a>
-          <a class="navbar-item">
+          <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'jobs' }">
             JOBS
-          </a>
+          </router-link>
           
         </div>
       </div>
