@@ -1,5 +1,5 @@
 <template>
-<section>
+  <section>
 <nav id="testNav" class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="http://localhost:8082">
@@ -30,9 +30,9 @@
           <a id="tileTitle" class="navbar-item">
             ABOUT
           </a>
-          <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'jobs' }">
+          <a id="tileTitle" class="navbar-item">
             JOBS
-          </router-link>
+          </a>
           
         </div>
       </div>
@@ -54,38 +54,18 @@
     </figure>
   </div>
   </div>
-  <div class="columns">
-    <div class="column is-full">
 
-<div id ="groupTile" class="tile is-ancestor">
-  <div class="tile is-3 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">JOIN A GROUP</p>
-      <join-group />
+    <div id="jobColumns" class="columns">
+        <div class="column is-full">
+            <div class="box"> 
+                <h1 id="tileTitle">We are hiring!</h1>
+                    <p id="tileText">Do you think you have what it takes to be part of the Listmate team? If so, we'd love to hear from you!
+                    We are currently seeking a front end developer with a passion for graphic design. 20+ years experience and a PhD in either computer science or design are required. Experience in MS Paint a plus! </p>
+                    </div>
+        </div>
     </div>
-    <div class="tile is-child box">
-       <p id="tileTitle" class="title">WEATHER</p>
-      <p id="tileText">Never be caught off guard, check the forecast before you go out to shop!</p>
-      <weather />
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">SEE ALL YOUR GROUPS</p>
-    <all-groups />
-    </div>
-  </div>
-   <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">CREATE A GROUP</p>
-      <create-group />
-    </div>
-  </div>
-  
-</div>
-    </div></div>
 
-<footer class="footer">
+    <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
       Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Jenn Glick, Antonia Butts, Teddy Williams
@@ -93,47 +73,20 @@
   </div>
 </footer>
 
-</section>
+  </section>
+
+
 </template>
 
 <script>
-import AllGroups from '../components/AllGroups.vue';
-import CreateGroup from '../components/CreateGroup.vue';
-import JoinGroup from '../components/JoinGroup.vue';
-import Weather from '@/components/Weather.vue';
-
-
-
 export default {
-  components: {
-    AllGroups,
-    CreateGroup,
-    JoinGroup,
-    Weather
-  
-    
-  },
-  name: "home"
-};
+
+}
 </script>
 
 <style>
 
-#testNav{ 
-  background: #53435b;
-  
+#jobColumns{
+    margin: 5px;
 }
-
-
-#coverImage {
-  margin-top: 15px;
-  margin-left: 15px;
-  border-radius: 4px;
-}
-
-#groupTile{
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
 </style>
