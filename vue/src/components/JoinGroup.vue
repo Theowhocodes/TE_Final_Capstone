@@ -7,7 +7,7 @@
         <form class="group-form">
          <label id="tileTitle" for="invitationCode">INVITATION CODE:</label>
         <input class="input is-small" type="text" placeholder="Enter code here" name="invitationCode" v-model="groupToJoin.invitationCode" maxlength="200" id="joinGroup">
-        <button class="button is-link is-light is-small is-outlined center" type="button" v-on:click="joinGroupByInvitationCode()" name="join" id="join">Join Group</button>
+        <button class="button is-small is-light" type="button" v-on:click="joinGroupByInvitationCode()" name="join" id="join">Join Group</button>
         </form>
       </div>
   </div>

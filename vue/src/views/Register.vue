@@ -1,6 +1,48 @@
 <template>
 <section>
 
+  <nav id="testNav" class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://localhost:8082">
+      <img src="../../src/assets/transparent_white.png" style="zoom:2">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <router-link id="tileTitle" class="navbar-item has-text-white" v-bind:to="{ name: 'home' }">HOME</router-link>
+      
+
+       <router-link id="tileTitle" class="navbar-item has-text-white" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">LOGOUT</router-link>
+    
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a id="tileTitle" class="navbar-link has-text-white is-arrowless">
+          MORE
+        </a>
+
+         <div class="navbar-dropdown">
+          <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'about' }">
+            ABOUT
+          </router-link>
+          <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'jobs' }">
+            JOBS
+          </router-link>
+          
+        </div>
+      </div>
+    </div>
+
+  
+  </div>
+</nav>
+
   <div id="bannerColumns" class="columns is-vcentered">
   <div class="column is-two-thirds">
     <figure class="image">
@@ -69,12 +111,12 @@
          <p id="tileText">Your password must be at least 8 characters including a lowercase letter, an uppercase letter, a special character and a number.</p>
               </label>
             </div>
-      <button class="button is-fullwidth is-link is-light is-outlined" type="submit">
+      <button class="button is-small is-light" type="submit">
         Create Account
       </button>
       <br>
       <div class="has-text-centered mb-4">
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <router-link id="tileLink" :to="{ name: 'login' }">Have an account?</router-link>
       </div>
       <br>
          </form>

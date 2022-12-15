@@ -7,7 +7,7 @@
         <form id="listInput">
          <label for="listName"></label>
          <input class="input is-small" type="text" placeholder="List Name" name="listName" v-model="shoppingList.listName" maxlength="200">
-      <br><button class="button" type="button" v-on:click="createShoppingList()" name="create" id="create">Create List</button>
+      <br><button class="button is-small is-light" type="button" v-on:click="createShoppingList()" name="create" id="create">Create List</button>
         </form>
 </div>
       </div>

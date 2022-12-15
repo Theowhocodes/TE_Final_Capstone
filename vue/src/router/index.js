@@ -88,7 +88,7 @@ const router = new Router({
     name: 'jobs',
     component: Jobs, 
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   },
   {
