@@ -62,6 +62,11 @@
       <div class="box">
           <p id="tileTitle" class="title">MODIFY THIS ITEM</p>
           <modify-item />
+
+          
+         <br> <a id="tileLink" @click="$router.go(-1)">Back to List</a>
+          
+        
           </div>
       <div class="box">
         <p id="tileTitle" class="title">DELETE THIS ITEM</p>

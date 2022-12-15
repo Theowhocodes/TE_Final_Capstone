@@ -66,19 +66,14 @@
          <div class="block">
           <p id="tileTitle" class="title">ADD TO YOUR LIST</p>
         <create-item />
+
+        <br><a id="tileLink" @click="$router.go(-1)">Back to Group</a>
         </div>
           </div>
           </div>
           </div>
 
-          <!--<div id="allBoxes" class="columns">
-        <div class="column is-three-fifths is-offset-one-fifth">  
-      <div class="box">
-        <p id="tileTitle" class="title">ADD TO YOUR LIST</p>
-        <create-item />
-      </div> 
-    </div> 
-    </div> -->
+      
 </div>
 
      <footer class="footer">

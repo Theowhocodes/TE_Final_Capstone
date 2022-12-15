@@ -9,7 +9,7 @@
     <div class="block">
     <p id="tileText">All the lists belonging to this group are below:</p></div>
     <br />
-    <table id="tileText" class="table">
+    <table id="tileText" class="table is-hoverable">
         <tr>
           <th>List Name</th>
           

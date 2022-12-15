@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="modify-item">
-      <h2>Modify {{ this.originalName }} </h2> 
+      <p id="tileText">Modify {{ this.originalName }} </p> 
 
       <form>
         <div class="modify-element">
-          <label for="itemName">Name:</label>
-          <input id="itemName" type="text" v-model="item.itemName" />
+          <label for="itemName"><p id="tileText">Name:</p></label>
+          <input class="input is-small" id="itemName" type="text" placeholder="Edit item name" v-model="item.itemName" />
         </div>
         <div class="modify-element">
           <label for="itemQuantity"> Quantity: </label>
@@ -23,7 +23,7 @@
             <option value="10">10</option>
           </select>
         </div>
-        <button
+        <button class="button is-small is-light"
           type="button"
           v-on:click="modifyItem()"
           name="modifyItem"
@@ -31,7 +31,7 @@
         >
           Keep Changes
         </button>
-        <button type="button" @click="$router.go(-1)" name="cancelModification" id="cancelModification">Cancel</button>
+        <button class="button is-small is-light" type="button" @click="$router.go(-1)" name="cancelModification" id="cancelModification">Cancel</button>
         
       </form>
     </div>

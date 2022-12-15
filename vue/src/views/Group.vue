@@ -76,6 +76,7 @@
         <div class="box">
           <p id="tileTitle" class="title">ALL LISTS FOR THIS GROUP</p>
           <group-detail />
+          <br><a id="tileLink" @click="$router.go(-1)">Back to All Groups</a>
           </div>
 
         <div class="box">
