@@ -1,19 +1,15 @@
 <template>
   <div
-    class="
-      has-mw-md has-mw-xl-widescreen
-      mx-auto
-      py-12
-      px-8-mobile px-14-tablet
-      has-background-white
-    "
-  >
-    <h3>{{ group.groupName }} | Invitation Code: {{ group.invitationCode }}</h3>
+    class="groupDetail">
 
-    <h4>Your Lists</h4>
+    <div class="block">    
+        <p id="tileText"><strong>{{ group.groupName }} </strong>| <strong>Invitation Code: </strong>{{ group.invitationCode }}</p>
+    </div>
+
+    <div class="block">
+    <p id="tileText">All the lists belonging to this group are below:</p></div>
     <br />
-    <table>
-      <thead>
+    <table id="tileText" class="table">
         <tr>
           <th>List Name</th>
           
@@ -22,8 +18,6 @@
           <th>List Status</th>
           
         </tr>
-      </thead>
-      <br />
 
       <tbody>
         <tr
@@ -33,7 +27,7 @@
           v-bind:list="list"
         >
           <td>
-            <router-link
+            <router-link id="tileLink"
               v-bind:to="{ name: 'list', params: { listId: list.listId } }"
             >
               {{ list.listName }}
