@@ -9,8 +9,6 @@
 
 export default {
   components: {  },
-  
-    
 
 }
 </script>
@@ -56,5 +54,11 @@ export default {
  Font-Family: 'Droid Serif', serif;
 color: #000000;
 }
+
+#tileLink{
+  color: #a5a63c;
+  Font-family: 'Droid Serif', serif;
+}
+
 
 </style>

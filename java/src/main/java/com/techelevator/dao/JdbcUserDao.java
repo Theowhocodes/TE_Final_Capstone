@@ -49,6 +49,22 @@ public class JdbcUserDao implements UserDao {
 		}
 	}
 
+    public List<User> findAllUsersByGroupId(int groupId){
+        List allUsersInOneGroup = new ArrayList<>();
+        String sql = "SELECT username FROM users " +
+        "JOIN shopping_group_users USING (user_id) JOIN shopping_group USING (group_id) " +
+        "WHERE group_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, groupId);
+        User user = new User();
+        while (results.next()) {
+            user.setUsername(results.getString("username"));
+            allUsersInOneGroup.add(user);
+        }
+
+        return allUsersInOneGroup;
+
+    }
+
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();

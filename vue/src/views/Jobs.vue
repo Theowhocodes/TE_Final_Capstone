@@ -1,6 +1,5 @@
 <template>
-<section>
-
+  <section>
 <nav id="testNav" class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="http://localhost:8082">
@@ -31,9 +30,9 @@
           <a id="tileTitle" class="navbar-item">
             ABOUT
           </a>
-          <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'jobs' }">
+          <a id="tileTitle" class="navbar-item">
             JOBS
-          </router-link>
+          </a>
           
         </div>
       </div>
@@ -55,41 +54,39 @@
     </figure>
   </div>
   </div>
- 
-      <div class="tile is-ancestor">
-  <div class="tile is-4">
-      <delete-item/>
-      <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-      <modify-item/>
+
+    <div id="jobColumns" class="columns">
+        <div class="column is-full">
+            <div class="box"> 
+                <h1 id="tileTitle">We are hiring!</h1>
+                    <p id="tileText">Do you think you have what it takes to be part of the Listmate team? If so, we'd love to hear from you!
+                    We are currently seeking a front end developer with a passion for graphic design. 20+ years experience and a PhD in either computer science or design are required. Experience in MS Paint a plus! </p>
+                    </div>
+        </div>
     </div>
-      </div>
-  </div>
-      </div>
 
     <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Jenn Glick, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>
-  
 
   </section>
+
+
 </template>
 
 <script>
-import DeleteItem from '../components/DeleteItem.vue'
-import ModifyItem from '../components/ModifyItem.vue'
-
 export default {
-  components: { DeleteItem, ModifyItem },
-  
+
 }
 </script>
 
 <style>
 
-
+#jobColumns{
+    margin: 5px;
+}
 </style>

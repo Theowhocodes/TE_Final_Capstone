@@ -8,6 +8,7 @@ import store from '../store/index'
 import List from '../views/List.vue'
 import Group from '../views/Group.vue'
 import Item from '../views/Item.vue'
+import Jobs from '../views/Jobs.vue'
 
 Vue.use(Router)
 
@@ -76,6 +77,14 @@ const router = new Router({
     path: "/items/:itemId",
     name: 'item',
     component: Item, 
+    meta: {
+      requiresAuth: true
+    }
+  }, 
+
+  {path: "/jobs",
+    name: 'jobs',
+    component: Jobs, 
     meta: {
       requiresAuth: true
     }

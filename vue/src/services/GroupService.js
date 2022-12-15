@@ -42,4 +42,9 @@ joinShoppingGroup(groupId, groupToJoin){
     return axios.post(`/groups/${groupId}/join`, groupToJoin)
   },
 
+// get all users in a group by groupId
+getAllUsersByGroupId(groupId){
+    return axios.get(`/groups/${groupId}/users`)
+}
+
 }

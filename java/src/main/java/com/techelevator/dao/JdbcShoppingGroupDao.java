@@ -74,7 +74,6 @@ public class JdbcShoppingGroupDao implements ShoppingGroupDao {
     }
 
 
-
     @Override
     public ShoppingGroup createGroup(ShoppingGroupDto shoppingGroupDto) {
         String sql = "INSERT into shopping_group (group_name, invitation_code) values (?, ?) "

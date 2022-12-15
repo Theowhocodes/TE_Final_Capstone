@@ -1,11 +1,11 @@
 <template>
   <div>
       <div class="join-group">
-        <h3 class="has-text-link has-text-weight-bold">Join a group and start collaborating on a list!</h3> <br>
-        <p class="has-text-link has-text-weight-bold"> If you have received an invitation code to join a group, enter it below:</p><br>
+        <p id="tileText">Join a group and start collaborating on a list!</p> <br>
+        <p id="tileText"> If you have received an invitation code to join a group, enter it below:</p><br>
 
-        <form class="group-form has-text-link has-text-weight-bold">
-         <label for="invitationCode">Invitation code: </label>
+        <form class="group-form">
+         <label id="tileTitle" for="invitationCode">INVITATION CODE:</label>
         <input class="input is-small" type="text" placeholder="Enter code here" name="invitationCode" v-model="groupToJoin.invitationCode" maxlength="200" id="joinGroup">
         <button class="button is-link is-light is-small is-outlined center" type="button" v-on:click="joinGroupByInvitationCode()" name="join" id="join">Join Group</button>
         </form>

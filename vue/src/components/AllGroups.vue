@@ -1,17 +1,15 @@
 <template>
-  <div class="has-text-link has-text-weight-bold">
-    <h3 class="has-text-link has-text-weight-bold">
+  <div>
+    <h3 id="tileText">
       Pick a group and start making lists!
     </h3>
     <br />
-    <table>
-      <thead>
+    <table id="tileText" class="table">
         <tr>
           <th>Group Name</th>
           <th>Member Since</th>
-          <th>Code</th>
+          <th>Invitation Code</th>
         </tr>
-      </thead>
       <tbody>
         <tr
           class="groupList"
@@ -20,7 +18,7 @@
           v-bind:group="shoppingGroup"
         >
           <td>
-            <router-link
+            <router-link id="tileLink"
               v-bind:to="{ name: 'group', params: { groupId: group.groupId } }"
             >
               {{ group.groupName }}
