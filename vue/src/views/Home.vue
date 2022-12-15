@@ -45,19 +45,62 @@
 <div id="bannerColumns" class="columns is-vcentered">
   <div class="column is-two-thirds">
     <figure class="image">
-    <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
-    </figure>
+      <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
+      </figure>
   </div>
   <div class="column">
     <figure class="image">
-    <img src="../../src/assets/logo_transparent.png">
+      <img src="../../src/assets/logo_transparent.png">
     </figure>
   </div>
   </div>
-  <div class="columns">
-    <div class="column is-full">
 
-<div id ="groupTile" class="tile is-ancestor">
+  <div id="allBoxes" class="columns">
+    <div class="column is-half">
+      <div class="box">
+        <p id="tileTitle" class="title">JOIN A GROUP</p>
+        <join-group />
+          
+      </div>
+        
+      <div class="box">
+        <p id="tileTitle" class="title">CREATE A GROUP</p>
+        <create-group />
+      </div>
+      
+  
+      </div>
+     
+
+      <div class="column">
+        <div class="box">
+          <p id="tileTitle" class="title">SEE ALL YOUR GROUPS</p>
+          <all-groups />
+          </div>
+      </div>
+
+      </div>
+    
+
+   <div id="allBoxes" class="columns">
+      <div class="column is-full">  
+          <div class="box">
+            <p id="tileTitle" class="title">WEATHER</p>
+            <p id="tileText">Never be caught off guard, check the forecast before you go out to shop!</p>
+           <weather />
+          </div>
+      </div>
+      </div>
+    
+
+
+        
+        
+
+
+      
+
+<!--<div id ="groupTile" class="tile is-ancestor">
   <div class="tile is-3 is-vertical is-parent">
     <div class="tile is-child box">
       <p id="tileTitle" class="title">JOIN A GROUP</p>
@@ -82,8 +125,8 @@
     </div>
   </div>
   
-</div>
-    </div></div>
+</div> -->
+ 
 
 <footer class="footer">
   <div class="content has-text-centered">
@@ -104,12 +147,14 @@ import Weather from '@/components/Weather.vue';
 
 
 
+
 export default {
   components: {
     AllGroups,
     CreateGroup,
     JoinGroup,
-    Weather
+    Weather,
+    
   
     
   },
@@ -131,7 +176,7 @@ export default {
   border-radius: 4px;
 }
 
-#groupTile{
+#allBoxes{
   margin-left: 5px;
   margin-right: 5px;
 }
