@@ -16,7 +16,13 @@
          <button class="button is-link is-light is-small is-outlined center" type="button" @click="unclaimList()">Unclaim List</button> 
           
 
-         </div>
+      <button
+        class="button is-link is-light is-small is-outlined center"
+        type="button"
+        @click="claimList()"
+      >
+        Claim List
+      </button>
 
          
     
@@ -35,12 +41,14 @@
           v-bind:item="item"
         >
           <td>
+            
               <input
                 type="checkbox"
                 v-model="item.completed"
                 v-bind:class="{ completed: item.completed }"
                 @change="completed(item)"
               />
+            
           </td>
           <td>
           <router-link id="tileLink"
@@ -49,12 +57,12 @@
             {{ item.itemName }}
           </router-link></td>&nbsp;
           <td>{{ item.itemQuantity }}</td>
+
+
+          
         </tr>
       </tbody>
     </table>
-
-          
-        
     <div>
             <button @click="clearAllItemsFromList()">
               Clear all items from list
@@ -152,5 +160,21 @@ export default {
 </script>
 
 <style>
-
+#list-detail {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  background: yellow;
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#ebeb00),
+    to(#c5c500)
+  );
+  background: -moz-linear-gradient(100% 100% 90deg, #c5c500, #ebeb00);
+  padding: 20px 20px 20px 20px;
+  -webkit-box-shadow: 0px 10px 30px #000;
+  -moz-box-shadow: 0px 10px 30px #000;
+}
 </style>

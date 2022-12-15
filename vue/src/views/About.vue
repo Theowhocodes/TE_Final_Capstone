@@ -26,7 +26,7 @@
           MORE
         </a>
 
-        <div class="navbar-dropdown">
+       <div class="navbar-dropdown">
           <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'about' }">
             ABOUT
           </router-link>
@@ -58,9 +58,11 @@
     <div id="jobColumns" class="columns">
         <div class="column is-full">
             <div class="box"> 
-                <p id="tileTitle" class="title is-3">WE'RE HIRING!</p>
-                    <p id="tileText">Do you think you have what it takes to be part of the Listmate team? If so, we'd love to hear from you!
-                    We are currently seeking a front end developer with a passion for graphic design. 20+ years experience and a PhD in either computer science or design are required. Experience in MS Paint a plus! </p>
+                <h1 id="tileTitle">About</h1>
+                    <p id="tileText">Listmate is a tool for creating, organizing and sharing lists with your family and friends. 
+                        Create a group, use the invitation code to invite others and collaborate on shopping lists, to-do lists, 
+                        or anything else you can think of! Final Capstone project at Tech Elevator Pittsburgh with the support of 
+                        enGen and Apprenti. </p>
                     </div>
         </div>
     </div>
@@ -68,7 +70,7 @@
     <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Jenn Glick, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>
