@@ -9,6 +9,7 @@ import List from '../views/List.vue'
 import Group from '../views/Group.vue'
 import Item from '../views/Item.vue'
 import Jobs from '../views/Jobs.vue'
+import About from '../views/About.vue'
 
 Vue.use(Router)
 
@@ -82,11 +83,20 @@ const router = new Router({
     }
   }, 
 
-  {path: "/jobs",
+  {
+    path: "/jobs",
     name: 'jobs',
     component: Jobs, 
     meta: {
       requiresAuth: true
+    }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: About,
+    meta: {
+      requiresAuth: false
     }
   }
 

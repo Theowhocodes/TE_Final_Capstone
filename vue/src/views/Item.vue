@@ -28,9 +28,9 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a id="tileTitle" class="navbar-item">
+          <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'about' }">
             ABOUT
-          </a>
+          </router-link>
           <router-link id="tileTitle" class="navbar-item" v-bind:to="{ name: 'jobs' }">
             JOBS
           </router-link>

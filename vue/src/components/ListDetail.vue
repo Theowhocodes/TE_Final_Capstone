@@ -1,21 +1,35 @@
 <template>
   <div>
-      <h3 class="is-size-3 has-text-centered has-text-link has-text-weight-bold"> {{ list.listName }} | {{ list.claimed ? `Claimed by: ${list.listOwnerName}` : "This List is Unclaimed" }} </h3>
-     
+    <h3 class="is-size-3 has-text-centered has-text-link has-text-weight-bold">
+      {{ list.listName }} |
+      {{
+        list.claimed
+          ? `Claimed by: ${list.listOwnerName}`
+          : "This List is Unclaimed"
+      }}
+    </h3>
 
-         <div class="has-text-centered">
-           <br>
-          
-         <button class="button is-link is-light is-small is-outlined center" type="button" @click="claimList()"> Claim List</button>
-          
-         <button class="button is-link is-light is-small is-outlined center" type="button" @click="unclaimList()">Unclaim List</button> 
-          
+    <div class="has-text-centered">
+      <br />
 
-         </div>
+      <button
+        class="button is-link is-light is-small is-outlined center"
+        type="button"
+        @click="claimList()"
+      >
+        Claim List
+      </button>
 
-         
-    
- <table>
+      <button
+        class="button is-link is-light is-small is-outlined center"
+        type="button"
+        @click="unclaimList()"
+      >
+        Unclaim List
+      </button>
+    </div>
+
+    <table>
       <thead>
         <tr>
           <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -31,12 +45,14 @@
           v-bind:item="item"
         >
           <td>
+            
               <input
                 type="checkbox"
                 v-model="item.completed"
                 v-bind:class="{ completed: item.completed }"
                 @change="completed(item)"
               />
+            
           </td>
           <td>
           <router-link
@@ -45,12 +61,12 @@
             {{ item.itemName }}
           </router-link></td>&nbsp;
           <td>{{ item.itemQuantity }}</td>
+
+
+          
         </tr>
       </tbody>
     </table>
-
-          
-        
     <div>
             <button @click="clearAllItemsFromList()">
               Clear all items from list
@@ -148,5 +164,21 @@ export default {
 </script>
 
 <style>
-
+#list-detail {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  background: yellow;
+  background: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#ebeb00),
+    to(#c5c500)
+  );
+  background: -moz-linear-gradient(100% 100% 90deg, #c5c500, #ebeb00);
+  padding: 20px 20px 20px 20px;
+  -webkit-box-shadow: 0px 10px 30px #000;
+  -moz-box-shadow: 0px 10px 30px #000;
+}
 </style>
