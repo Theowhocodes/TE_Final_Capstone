@@ -98,52 +98,6 @@
       </div>
     
 
-<!--
-<div id="bannerColumns" class="columns is-vcentered">
-  <div class="column is-two-thirds">
-    <figure class="image">
-    <img id="coverImage" src="../../src/assets/SmallerNoteBook2.jpg">
-    </figure>
-  </div>
-  <div class="column">
-    <figure class="image">
-    <img src="../../src/assets/logo_transparent.png">
-    </figure>
-  </div>
-  </div>
-  <div class="columns">
-    <div class="column is-full">
-
-<div id="groupTile" class="tile is-ancestor">
-  <div class="tile is-3 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">Get started on a list</p>
-      <create-list/>
-    </div>
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">Weather</p>
-      Never be caught off guard, check the forecast before you go out to shop
-      <weather />
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <div class="tile is-child box">
-      
-      <p id="tileTitle" class="title">All of your group's lists</p>
-      <group-detail/>
-    </div>
-    </div>
-    <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p class="title">All users in this group</p>
-      <all-group-users />
-      <p class="title">Leave this group</p>
-     <leave-group />
-    </div>
-  </div>
-  </div>
-  </div>
-</div> -->
 
 <footer class="footer">
   <div class="content has-text-centered">

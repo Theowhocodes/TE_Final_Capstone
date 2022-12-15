@@ -27,7 +27,7 @@
         </div>
         <br>
         <br>
-        <button class="button is-link is-light is-small is-outlined center" type="button" v-on:click="createNewItem()" name="createItem" id="createItem">Add to List</button>
+        <button class="button is-small is-light" type="button" v-on:click="createNewItem()" name="createItem" id="createItem">Add to List</button>
       </form>
     </div>
   </div>

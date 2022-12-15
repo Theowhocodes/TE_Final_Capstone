@@ -58,10 +58,10 @@
     <div id="jobColumns" class="columns">
         <div class="column is-full">
             <div class="box"> 
-                <h1 id="tileTitle">About</h1>
+                <p id="tileTitle" class="title is-3">ABOUT</p>
                     <p id="tileText">Listmate is a tool for creating, organizing and sharing lists with your family and friends. 
                         Create a group, use the invitation code to invite others and collaborate on shopping lists, to-do lists, 
-                        or anything else you can think of! Final Capstone project at Tech Elevator Pittsburgh with the support of 
+                        or anything else you can think of! This was our Final Capstone project at Tech Elevator Pittsburgh which we attended with the support of
                         enGen and Apprenti. </p>
                     </div>
         </div>
@@ -70,7 +70,7 @@
     <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Jenn Glick, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>
