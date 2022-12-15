@@ -4,6 +4,7 @@ import com.techelevator.dao.ShoppingGroupDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.ShoppingGroup;
 import com.techelevator.model.ShoppingGroupDto;
+import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -75,6 +76,13 @@ public class ShoppingGroupController {
     public void leaveGroup(@PathVariable("groupId") int groupId, Principal principal) {
         shoppingGroupDao.leaveGroup(groupId, userDao.findIdByUsername(principal.getName()));
     }
+
+    // get all usernames by groupId
+    @GetMapping("/{groupId}/users")
+    public List<User> getAllUsersByGroupId(@PathVariable("groupId") int groupId){
+       return userDao.findAllUsersByGroupId(groupId);
+    }
+
 
 
    }

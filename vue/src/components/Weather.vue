@@ -1,7 +1,7 @@
 <template>
   <div>
 
-      <label for="Temp"> Current Temp:
+      <label id="tileLink" for="Temp"> Current Temp:
     <weather-service v-text="kelvToFar()" />°F
       </label>
 

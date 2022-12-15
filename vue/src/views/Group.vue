@@ -3,7 +3,7 @@
 <nav id="testNav" class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="http://localhost:8082">
-      <img src="../../src/assets/transparent_white.png" width="120" height="120">
+      <img src="../../src/assets/transparent_white.png" style="zoom:2">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -15,23 +15,23 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <router-link class="navbar-item has-text-white" v-bind:to="{ name: 'home' }">Home</router-link>
+      <router-link id="tileTitle" class="navbar-item has-text-white" v-bind:to="{ name: 'home' }">HOME</router-link>
       
 
-       <router-link class="navbar-item has-text-white" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+       <router-link id="tileTitle" class="navbar-item has-text-white" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">LOGOUT</router-link>
     
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link has-text-white is-arrowless">
-          More
+        <a id="tileTitle" class="navbar-link has-text-white is-arrowless">
+          MORE
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
+          <a id="tileTitle" class="navbar-item">
+            ABOUT
           </a>
-          <a class="navbar-item">
-            Jobs
+          <a id="tileTitle" class="navbar-item">
+            JOBS
           </a>
           
         </div>
@@ -77,8 +77,10 @@
     </div>
     <div class="tile is-4 is-vertical is-parent">
     <div class="tile is-child box">
+      <p class="title">All users in this group</p>
+      <all-group-users />
       <p class="title">Leave this group</p>
-     <leave-group/>
+     <leave-group />
     </div>
   </div>
   </div>
@@ -87,7 +89,7 @@
 
 <footer class="footer">
   <div class="content has-text-centered">
-    <p>
+    <p id="tileText">
       Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
     </p>
   </div>
@@ -102,6 +104,7 @@ import CreateList from '../components/CreateList.vue';
 import GroupDetail from '../components/GroupDetail.vue';
 import LeaveGroup from '../components/LeaveGroup.vue';
 import Weather from '../components/Weather.vue';
+import AllGroupUsers from '../components/AllGroupUsers.vue';
 
 
 export default {
@@ -109,7 +112,8 @@ export default {
     GroupDetail,
     LeaveGroup,
     CreateList,
-    Weather
+    Weather,
+    AllGroupUsers
     
     
   }
