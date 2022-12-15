@@ -55,22 +55,31 @@
     </figure>
   </div>
   </div>
- 
-      <div class="tile is-ancestor">
-  <div class="tile is-4">
-      <delete-item/>
-      <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-      <modify-item/>
-    </div>
+
+  <div id="allBoxes" class="columns">
+    <div class="column is-three-fifths is-offset-one-fifth">
+
+      <div class="box">
+          <p id="tileTitle" class="title">MODIFY THIS ITEM</p>
+          <modify-item />
+          </div>
+      <div class="box">
+        <p id="tileTitle" class="title">DELETE THIS ITEM</p>
+       <delete-item />
       </div>
-  </div>
+    
+        
       </div>
+
+      </div>
+      
+
+      
 
     <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Aileen Hall, Antonia Butts, Jenn Glick, Teddy Williams
+      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
     </p>
   </div>
 </footer>

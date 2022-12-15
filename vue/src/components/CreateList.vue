@@ -1,13 +1,12 @@
 <template>
   <div>
     <br><br>
-      <div class="create-list has-text-centered">
-        <h4 class="is-size-3 has-text-link has-text-weight-bold">Create a New List</h4>
-        <p class="is-size-5 has-text-weight-semibold has-text-link"> Let's Give Your List a Name:</p>
+      <div class="create-list">
+        <p id="tileText">Create a new list and start adding items now! Enter a name for your new list below:</p>
 <div>
         <form id="listInput" class="list-form has-text-link">
          <label for="listName"></label><br>
-        <input class="has-text-centered is-link" type="text" placeholder="Your New Listname" name="listName" v-model="shoppingList.listName" maxlength="200" id="listName">
+        <input class="has-text-centered is-link" type="text" placeholder="Your new list name" name="listName" v-model="shoppingList.listName" maxlength="200" id="listName">
         <br> <br><button  class="button is-link is-light is-medium is-outlined center" type="button" v-on:click="createShoppingList()" name="create" id="create">Create List</button>
         </form>
 </div>

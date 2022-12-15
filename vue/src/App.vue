@@ -60,5 +60,10 @@ color: #000000;
   Font-family: 'Droid Serif', serif;
 }
 
+#allBoxes{
+  display: flex;
+  align-items: center;
+}
+
 
 </style>
