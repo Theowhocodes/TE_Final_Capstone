@@ -67,11 +67,7 @@
             </button>
           </div>
   </div>
-<<<<<<< HEAD
-  </div>
-=======
   
->>>>>>> 8f46b846373405e23663436e68d93c7b837e354a
 </template>
 
 <script>
