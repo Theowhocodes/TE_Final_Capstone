@@ -91,47 +91,13 @@
           </div>
       </div>
       </div>
-    
-
-
-        
-        
-
-
-      
-
-<!--<div id ="groupTile" class="tile is-ancestor">
-  <div class="tile is-3 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">JOIN A GROUP</p>
-      <join-group />
-    </div>
-    <div class="tile is-child box">
-       <p id="tileTitle" class="title">WEATHER</p>
-      <p id="tileText">Never be caught off guard, check the forecast before you go out to shop!</p>
-      <weather />
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">SEE ALL YOUR GROUPS</p>
-    <all-groups />
-    </div>
-  </div>
-   <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p id="tileTitle" class="title">CREATE A GROUP</p>
-      <create-group />
-    </div>
-  </div>
   
-</div> -->
  
 
 <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh | Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams | December 2022
     </p>
   </div>
 </footer>
