@@ -62,6 +62,11 @@
       <div class="box">
           <p id="tileTitle" class="title">MODIFY THIS ITEM</p>
           <modify-item />
+
+          
+         <br> <a id="tileLink" @click="$router.go(-1)">Back to List</a>
+          
+        
           </div>
       <div class="box">
         <p id="tileTitle" class="title">DELETE THIS ITEM</p>
@@ -79,7 +84,7 @@
     <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh | Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams | December 2022
     </p>
   </div>
 </footer>

@@ -59,18 +59,43 @@
         <div class="column is-full">
             <div class="box"> 
                 <p id="tileTitle" class="title is-3">ABOUT</p>
+                <div class="block">
                     <p id="tileText">Listmate is a tool for creating, organizing and sharing lists with your family and friends. 
                         Create a group, use the invitation code to invite others and collaborate on shopping lists, to-do lists, 
                         or anything else you can think of! This was our Final Capstone project at Tech Elevator Pittsburgh which we attended with the support of
                         enGen and Apprenti. </p>
-                    </div>
-        </div>
-    </div>
+                </div>
 
+                <div class="columns is-vcentered">
+                  <div class="column is-2">
+                      <figure class="image is-128x128">
+                          <a href="https://engen.health/en.html"><img src="../../src/assets/engen-fullcolor-horizontal.png"></a>
+                      </figure>
+                    </div>
+
+                    <div id="apprentiColumn" class="column is-2">
+                   <figure class="image is-128x128">
+                          <a href="https://apprenticareers.org/"><img src="../../src/assets/apprenti-logo.svg"></a>
+                      </figure>
+                    </div>
+
+                    <div id="teColumn" class="column is-2">
+                     <figure class="image is-128x128">
+                          <a href="https://www.techelevator.com/"><img src="../../src/assets/TechElevator_Logo768x268.png"></a>
+                      </figure>
+                    </div>
+                    </div>
+
+                    </div>
+
+              </div>
+        </div>
+      
+       
     <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh | Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams | December 2022
     </p>
   </div>
 </footer>
@@ -88,6 +113,13 @@ export default {
 
 <style>
 
+#apprentiColumn{
+  margin-top: 35px;
+}
+
+#teColumn{
+  margin-top: 25px;
+}
 #jobColumns{
     margin: 5px;
 }

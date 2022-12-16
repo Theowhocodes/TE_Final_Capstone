@@ -17,7 +17,7 @@
           </div>
          
     
-<table id="tileText" class="table">
+<table id="tileText" class="table is-hoverable">
     <thead>
           <th></th>
           <th>Item</th>
@@ -33,15 +33,15 @@
         >
           <td>
             <label class="checkbox">
-              <input
-                type="checkbox"
+                <input type="checkbox"
                 v-model="item.completed"
                 v-bind:class="{ completed: item.completed }"
-                @change="completed(item)"
-              >
+                @change="completed(item)" />
+                &nbsp; &nbsp; &nbsp;
               </label>
   
           </td>
+
           <td>
           <router-link id="tileLink"
             v-bind:to="{ name: 'item', params: { itemId: item.itemId } }"
@@ -158,6 +158,10 @@ export default {
 </script>
 
 <style>
+
+#listCheckbox {
+padding: 4px;
+}
 #list-detail {
   margin: auto;
   width: 400px;

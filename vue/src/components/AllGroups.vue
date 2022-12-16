@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h3 id="tileText">
+    <p id="tileText">
       Pick a group and start making lists!
-    </h3>
+    </p>
     <br />
-    <table id="tileText" class="table">
+    <table id="tileText" class="table is-hoverable">
         <tr>
           <th>Group Name</th>
           <th>Member Since</th>

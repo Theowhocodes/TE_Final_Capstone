@@ -76,6 +76,7 @@
         <div class="box">
           <p id="tileTitle" class="title">ALL LISTS FOR THIS GROUP</p>
           <group-detail />
+          <br><a id="tileLink" @click="$router.go(-1)">Back to All Groups</a>
           </div>
 
         <div class="box">
@@ -102,7 +103,7 @@
 <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh | Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams | December 2022
     </p>
   </div>
 </footer>

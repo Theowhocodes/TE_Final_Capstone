@@ -128,7 +128,7 @@
       <footer class="footer">
   <div id="tileText" class="content has-text-centered">
     <p>
-      Tech Elevator Pittsburgh Cohort 13 Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams
+      Tech Elevator Pittsburgh | Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams | December 2022
     </p>
   </div>
 </footer>

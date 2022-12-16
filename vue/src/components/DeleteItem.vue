@@ -2,6 +2,7 @@
   <div>
     <div class="delete-item">
       <button
+      class="button is-small is-light"
         type="button"
         v-on:click="deleteItem()"
         name="deleteItem"
