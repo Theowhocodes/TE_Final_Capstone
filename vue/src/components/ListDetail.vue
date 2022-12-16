@@ -11,24 +11,15 @@
 
          <div class="has-text-centered">
           
-         <button class="button is-link is-light is-small is-outlined center" type="button" @click="claimList()"> Claim List</button>
+         <button class="button is-small is-light" type="button" @click="claimList()"> Claim List</button>
           
-         <button class="button is-link is-light is-small is-outlined center" type="button" @click="unclaimList()">Unclaim List</button> 
-          
-
-      <button
-        class="button is-link is-light is-small is-outlined center"
-        type="button"
-        @click="claimList()"
-      >
-        Claim List
-      </button>
-
+         <button class="button is-small is-light" type="button" @click="unclaimList()">Unclaim List</button> 
+          </div>
          
     
 <table id="tileText" class="table">
     <thead>
-          <th>&nbsp; &nbsp;&nbsp;</th>
+          <th></th>
           <th>Item</th>
           <th>Qty</th>
           </thead>
@@ -41,21 +32,23 @@
           v-bind:item="item"
         >
           <td>
-            
+            <label class="checkbox">
               <input
                 type="checkbox"
                 v-model="item.completed"
                 v-bind:class="{ completed: item.completed }"
                 @change="completed(item)"
-              />
-            
+              >
+              </label>
+  
           </td>
           <td>
           <router-link id="tileLink"
             v-bind:to="{ name: 'item', params: { itemId: item.itemId } }"
           >
             {{ item.itemName }}
-          </router-link></td>&nbsp;
+          </router-link></td>
+          
           <td>{{ item.itemQuantity }}</td>
 
 
@@ -64,17 +57,21 @@
       </tbody>
     </table>
     <div>
-            <button @click="clearAllItemsFromList()">
+            <button class="button is-small is-light" @click="clearAllItemsFromList()">
               Clear all items from list
             </button>
           </div>
           <div>
-            <button @click="deleteList()">
+            <button class="button is-small is-light" @click="deleteList()">
               Delete List
             </button>
           </div>
   </div>
+<<<<<<< HEAD
   </div>
+=======
+  
+>>>>>>> 8f46b846373405e23663436e68d93c7b837e354a
 </template>
 
 <script>

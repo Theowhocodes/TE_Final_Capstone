@@ -7,7 +7,7 @@
         <form id="tileText" class="group-form">
          <label id="tileTitle" for="groupName">GROUP NAME: </label>
         <input class="input is-small" type="text" placeholder="Group Name" name="groupName" v-model="shoppingGroup.groupName" maxlength="200" id="groupName">
-        <button class="button is-link is-light is-small is-outlined center" type="button" v-on:click="createShoppingGroup()" name="create" id="create">Create Group</button>
+        <button class="button is-small is-light" type="button" v-on:click="createShoppingGroup()" name="create" id="create">Create Group</button>
         </form>
       </div>
   </div>
