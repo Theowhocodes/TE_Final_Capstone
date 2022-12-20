@@ -64,7 +64,7 @@
       </div>
         
       <div class="box">
-        <p id="tileTitle" class="title">CREATE A GROUP</p>
+        <p id="tileTitle" class="title">Post A NEW GROUP</p>
         <create-group />
       </div>
       
@@ -85,7 +85,9 @@
    <div id="allBoxes" class="columns">
       <div class="column is-full">  
           <div class="box">
-            <p id="tileTitle" class="title">WEATHER</p>
+            <p id="tileTitle" class="title">WEATHER
+              <i class="fa fa-umbrella"></i>
+            </p>
             <p id="tileText">Never be caught off guard, check the forecast before you go out to shop!</p>
            <weather />
           </div>
@@ -97,7 +99,7 @@
 <footer class="footer">
   <div class="content has-text-centered">
     <p id="tileText">
-      Tech Elevator Pittsburgh | Final Capstone by Jenn Glick, Aileen Hall, Antonia Butts, Teddy Williams | December 2022
+      Tech Elevator Pittsburgh | Final Capstone v2.0 Theo Williams | December 2022
     </p>
   </div>
 </footer>
@@ -129,6 +131,15 @@ export default {
 </script>
 
 <style>
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+
+.fa-umbrella {
+  font-size: 35px;
+  color: #a0a455ac;
+  padding-left: 0%;
+  transform: rotate(30deg);
+
+}
 
 #testNav{ 
   background: #53435b;
